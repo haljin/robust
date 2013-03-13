@@ -1,0 +1,2 @@
+-record(product, {name, price, ammount}).
+-record(coin, {type, value}).

@@ -1,0 +1,11 @@
+-module(vm_sup).
+%-behavior(supervisor).
+
+-exports([start/1, stop/0]).
+
+
+start(Stock)->
+    ok.
+
+stop()->
+    ok.

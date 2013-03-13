@@ -1,0 +1,17 @@
+-module(vm_coin).
+%-behavior(gen_server).
+-exports([start/1, stop/0, get_change/1, insert_coins/1]).
+
+start({list, CoinList})->
+    ok;
+start({dets, DetsTable}) ->
+    ok.
+
+stop()->
+    ok.
+
+get_change(Ammount)->
+    ok.
+
+insert_coins(CoinList)->
+    ok.

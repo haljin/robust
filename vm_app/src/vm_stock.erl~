@@ -1,0 +1,17 @@
+-module(vm_stock).
+%-behavior(gen_server).
+-exports([start/1, stop/0, get_product/2, insert_products/1]).
+
+start({list, ProductList})->
+    ok;
+start({dets, DetsTable}) ->
+    ok.
+
+stop()->
+    ok.
+
+get_product(Product, Coins)->
+    ok.
+
+insert_products(ProductList)->
+    ok.

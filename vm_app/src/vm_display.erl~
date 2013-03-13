@@ -1,0 +1,7 @@
+-module(vm_display).
+
+-exports([display/2]).
+
+
+display(Info, Args)->
+    ok.
