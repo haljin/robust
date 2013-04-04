@@ -1,6 +1,6 @@
 -module(vm_stock).
 %-behavior(gen_server).
--exports([start/1, stop/0, check_product/1, get_product/2, insert_products/1]).
+-export([start/1, stop/0, check_product/1, get_product/2, insert_products/1]).
 
 start({list, ProductList})->
     ok;

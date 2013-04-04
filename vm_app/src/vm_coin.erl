@@ -1,6 +1,6 @@
 -module(vm_coin).
 %-behavior(gen_server).
--exports([start/1, stop/0, check_change/1, get_change/1, insert_coins/1]).
+-export([start/1, stop/0, check_change/1, get_change/1, insert_coins/1]).
 
 start({list, CoinList})->
     ok;
