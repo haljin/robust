@@ -1,0 +1,13 @@
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe.config
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\bin\Debug\VendingMachine.pdb
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.Properties.Resources.resources
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.rewritten
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.exe
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.pdb
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\Decl\VendingMachine.exe
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\Decl\VendingMachine.pdb
+c:\users\paul\documents\visual studio 2010\Projects\VendingMachine\VendingMachine\obj\x86\Debug\CodeContractAnalysisRun.log
