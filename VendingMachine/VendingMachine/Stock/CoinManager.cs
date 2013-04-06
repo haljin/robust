@@ -16,8 +16,8 @@ namespace VendingMachine.Stock
 
         public CoinManager()
         {
-            Contract.Requires(File.Exists("CoinDatabase.xml"));
-            Contract.Ensures(Wallet != null && Wallet.Count() > 0);
+            Contract.Requires(File.Exists("CoinDatabase.xml"), "PRE: Database file must exist");
+            Contract.Ensures(Wallet != null && Wallet.Count() > 0, "POST: Wallet must contain coin types");
 
             Database = XDocument.Load("CoinDatabase.xml");
             Wallet = Database.Descendants("Coin");
@@ -26,8 +26,10 @@ namespace VendingMachine.Stock
 
         public bool CheckChange(decimal price, decimal inserted)
         {
-            Contract.Requires(inserted >= price);
+            //Contract.Requires(inserted >= price, "PRE: User must have insterted more money than the price of the product");
             Contract.Requires(Wallet != null);
+            if (inserted <= price)
+                return true;
 
             decimal change = inserted - price;
 
@@ -53,12 +55,13 @@ namespace VendingMachine.Stock
 
         public void GiveChange(decimal price, decimal inserted, LinkedList<Coin> coinCase)
         {
-            Contract.Requires(inserted >= price);
+            Contract.Requires(inserted >= price, "PRE: User must have insterted more money than the price of the product");
+            Contract.Requires(price >= 0 && inserted >= 0);
             Contract.Requires(Wallet != null);
             Contract.Requires(coinCase != null);
 
-            Contract.Ensures((coinCase.Aggregate<Coin, decimal>(0, (acc, coin) => acc + coin.ToValue()) == (inserted - price)) ||
-                    (Wallet.Aggregate<XElement, int>(0, (acc, elem) => acc + (int)elem.Element("Ammount")) == 0));
+            Contract.Ensures(coinCase.Aggregate<Coin, decimal>(0, (acc, coin) => acc + coin.ToValue()) <= (inserted - price), 
+                "POST: The value of ejected coins must be equal to required change or lower (if no coins available)");
 
             decimal change = inserted - price;
 
@@ -86,10 +89,14 @@ namespace VendingMachine.Stock
         public void EjectCoin(Coin coin, int ammount, LinkedList<Coin> coinCase)
         {
             Contract.Requires(coinCase != null);
-            Contract.Requires(Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single() >= ammount);
-            Contract.Ensures(coinCase.Where(c => c == coin).Count() == ammount);
-            Contract.Ensures(Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single() >= 0);
-
+            Contract.Requires(Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single() >= ammount,
+                    "PRE: There must be enough of coins of given type to eject");
+            Contract.Ensures(coinCase.Where(c => c == coin).Count() == ammount,
+                    "POST: The ejected coins must be in the case");
+            //Contract.Ensures(Contract.OldValue<IEnumerable<XElement>>(Wallet).Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single()
+            //        - ammount  == Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single(),
+            //        "POST: The ammount of the coins ejected must be deduced");
+            
             XElement soughtCoin = Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Single();
             soughtCoin.Element("Ammount").Value = ((int)soughtCoin.Element("Ammount") - ammount).ToString();
             for (int i = 0; i < ammount; ++i)
@@ -100,7 +107,8 @@ namespace VendingMachine.Stock
 
         public void AddCoin(Coin coin, int ammount)
         {
-            Contract.Requires(Contract.Exists(Wallet, el => (decimal)el.Element("Type") == coin.ToValue()));
+            Contract.Requires(Contract.Exists(Wallet, el => (decimal)el.Element("Type") == coin.ToValue()),
+                "PRE: The coin type must exist in the wallet");
 
             XElement soughtCoin = Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Single();
             soughtCoin.Element("Ammount").Value = ((int)soughtCoin.Element("Ammount") + ammount).ToString();

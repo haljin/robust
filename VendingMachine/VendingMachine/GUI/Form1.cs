@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using VendingMachine.Data;
+using VendingMachine.Machine;
 
 namespace VendingMachine.GUI
 {
@@ -16,20 +17,16 @@ namespace VendingMachine.GUI
         {
             InitializeComponent();
 
-            Stock.StockManager man = new Stock.StockManager();
-            Stock.CoinManager cman = new Stock.CoinManager();
+            VendMachine machine = new VendMachine();
 
+            TransactionResult res = machine.SelectProduct(new Product("Cola"));
 
-            LinkedList<Coin> coinCase = new LinkedList<Coin>();
+            res = machine.InsertCoin(Coin.Kr20);
+            res = machine.InsertCoin(Coin.Kr20);
 
-            cman.AddCoin(Coin.Kr20, 10);
+            res = machine.Finalize();
 
-            bool flag = cman.CheckChange(10, 20);
-
-            cman.GiveChange(10, 37.5m, coinCase);
-
-            flag = cman.CheckChange(1, 1000000);
-            
+            res = machine.SelectProduct(new Product("Dupa"));
         }
 
         private void button1_Click(object sender, EventArgs e)

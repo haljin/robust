@@ -91,6 +91,7 @@
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Machine\VendingMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock\CoinManager.cs" />
@@ -119,9 +120,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Machine\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="CoinDatabase.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

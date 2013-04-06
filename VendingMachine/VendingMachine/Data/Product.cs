@@ -6,7 +6,7 @@ using System.Text;
 
 namespace VendingMachine.Data
 {
-    class Product
+    public class Product
     {
         public string Name { get; set; }
         public int Ammount { get; set; }
@@ -41,6 +41,11 @@ namespace VendingMachine.Data
                 return prod.Name.Equals(this.Name);
             }
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
         }
 
         [ContractInvariantMethod]

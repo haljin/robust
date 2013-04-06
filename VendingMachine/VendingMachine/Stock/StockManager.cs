@@ -17,9 +17,9 @@ namespace VendingMachine.Stock
 
         public StockManager()
         {
-            Contract.Requires(File.Exists("StockDatabase.xml"));
-            Contract.Ensures(Stock != null && Stock.Count() > 0);
-            Contract.Ensures(Database != null);
+            Contract.Requires(File.Exists("StockDatabase.xml"), "PRE: Database file must exist");
+            Contract.Ensures(Stock != null && Stock.Count() > 0, "POST: Stock must be created and non-empty");   
+            Contract.Ensures(Database != null, "POST: Database must be opened");                     
 
 
             Database = XDocument.Load("StockDatabase.xml");
@@ -37,7 +37,7 @@ namespace VendingMachine.Stock
 
         public decimal GetPrice(Product product)
         {
-            Contract.Requires(Contract.Exists(Stock, p => (string)p.Element("Name") == product.Name));
+            Contract.Requires(Contract.Exists(Stock, p => (string)p.Element("Name") == product.Name), "PRE: Sought item must be known");
             Contract.Requires(Stock != null);
             Contract.Requires(product != null);
 
@@ -46,11 +46,11 @@ namespace VendingMachine.Stock
 
         public void EjectProduct(Product product, LinkedList<Product> productCase)
         {
-            Contract.Requires(CheckAvailability(product));
+            Contract.Requires(CheckAvailability(product), "PRE: Sought item must be in stock");
             Contract.Requires(Stock != null);
             Contract.Requires(productCase != null);
             Contract.Requires(product != null);
-            Contract.Ensures(productCase.Contains(product));
+            Contract.Ensures(productCase.Contains(product), "POST: Sought item must be ejected");
 
 
             XElement node = Stock.Where(el => (string)el.Element("Name") == product.Name).Single();
@@ -65,8 +65,8 @@ namespace VendingMachine.Stock
         {
             Contract.Requires(Stock != null);
             Contract.Requires(product != null);
-            Contract.Requires(product.Ammount > 0);
-            Contract.Ensures(Contract.Exists(Stock, p => (string)p.Element("Name") == product.Name && (int)p.Element("Price") == product.Price));
+            Contract.Requires(product.Ammount > 0, "PRE: Added ammount must be >= 0");
+            Contract.Ensures(Contract.Exists(Stock, p => (string)p.Element("Name") == product.Name && (int)p.Element("Price") == product.Price), "POST: The added item must be in Stock");
 
             if (CheckAvailability(product))
             {
