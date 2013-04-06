@@ -8,7 +8,7 @@ namespace VendingMachine.Data
 {
     public enum Coin
     {
-        Ore, Kr1, Kr2, Kr5, Kr10, Kr20
+        Ore50, Kr1, Kr2, Kr5, Kr10, Kr20
     }
 
     public static class CoinExtensions
@@ -18,7 +18,7 @@ namespace VendingMachine.Data
             Contract.Ensures(Contract.Result<decimal>() > 0);
             switch (coin)
             {
-                case Coin.Ore:
+                case Coin.Ore50:
                     return 0.5m;
                 case Coin.Kr1:
                     return 1;

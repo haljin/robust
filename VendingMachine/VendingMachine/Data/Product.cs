@@ -8,15 +8,39 @@ namespace VendingMachine.Data
 {
     class Product
     {
-        String Name { get; set; }
-        int Ammount { get; set; }
-        decimal Price { get; set; }
-        
-        public Product(String name, int amm, decimal price)
+        public string Name { get; set; }
+        public int Ammount { get; set; }
+        public decimal Price { get; set; }
+
+        public Product()
         {
+        }
+
+        public Product(string name)
+        {
+            Name = name;
+            Ammount = 0;
+            Price = 0;
+        }
+
+        public Product(string name, int amm, decimal price)
+        {
+            Contract.Requires(amm >= 0);
+            Contract.Requires(price >= 0);
+
             Name = name;
             Ammount = amm;
             Price = price;
+        }
+
+        public override bool Equals(object obj)
+        {
+            Product prod = obj as Product;
+            if (prod != null)
+            {
+                return prod.Name.Equals(this.Name);
+            }
+            return false;
         }
 
         [ContractInvariantMethod]
