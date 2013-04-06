@@ -3,68 +3,104 @@
 
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
 
--export([start/0, add_prod/2, check_prod/1, lookup/1, return/1]).
+-export([start/0, stop/0, insert_prod/1, check_prod/1, check_prod/2, get_prod/2]).
 
 -record(product, {name, price, amount}).
 %-record(coin, {type, value})
 
 % These are all wrappers for calls to the server
 start() -> gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
-add_prod(Prod, Det) -> gen_server:call(?MODULE, {add_prod, Prod, Det}).
-check_prod(Prod) -> gen_server:call(?MODULE, {check_prod, Prod}).
-lookup(Prod) -> gen_server:call(?MODULE, {lookup, Prod}).
-return(Prod) -> gen_server:call(?MODULE, {return, Prod}).
+
+stop()-> gen_server:cast(?MODULE, stop).
+	
+insert_prod(Prod) -> gen_server:call(?MODULE, {insert_prod, Prod}).
+check_prod(ProdName) -> gen_server:call(?MODULE, {check_prod, ProdName}).
+get_prod(ProdName, Money) -> gen_server:call(?MODULE, {get_prod, ProdName, Money}).
 
 % This is called when a connection is made to the server
 init([]) ->
-	Products = dict:new(),
+	Products = [],
 	{ok, Products}.
 
 % handle_call is invoked in response to gen_server:call
-handle_call({add_prod, Prod, Det}, _From, Products) ->
-	Response = case dict:is_key(Prod, Products) of
-		true ->
-			NewProducts = Products, % product is already there, update the price and add to the existing ones
-			Val = dict:fetch(Prod, Products),
-			%{Price, Amount} = Val,
-			%{PriceD, AmountD} = Det,
-			%DetToAdd = {PriceD, Amount + AmountD},
-			%NewProducts = dict:append(Prod, Det, Products);
-			%ok;
-			%NewProducts = dict:append(Prod, Det, Products);
-			%NewProducts = dict:append(Prod, Det, Products),
-			{already_exists, Prod};
-		false ->
-			NewProducts = dict:append(Prod, Det, Products),
-			ok
+handle_call({insert_prod, Prod}, _From, Products) ->
+	{Name, Price, Am} = Prod,
+	Response = case check_prod(Name,Products) of
+	true -> % change the existing value
+		{PriceL, AmL} = ret_prod_val(Name,Products),
+		ListT = lists:delete({Name, PriceL, AmL},Products),
+		NewProducts = ListT ++ [{Name, Price, Am + AmL}];
+	false -> % append at the end
+		NewProducts = Products ++ [Prod]
 	end,
 	{reply, Response, NewProducts};
-
-handle_call({check_prod, Prod}, _From, Products) ->
-	Response = case dict:is_key(Prod, Products) of
-		true ->
-			true;
-		false ->
-			false
-	end,
+	
+handle_call({check_prod, ProdName}, _From, Products) ->
+    RetProd = [{X,Y} || {Name, X, Y} <- Products, Name =:= ProdName],
+	Response = retVal(RetProd),
 	{reply, Response, Products};
 	
-handle_call({lookup, Prod}, _From, Products) ->
-	Response = case dict:is_key(Prod, Products) of
+handle_call({get_prod, ProdName, Money}, _From, Products) ->
+	RetVal = case check_prod(ProdName,Products) of
+		true -> % reduce the amount of product
+		{Name, Price, Amount} = ret_prod(ProdName, Products),
+		Temp = Money - Price,
+		if 
+		Temp < 0 ->
+			NewProducts = Products, % not enough money
+			io:format("not enough money");
+		Temp == 0 ->
+			% enough money input, + give product
+			{PriceL, AmL} = ret_prod_val(ProdName,Products), %remove product from stock
+			NewProducts = reduceProd(AmL, ProdName, Products),
+			vm_case:insert(ProdName); % product to case
 		true ->
-			{who, lists:nth(1, dict:fetch(Prod, Products))};
-		false ->
-			{not_checked_out, Prod}
+			% enough money input, + give product, + give change
+			{PriceL, AmL} = ret_prod_val(ProdName,Products), % remove product from stock
+			NewProducts = reduceProd(AmL, ProdName, Products),			
+			vm_case:insert(ProdName), % product to case
+			vm_coin:get_change(Temp) % change to coincase
+		end;
+	false -> % product does not exist
+		NewProducts = Products,
+		Temp = -2,
+		io:format("product does not exist")
 	end,
-	{reply, Response, Products};
-
-handle_call({return, Prod}, _From, Products) ->
-	NewProducts = dict:erase(Prod, Products),
-	{reply, ok, NewProducts};
+	{reply, Temp, NewProducts};
 
 handle_call(_Message, _From, Products) ->
 	{reply, error, Products}.
 
+reduceProd(1, ProdName, List) -> 
+	Product = ret_prod(ProdName,List),
+	NewList = lists:delete(Product, List),
+	NewList;
+	
+reduceProd(_, ProdName, List) ->
+	Product = ret_prod(ProdName,List),
+	{Name, Price, Am} = Product,
+	ListT = lists:delete(Product,List),
+	NewList = ListT ++ [{Name, Price, Am-1}],
+	NewList.
+
+ret_prod_val(ProdName,List)->
+    RetProd = [{X,Y} || {Name, X, Y} <- List, Name =:= ProdName],
+	hd(RetProd).
+
+ret_prod(ProdName,List)->
+    RetProd = [{Name, X,Y} || {Name, X, Y} <- List, Name =:= ProdName],
+	if 
+	RetProd == [] -> RetProd;
+	true -> hd(RetProd)
+	end.
+	
+check_prod(ProdName,List)->
+    RetProd = [{X,Y} || {Name, X, Y} <- List, Name =:= ProdName],
+	retVal(RetProd).
+	
+retVal([]) -> false;
+retVal(Val) -> true.
+	
 % We get compile warnings from gen_server unless we define these
 handle_cast(_Message, Products) -> {noreply, Products}.
 handle_info(_Message, Products) -> {noreply, Products}.
