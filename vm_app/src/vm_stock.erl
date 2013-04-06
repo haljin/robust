@@ -102,7 +102,7 @@ retVal([]) -> false;
 retVal(Val) -> true.
 	
 % We get compile warnings from gen_server unless we define these
-handle_cast(_Message, Products) -> {noreply, Products}.
+handle_cast(stop, Products) -> {stop, normal, Products}.
 handle_info(_Message, Products) -> {noreply, Products}.
 terminate(_Reason, _Products) -> ok.
 code_change(_OldVersion, Products, _Extra) -> {ok, Products}.

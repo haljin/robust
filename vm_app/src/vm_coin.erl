@@ -87,7 +87,7 @@ ret_coin(CoinName,List)->
 	end.
 	
 % We get compile warnings from gen_server unless we define these
-handle_cast(_Message, Coins) -> {noreply, Coins}.
+handle_cast(stop, Coins) -> {stop, normal, Coins}.
 handle_info(_Message, Coins) -> {noreply, Coins}.
 terminate(_Reason, _Coins) -> ok.
 code_change(_OldVersion, Coins, _Extra) -> {ok, Coins}.

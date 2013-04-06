@@ -36,10 +36,10 @@ handle_call({insert, Item}, _From, Products) ->
 handle_call({empty}, _From, Products) ->
 	NewProducts = [],
 	{reply, ok, NewProducts};
-	
+
 handle_call(_Message, _From, Products) ->
 	{reply, error, Products}.
-
+	
 ret_prod(ProdName,List)->
     RetProd = [{Name, Am} || {Name, Am} <- List, Name =:= ProdName],
 	if 
@@ -48,7 +48,7 @@ ret_prod(ProdName,List)->
 	end.
 	
 % We get compile warnings from gen_server unless we define these
-handle_cast(_Message, Products) -> {noreply, Products}.
+handle_cast(stop, Products) -> {stop, normal, Products}.
 handle_info(_Message, Products) -> {noreply, Products}.
 terminate(_Reason, _Products) -> ok.
 code_change(_OldVersion, Products, _Extra) -> {ok, Products}.
