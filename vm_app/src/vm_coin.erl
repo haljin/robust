@@ -3,7 +3,7 @@
 
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
 
--export([start/0, stop/0, check_change/2, get_change/1, insert_coin/1, sum_coin/1, return_coin/2]).
+-export([start/0, stop/0, check_change/2, get_change/1, insert_coin/1, sum_coin/1, return_coin/2, remove_coins/2, return_coins/2]).
 
 %-record(coin, {type, value})
 
@@ -70,14 +70,22 @@ return_coins(Ammount, Coins) ->
 	% sort the coins list descending by value
 	SortedCoins = lists:reverse(lists:sort(Coins)),
 	RetCoins = get_coins(Ammount, SortedCoins), % get as many coins as needed
-	return_all_coins(RetCoins); % insert them to coincase
+	return_all_coins(RetCoins), % insert them to coincase
 	% return reduced coins list
-	%List = remove_coins(Coins, RetCoins).
+	OutCoins = remove_coins(Coins, RetCoins).
 	
-%remove_coins(Coins, RetCoins) ->
+remove_coins(Coins, []) -> Coins;
+remove_coins(Coins, [{N,A}|T]) ->
+	{Name, Amount} = ret_coin(N, Coins),
+	if 
+	Amount == A -> 
+		lists:delete({Name, Amount},Coins);
+	true -> 
+		ReducedCoins = lists:delete({Name, Amount},Coins),
+		ReducedCoins ++ [{Name, Amount - A}]
+	end.
 	
-get_coins(Ammount, []) ->
-	[];
+get_coins(Ammount, []) -> [];
 get_coins(Ammount, [{N,A}|T]) ->
 	if 
 		Ammount > N -> 	% it is possible to add this coin to list
