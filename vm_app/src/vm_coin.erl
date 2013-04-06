@@ -51,7 +51,7 @@ handle_call({get_change, Ammount}, _From, Coins) ->
 		return_all_coins(Coins),
 		NewCoins = [];		
 	1 -> % the value of coins is greater than needed change
-		NewCoins = []
+		NewCoins = return_coins(Ammount, Coins)
 	end,
 	{reply, RetVal, NewCoins};
 	
@@ -66,6 +66,31 @@ return_coin(Name, Amount) ->
 	vm_coincase:insert(Name),
 	return_coin(Name, Amount-1).
 
+return_coins(Ammount, Coins) ->
+	% sort the coins list descending by value
+	SortedCoins = lists:reverse(lists:sort(Coins)),
+	RetCoins = get_coins(Ammount, SortedCoins), % get as many coins as needed
+	return_all_coins(RetCoins); % insert them to coincase
+	% return reduced coins list
+	%List = remove_coins(Coins, RetCoins).
+	
+%remove_coins(Coins, RetCoins) ->
+	
+get_coins(Ammount, []) ->
+	[];
+get_coins(Ammount, [{N,A}|T]) ->
+	if 
+		Ammount > N -> 	% it is possible to add this coin to list
+		Rest = trunc(Ammount / N),
+		if
+			Rest =< A -> 
+				[{N,Rest}] ++ get_coins(Ammount - (Rest*N), T);
+			true ->
+				[{N,A}] ++ get_coins(Ammount - (A*N), T)
+		end;
+		Ammount == N ->	[{N,1}] ++ get_coins(Ammount-N, T);
+		true -> get_coins(Ammount, T)
+	end.
 	
 check_change(Ammount, List) ->
 	CoinsSum = sum_coin(List),
@@ -77,7 +102,6 @@ check_change(Ammount, List) ->
 
 sum_coin([]) -> 0;
 sum_coin([{N,A}|T]) -> N * A + sum_coin(T).
-
 
 ret_coin(CoinName,List)->
     RetCoin = [{Name, Am} || {Name, Am} <- List, Name =:= CoinName],
