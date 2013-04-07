@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Product>
+    <Name>Cola</Name>
+    <Price>25</Price>
+    <Ammount>4</Ammount>
+  </Product>
+  <Product>
+    <Name>Chips</Name>
+    <Price>15</Price>
+    <Ammount>10</Ammount>
+  </Product>
+</Root>
