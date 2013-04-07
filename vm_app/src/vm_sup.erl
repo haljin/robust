@@ -1,7 +1,7 @@
 -module(vm_sup).
 %-behavior(supervisor).
 
--exports([start/2, start/3, stop/0]).
+-export([start/2, start/3, stop/0]).
 
 
 start(Stock, Coins)->
