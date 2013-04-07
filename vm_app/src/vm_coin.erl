@@ -5,7 +5,7 @@
 
 -export([start/0, stop/0, check_change/2, get_change/1, insert_coin/1, sum_coin/1, return_coin/2, remove_coins/2, return_coins/2]).
 
-%-record(coin, {type, value})
+-include("../include/vmdata.hrl").
 
 % These are all wrappers for calls to the server
 start() -> gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
@@ -32,11 +32,11 @@ handle_call({insert_coin, Coin}, _From, Coins) ->
 	CoinFromList = ret_coin(Coin, Coins),
 	if 
 	CoinFromList == [] ->
-		NewCoins = Coins ++ [{Coin,1}];
+		NewCoins = Coins ++ [Coin#coin{ammount = 1}];
 	true ->
-		{Name, Amount} = CoinFromList,
-		ListT = lists:delete({Name, Amount}, Coins),
-		NewCoins = ListT ++ [{Name, Amount+1}]
+		#coin{type = Name, ammount = Amount} = CoinFromList,
+		ListT = lists:keydelete(Name, 2, Coins),
+		NewCoins = ListT ++ [CoinFromList#coin{ammount = Amount + 1}]
 	end,
 	{reply, ok, NewCoins};
 
@@ -59,7 +59,7 @@ handle_call(_Message, _From, Coins) ->
 	{reply, error, Coins}.
 
 return_all_coins([]) -> ok;
-return_all_coins([{N,A}|T]) -> return_coin(N,A).
+return_all_coins([#coin{type = N, ammount =A}|T]) -> return_coin(N,A).
 
 return_coin(Name, 0) -> ok;
 return_coin(Name, Amount) -> 
@@ -76,17 +76,18 @@ return_coins(Ammount, Coins) ->
 	
 remove_coins(Coins, []) -> Coins;
 remove_coins(Coins, [{N,A}|T]) ->
-	{Name, Amount} = ret_coin(N, Coins),
-	if 
+    Coin = ret_coin(N, Coins),
+    #coin{type = Name, ammount = Amount} = Coin,
+    if 
 	Amount == A -> 
-		lists:delete({Name, Amount},Coins);
+	    lists:keydelete(Name, 2, Coins);
 	true -> 
-		ReducedCoins = lists:delete({Name, Amount},Coins),
-		ReducedCoins ++ [{Name, Amount - A}]
-	end.
+	    ReducedCoins = lists:keydelete(Name, 2,Coins),
+	    ReducedCoins ++ [Coin#coin{ammount =  Amount - A}]
+    end.
 	
 get_coins(Ammount, []) -> [];
-get_coins(Ammount, [{N,A}|T]) ->
+get_coins(Ammount, [#coin{value = N, ammount = A}|T]) ->
 	if 
 		Ammount > N -> 	% it is possible to add this coin to list
 		Rest = trunc(Ammount / N),
@@ -112,7 +113,7 @@ sum_coin([]) -> 0;
 sum_coin([{N,A}|T]) -> N * A + sum_coin(T).
 
 ret_coin(CoinName,List)->
-    RetCoin = [{Name, Am} || {Name, Am} <- List, Name =:= CoinName],
+    RetCoin = [#coin{type = Name, value = Val, ammount= Am} || #coin{type = Name, value= Val, ammount= Am} <- List, Name =:= CoinName],
 	if 
 	RetCoin == [] -> RetCoin;
 	true -> hd(RetCoin)
