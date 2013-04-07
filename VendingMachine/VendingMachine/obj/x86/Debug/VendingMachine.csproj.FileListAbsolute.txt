@@ -27,3 +27,14 @@ C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\obj\x86\Debu
 C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.GUI.Form1.resources
 C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\StockDatabase.xml
 C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\CoinDatabase.xml
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe.config
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.exe
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.pdb
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.csprojResolveAssemblyReference.cache
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.GUI.Form1.resources
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.Properties.Resources.resources
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\obj\x86\Debug\VendingMachine.csproj.GenerateResource.Cache
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\CoinDatabase.xml
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\StockDatabase.xml
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe
+C:\Users\Magda\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.pdb

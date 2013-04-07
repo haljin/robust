@@ -46,7 +46,16 @@ namespace VendingMachine.Machine
 
             return TransactionResult.OutOfStock;
 
-        
+        }
+
+        public TransactionResult CheckProduct(Product product)
+        {
+            if (StockMan.CheckAvailability(product))
+            {
+                return TransactionResult.Success;
+            }
+            return TransactionResult.OutOfStock;
+
         }
 
         public TransactionResult InsertCoin(Coin coin)
@@ -69,6 +78,7 @@ namespace VendingMachine.Machine
                 "Ensure the same value is returned");
 
             CoinMan.GiveChange(0, InsertedValue, CoinCase);
+            InsertedValue = 0;
             SelectedProduct = null;            
         }
 
@@ -92,8 +102,33 @@ namespace VendingMachine.Machine
 
             StockMan.EjectProduct(SelectedProduct, ProductCase);
             CoinMan.GiveChange(SelectedProduct.Price, InsertedValue, CoinCase);
-            
+            InsertedValue = 0;
+        }
 
+        public String ReleasedProducts()
+        {
+            String ret = "";
+            foreach (Product p in ProductCase)
+            {
+                ret += "Name: " + p.Name + " Amount: " + p.Ammount + "\n";
+            }
+            return ret;
+        }
+
+        public String ReleasedCoins()
+        {
+            String ret = "";
+            foreach (Coin c in CoinCase)
+            {
+                ret += "Coin: " + c.ToString() + "\n";
+            }
+            return ret;
+        }
+
+        public void EmptyCases()
+        {
+            CoinCase.Clear();
+            ProductCase.Clear();
         }
     }
 }
