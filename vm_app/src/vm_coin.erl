@@ -42,17 +42,12 @@ handle_call({insert_coin, Coin}, _From, Coins) ->
 
 handle_call({get_change, Ammount}, _From, Coins) ->
 	RetVal = case check_change(Ammount, Coins) of
-	-1 -> % not enough coins, return all of them
-		return_all_coins(Coins),
-		io:format("not enough coins"),
-		NewCoins = [];
-	0 -> % cool! return all coins
-		io:format("returning all coins"),
-		return_all_coins(Coins),
-		NewCoins = [];		
-	1 -> % the value of coins is greater than needed change
-		NewCoins = return_coins(Ammount, Coins)
+	true -> % we will return the correct change
+		io:format("not enough coins");
+	false -> % problems with change
+		io:format("returning all coins")
 	end,
+	NewCoins = return_coins(Ammount, Coins),
 	{reply, RetVal, NewCoins};
 	
 handle_call(_Message, _From, Coins) ->
@@ -102,11 +97,9 @@ get_coins(Ammount, [#coin{value = N, ammount = A}|T]) ->
 	end.
 	
 check_change(Ammount, List) ->
-	CoinsSum = sum_coin(List),
-	if 
-		CoinsSum < Ammount -> -1;
-		CoinsSum == Ammount -> 0;
-		true -> 1
+	Temp = sum_coin(get_coins(Ammount, List)),
+	if Ammount == Temp -> true;
+		true -> false
 	end.
 
 sum_coin([]) -> 0;
