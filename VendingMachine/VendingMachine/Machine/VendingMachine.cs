@@ -14,6 +14,11 @@ namespace VendingMachine.Machine
         Success, SuccessButNoChange, OutOfStock, Failure
     }
 
+    public enum State
+    {
+        Idle, ProductChosen, MoneyInserted
+    }
+
     public class VendMachine
     {
         public Product SelectedProduct { get; set; }
@@ -22,9 +27,11 @@ namespace VendingMachine.Machine
         LinkedList<Product> ProductCase { get; set; }
         StockManager StockMan { get; set; }
         CoinManager CoinMan { get; set; }
+        State state { get; set; }
 
         public VendMachine()
         {
+            state = State.Idle;
             StockMan = new StockManager();
             CoinMan = new CoinManager();
             SelectedProduct = null;
@@ -35,10 +42,13 @@ namespace VendingMachine.Machine
 
         public TransactionResult SelectProduct(Product product)
         {
+            Contract.Requires(state == State.Idle || state == State.ProductChosen);
+
             if(StockMan.CheckAvailability(product))
             {
                 SelectedProduct = product;
                 SelectedProduct.Price = StockMan.GetPrice(SelectedProduct);
+                state = State.ProductChosen;
                 if (!CoinMan.CheckChange(SelectedProduct.Price, InsertedValue))
                     return TransactionResult.SuccessButNoChange;
                 return TransactionResult.Success;
@@ -60,9 +70,14 @@ namespace VendingMachine.Machine
 
         public TransactionResult InsertCoin(Coin coin)
         {
+            Contract.Requires(state == State.ProductChosen || state == State.MoneyInserted);
+            Contract.Ensures(state == State.MoneyInserted);
+
+
             InsertedValue += coin.ToValue();
 
             CoinMan.AddCoin(coin, 1);
+            state = State.MoneyInserted;
             if (SelectedProduct != null && !CoinMan.CheckChange(SelectedProduct.Price, InsertedValue))
                 return TransactionResult.SuccessButNoChange;
 
@@ -76,19 +91,25 @@ namespace VendingMachine.Machine
             Contract.Ensures(InsertedValue == 0);
             Contract.Ensures(Contract.OldValue<decimal>(InsertedValue) == CoinCase.Aggregate<Coin, decimal>(0, (acc, c) => acc + c.ToValue()),
                 "Ensure the same value is returned");
+            Contract.Ensures(state == State.Idle);
 
             CoinMan.GiveChange(0, InsertedValue, CoinCase);
             InsertedValue = 0;
             SelectedProduct = null;            
+            state = State.Idle;
         }
 
         public TransactionResult Finalize()
         {
             Contract.Requires(SelectedProduct != null);
+            Contract.Requires(state == State.MoneyInserted);
+
+
             if (SelectedProduct.Price <= InsertedValue)
             {
                 PerformTransaction();
                 SelectedProduct = null;
+                state = State.Idle;
                 return TransactionResult.Success;
             }
 
