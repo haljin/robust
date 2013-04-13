@@ -29,6 +29,9 @@ check_prod(ProdName) ->
 get_prod(ProdName, Money) -> 
     gen_server:call(?MODULE, {get_prod, ProdName, Money}).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Auxiliary functions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 generate_dets(ProdList)->
     {ok, Table} = dets:open_file(tempstock, [{type,set},
 					     {access,read_write},{keypos,#product.name},{file,"stock.db"}]),
@@ -84,7 +87,7 @@ handle_call({get_prod, ProdName, Money}, _From, #state{table = Table} = Products
 						% enough money input, + give product, + give change	      
 				 dets:update_counter(Table, Name, {#product.ammount, -1}),
 				 vm_case:insert(ProdName), % product to case
-				 vm_coin:get_change(Temp) % change to coincase
+				 vm_coin:get_change(Temp) % change to coincasey
 			 end
 		     end,
     {reply, Temp, Products};

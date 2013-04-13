@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% API calls
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
--export([start/0, stop/0, insert/1, empty/0]).
+-export([start/0, stop/0, insert/1, empty/0, get_all/0]).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% API calls
@@ -22,6 +22,8 @@ insert(Item) ->
     gen_server:call(?MODULE, {insert, Item}).
 empty() -> 
     gen_server:call(?MODULE, {empty}).
+get_all()->
+    gen_server:call(?MODULE, {get_all}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% gen_server callbacks
@@ -45,6 +47,8 @@ handle_call({insert, Item}, _From, Products) ->
 handle_call({empty}, _From, _Products) ->
 	NewProducts = [],
 	{reply, ok, NewProducts};
+handle_call({get_all}, _From, Products) ->
+	{reply, Products, Products};
 handle_call(_Message, _From, Products) ->
 	{reply, error, Products}.
 
@@ -60,6 +64,10 @@ terminate(_Reason, _Products) ->
 code_change(_OldVersion, Products, _Extra) -> 
     {ok, Products}.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Internal functions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ret_prod(ProdName,List)->
     RetProd = [{Name, Am} || {Name, Am} <- List, Name =:= ProdName],
 	if 
