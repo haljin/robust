@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% API calls
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
--export([start/0, stop/0, insert_prod/1, check_prod/1, get_prod/2, generate_dets/1]).
+-export([start/0, stop/0, insert_prod/1, check_prod/1, prod_info/1, get_prod/2, generate_dets/1]).
 
 -include("../include/vmdata.hrl").
 -record(state, {table}).
@@ -26,6 +26,8 @@ insert_prod(#product{} = Prod) ->
     gen_server:call(?MODULE, {insert_prod, Prod}).
 check_prod(ProdName) -> 
     gen_server:call(?MODULE, {check_prod, ProdName}).
+prod_info(ProdName) ->
+    gen_server:call(?MODULE, {prod_info, ProdName}).
 get_prod(ProdName, Money) -> 
     gen_server:call(?MODULE, {get_prod, ProdName, Money}).
 
@@ -63,12 +65,18 @@ handle_call({check_prod, ProdName}, _From, #state{table = Table} = Products) ->
 		   _ ->
 		       true
 	       end,
+    {reply, Response, Products};
+handle_call({prod_info, ProdName}, _From, #state{table = Table} = Products) ->
+    Response = case dets:lookup(Table, ProdName) of 
+		   {error,Reason} -> false;
+		   [#product{ammount = 0}] ->
+		       {prod, out_of_stock};
+		   [Product] ->
+		       {prod, Product} 
+	       end,
     {reply, Response, Products};	
 handle_call({get_prod, ProdName, Money}, _From, #state{table = Table} = Products) ->
 	RetVal = case dets:lookup(Table, ProdName) of
-		     {error, Reason} ->
-			 Temp = -2,
-			 io:format("product does not exist");
 		     [#product{ammount = 0}] ->
 			 Temp = -2;
 		     [#product{name = Name, price = Price}] ->
