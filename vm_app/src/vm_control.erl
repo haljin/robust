@@ -1,67 +1,80 @@
 -module(vm_control).
 -behavior(gen_fsm).
 -export([start/0, stop/0, choose_product/1, insert_coin/1, 
-	  request/0, cancel/0]).
+	 cancel/0]).
 %% gen_fsm callbacks
--export([init/1, idle/2, got_coins/2, chosen_product/2, handle_event/3,
+-export([init/1, idle/2, coin_inserted/2, chosen_product/2, handle_event/3,
 	 handle_sync_event/4, handle_info/3, terminate/3, code_change/4]).
 
-
+-include("../include/vmdata.hrl").
+-record(state, {product,money=0}).
 
 
 start()->
-    ok.
+   gen_fsm:start_link({local,?MODULE}, ?MODULE, [], []).
 
 stop()->
-    ok.
+    gen_fsm:send_all_state_event(?MODULE,stop).
 
 choose_product(Product)->
-    ok.
+    gen_fsm:send_event(?MODULE,{choose_product, Product}).
 
 insert_coin(Coin)->
-    ok.
-
-request()->
-    ok.
+    gen_fsm:send_event(?MODULE, {insert_coin,Coin}).
 
 cancel()->
-    ok.
+    gen_fsm:send_all_state_event(?MODULE,cancel).
 
 init([]) ->
-    display:display(["Ready!"]),
+    vm_display:display("Ready",[]),
     {ok, idle,  #state{}}.
 
-idle({coin,Coin}, StateData) ->
-	NewStateData = add_coin(Coin,StateData),
-	display:display(["Money in: " ++ integer_to_list(NewStateData#state.coins)]),
-	{next_state, got_coins, NewStateData};
-idle({choose,Product}, StateData) ->
-	{next_state, chosen_product, StateData#state{chosen_product = Product}};
-idle(request, StateData) ->
-	display:display(["Choose product and put some coins in, really!"]),
-	{next_state, idle, StateData}.
-  
-got_coins({coin,Coin}, StateData) ->
-	NewStateData = add_coin(Coin,StateData),
-	display:display(["Money in: " ++ integer_to_list(NewStateData#state.coins)]),
-	{next_state, got_coins, NewStateData};
-got_coins({choose,Product},StateData) ->
-	display:display(["You have chosen " ++ atom_to_list(Product)]),
-	{next_state, chosen_product, StateData#state{chosen_product = Product}};
-got_coins(request,StateData) ->
-	display:display(["Choose product!"]),
-	{next_state, got_coins, StateData}.
-
-chosen_product({coin,Coin}, StateData) ->
-	NewStateData = add_coin(Coin,StateData),
-	display:display(["Money in: " ++ integer_to_list(NewStateData#state.coins)]),
-	{next_state, chosen_product, NewStateData};
-chosen_product({choose,Product},StateData) ->
-	display:display(["You have chosen " ++ atom_to_list(Product)]),
-	{next_state, chosen_product, StateData#state{chosen_product = Product}};
-chosen_product(request,StateData) ->
-	NewStateData=fulfill_request(StateData),
-	{next_state, idle, NewStateData}.
+%% --------------------------------------------------------------------
+%% Func: StateName/2
+%% Returns: {next_state, NextStateName, NextStateData}          |
+%%          {next_state, NextStateName, NextStateData, Timeout} |
+%%          {stop, Reason, NewStateData}
+%% --------------------------------------------------------------------
+idle({choose_product, Product}, #state{} = State)->
+    case vm_stock:check_prod(Product) of
+	true->
+	    vm_display:display("You have chosen: ~p~n",[Product]),
+	    {next_state,chosen_product,State#state{product=Product}};
+	false ->
+	    vm_display:display("Out of stock~n",[]),
+	    {next_state,idle,State}
+    end.
+chosen_product({choose_product,Product}, #state{}=State)->
+    case vm_stock:check_prod(Product) of
+	true->
+	    vm_display:display("You have chosen: ~p~n",[Product]),
+	    {next_state,chosen_product,State#state{product=Product}};
+	false ->
+	    vm_display:display("Out of stock~n",[]),
+	    {next_state,chosen_product,State}
+    end;
+chosen_product({insert_coin,Coin}, #state{product=Prod}=State) ->
+    {prod, ProdInfo} = vm_stock:prod_info(Prod),
+    case vm_coin:coin_to_val(Coin)< ProdInfo#product.price  of
+	true->
+	     vm_display:display("You have inserted ~p coins.Not enough. The price is ~p~n",[Coin,ProdInfo#product.price]),
+	    {next_state,coin_inserted,State#state{money=vm_coin:coin_to_val(Coin)}};
+	false->
+	    vm_stock:get_prod(Prod,vm_coin:coin_to_val(Coin)),
+	    vm_display:display("Take your ~p~n",[Prod]),
+	    {next_state,idle,#state{}}
+    end.
+coin_inserted({insert_coin,Coin},#state{product=Prod,money=Money}=State)->
+    {prod, ProdInfo} = vm_stock:prod_info(Prod),
+    case vm_coin:coin_to_val(Coin)< ProdInfo#product.price  of
+	true->
+	    vm_display:display("You have inserted ~p coins.Not enough. The price is ~p~n",[Coin,ProdInfo#product.price]),
+	    {next_state,coin_inserted,State#state{money=Money+vm_coin:coin_to_val(Coin)}};
+	false->
+	    vm_stock:get_prod(Prod,Money+vm_coin:coin_to_val(Coin)),
+	    vm_display:display("Take your ~p~n",[Prod]),
+	    {next_state,idle,#state{}}
+    end.
 
 
 %% --------------------------------------------------------------------
@@ -70,17 +83,14 @@ chosen_product(request,StateData) ->
 %%          {next_state, NextStateName, NextStateData, Timeout} |
 %%          {stop, Reason, NewStateData}
 %% --------------------------------------------------------------------
-handle_event(abort, _StateName, StateData) ->
-	eject_coins(StateData#state.coins),
-    {next_state, idle, StateData#state{coins = 0, chosen_product = undefined}};
-handle_event(stop, _StateName, StateData) ->
-	{stop, normal, StateData};
-handle_event(display, StateName, StateData) ->
-	Status = gen_server:call(genvmdb, display),
-	display:display([Status]),
-	{next_state, StateName, StateData};
-handle_event(die, _,_) ->
-	exit(error).
+
+handle_event(cancel, _,#state{money=Money}) ->
+    vm_coin:get_change(Money),
+    {next_state,idle,#state{}};
+handle_event(stop,_,State) ->
+    {stop,normal,State}.
+
+
 
 %% --------------------------------------------------------------------
 %% Func: handle_sync_event/4
@@ -91,7 +101,7 @@ handle_event(die, _,_) ->
 %%          {stop, Reason, NewStateData}                          |
 %%          {stop, Reason, Reply, NewStateData}
 %% --------------------------------------------------------------------
-handle_sync_event(Event, From, StateName, StateData) ->
+handle_sync_event(_Event, _From,StateName, StateData) ->
     Reply = ok,
     {reply, Reply, StateName, StateData}.
 
@@ -101,7 +111,7 @@ handle_sync_event(Event, From, StateName, StateData) ->
 %%          {next_state, NextStateName, NextStateData, Timeout} |
 %%          {stop, Reason, NewStateData}
 %% --------------------------------------------------------------------
-handle_info(Info, StateName, StateData) ->
+handle_info(_Info, StateName, StateData) ->
     {next_state, StateName, StateData}.
 
 %% --------------------------------------------------------------------
@@ -109,8 +119,9 @@ handle_info(Info, StateName, StateData) ->
 %% Purpose: Shutdown the fsm
 %% Returns: any
 %% --------------------------------------------------------------------
-terminate(Reason, StateName, StateData) ->
-	eject_coins(StateData#state.coins),
+terminate(_Reason,_,#state{money=Money}) ->
+    vm_coin:get_change(Money),
+    vm_display:display("Termination ~n",[]),
     ok.
 
 %% --------------------------------------------------------------------
@@ -118,5 +129,5 @@ terminate(Reason, StateName, StateData) ->
 %% Purpose: Convert process state when code is changed
 %% Returns: {ok, NewState, NewStateData}
 %% --------------------------------------------------------------------
-code_change(OldVsn, StateName, StateData, Extra) ->
+code_change(_OldVsn, StateName, StateData, _Extra) ->
     {ok, StateName, StateData}.
