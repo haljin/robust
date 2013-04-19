@@ -1,0 +1,9 @@
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\b\VendingMachine.Moles.xml
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\b\VendingMachine.Moles.dll
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\b\VendingMachine.Moles.pdb
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\b\VendingMachine.exe
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\b\VendingMachine.pdb
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\o\ResolveAssemblyReference.cache
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\o\VendingMachine.Moles.rewritten
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\o\VendingMachine.Moles.dll
+C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine1.Tests\obj\Debug\Moles\vm\o\VendingMachine.Moles.pdb

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<!-- saved from url=(0033)http://research.microsoft.com/pex -->
+<head><link rel="StyleSheet" href="er.common.css" type="text/css" /><script src="er.common.js" type="text/javascript"> </script><link rel="SHORTCUT ICON" href="favicon.ico" /><link rel="icon" href="favicon.ico" type="image/x-icon" /><title>C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs</title></head><body><div class="banner"></div><h2 id="top">C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs</h2><div class="toggle"><p class="copyright"><a class="usercodeundertestcovered">user code under test</a>, 
+  <span class="usercodeundertestnotcovered">user code under test (not covered)</span>, 
+  <a class="userortestcodecovered">user code or test</a>, 
+  <span class="userortestcodenotcovered">user code or test (not covered)</span>,
+  <span class="tagged">tagged</span></p><table><tr><th>Methods</th></tr><tr><th /></tr></table><div class="toggle"><a class="button" href="#ID0EFB">first</a><pre class="coverage">using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Diagnostics.Contracts;
+using System.Xml.Linq;
+using VendingMachine.Data;
+
+namespace VendingMachine.Stock
+{
+    class CoinManager
+    {
+        XDocument Database { get; set; }
+        IEnumerable&lt;XElement&gt; Wallet { get; set; }
+
+        <span class="usercodeundertestnotcovered">public CoinManager()</span>
+        <span class="usercodeundertestnotcovered">{</span>
+            <span id="ID0EFB"><a class="button" href="#top">top</a>|<a class="button" href="#ID0ELE">next</a></span><span class="usercodeundertestnotcovered">Contract.Requires(File.Exists("CoinDatabase.xml"), "PRE: Database file must exist");</span>
+            <span class="usercodeundertestnotcovered">Contract.Ensures(Wallet != null &amp;&amp; Wallet.Count() &gt; 0, "POST: Wallet must contain coin types");</span>
+
+            <span class="usercodeundertestnotcovered">Database = XDocument.Load("CoinDatabase.xml");</span>
+            <span class="usercodeundertestnotcovered">Wallet = Database.Descendants("Coin");</span>
+        <span class="usercodeundertestnotcovered">}</span>
+
+
+        public bool CheckChange(decimal price, decimal inserted)
+        {
+            //Contract.Requires(inserted &gt;= price, "PRE: User must have insterted more money than the price of the product");
+            Contract.Requires(Wallet != null);
+            if (inserted &lt;= price)
+                return true;
+
+            decimal change = inserted - price;
+
+            Coin currCoin = Coin.Kr20;
+            while (change &gt; 0 &amp;&amp; currCoin &gt;= Coin.Ore50)
+            {
+                decimal value = currCoin.ToValue();
+                int coinAmmount = (int)Wallet.Where(c =&gt; (decimal)c.Element("Type") == value).Select(c =&gt; c.Element("Ammount")).Single();
+
+                int needed = (int)(change / value);
+                if (needed &gt; coinAmmount)
+                    change -= coinAmmount * value;
+                else
+                    change -= needed * value;
+                currCoin--;
+
+            }
+            if (change == 0)
+                return true;
+
+            return false;
+        }
+
+        public void GiveChange(decimal price, decimal inserted, LinkedList&lt;Coin&gt; coinCase)
+        {
+            Contract.Requires(inserted &gt;= price, "PRE: User must have insterted more money than the price of the product");
+            Contract.Requires(price &gt;= 0 &amp;&amp; inserted &gt;= 0);
+            Contract.Requires(Wallet != null);
+            Contract.Requires(coinCase != null);
+
+            Contract.Ensures(coinCase.Aggregate&lt;Coin, decimal&gt;(0, (acc, coin) =&gt; acc + coin.ToValue()) &lt;= (inserted - price), 
+                "POST: The value of ejected coins must be equal to required change or lower (if no coins available)");
+
+            decimal change = inserted - price;
+
+            Coin currCoin = Coin.Kr20;
+            while (change &gt; 0 &amp;&amp; currCoin &gt;= Coin.Ore50)
+            {
+                decimal value = currCoin.ToValue();
+                int coinAmmount = (int)Wallet.Where(c =&gt; (decimal)c.Element("Type") == value).Select(c =&gt; c.Element("Ammount")).Single();
+
+                int needed = (int)(change / value);
+                if (needed &gt; coinAmmount)
+                {
+                    change -= coinAmmount * value;
+                    EjectCoin(currCoin, coinAmmount, coinCase);
+                }
+                else
+                {
+                    change -= needed * value;
+                    EjectCoin(currCoin, needed, coinCase);
+                }
+                currCoin--;
+            }  
+        }
+
+        public void EjectCoin(Coin coin, int ammount, LinkedList&lt;Coin&gt; coinCase)
+        <a class="usercodeundertestcovered">{</a>
+            <a class="button" href="#ID0EFB">prev</a>|<span id="ID0ELE"><a class="button" href="#top">top</a>|<a class="button" href="#ID0ENHAC">next</a></span><a class="usercodeundertestcovered">Contract.Requires(coinCase != null);</a>
+            <a class="usercodeundertestcovered">Contract.Requires(ammount &gt; 0);</a>
+            <a class="tagged" title="This assertion has not been reached">Contract.Requires(Wallet.Where(c =&gt; </a><a class="button" href="#ID0EFB">prev</a>|<span id="ID0ENHAC"><a class="button" href="#top">top</a>|<a class="button" href="#ID0EIKAC">next</a></span><a class="usercodeundertestcovered">(decimal)c.Element("Type") == coin.ToValue()</a><a class="usercodeundertestcovered">).Select(c =&gt; </a><a class="button" href="#ID0EFB">prev</a>|<span id="ID0EIKAC"><a class="button" href="#top">top</a>|<a class="button" href="#ID0EFNAC">next</a></span><a class="usercodeundertestcovered">(int)c.Element("Ammount")</a><a class="usercodeundertestcovered">).Single() &gt;= ammount,
+                    "PRE: There must be enough of coins of given type to eject");</a>
+            <span class="usercodeundertestnotcovered">Contract.Ensures(coinCase.Where(c =&gt; c == coin).Count() &gt;= ammount,
+                    "POST: The ejected coins must be in the case");</span>
+            //Contract.Ensures(Contract.OldValue&lt;IEnumerable&lt;XElement&gt;&gt;(Wallet).Where(c =&gt; (decimal)c.Element("Type") == coin.ToValue()).Select(c =&gt; (int)c.Element("Ammount")).Single()
+            //        - ammount == Wallet.Where(c =&gt; (decimal)c.Element("Type") == coin.ToValue()).Select(c =&gt; (int)c.Element("Ammount")).Single(),
+            //        "POST: The ammount of the coins ejected must be deduced");
+            
+            <a class="usercodeundertestcovered">XElement soughtCoin = Wallet.Where(c =&gt; </a><a class="button" href="#ID0EFB">prev</a>|<span id="ID0EFNAC"><a class="button" href="#top">top</a></span><a class="usercodeundertestcovered">(decimal)c.Element("Type") == coin.ToValue()</a><a class="usercodeundertestcovered">).Single();</a>
+            <a class="usercodeundertestcovered">soughtCoin.Element("Ammount").Value = ((int)soughtCoin.Element("Ammount") - ammount).ToString();</a>
+            for (<a class="usercodeundertestcovered">int i = 0;</a> <a class="usercodeundertestcovered">i &lt; ammount</a>; <a class="usercodeundertestcovered">++i</a>)
+                <a class="usercodeundertestcovered">coinCase.AddLast(coin);</a>
+
+             <a class="usercodeundertestcovered">Database.Save("CoinDatabase.xml");</a>
+        <a class="usercodeundertestcovered">}</a>
+
+        public void AddCoin(Coin coin, int ammount)
+        {
+            Contract.Requires(Contract.Exists(Wallet, el =&gt; (decimal)el.Element("Type") == coin.ToValue()),
+                "PRE: The coin type must exist in the wallet");
+           // Contract.Ensures(Wallet.Where(el =&gt; (decimal)el.Element("Type") == coin.ToValue()).Select(el =&gt; (int)el.Element("Ammount")).Single() + ammount);
+
+            XElement soughtCoin = Wallet.Where(c =&gt; (decimal)c.Element("Type") == coin.ToValue()).Single();
+            soughtCoin.Element("Ammount").Value = ((int)soughtCoin.Element("Ammount") + ammount).ToString();
+
+            Database.Save("CoinDatabase.xml");
+        }
+
+    }
+}
+</pre></div></div><hr /><table width="100%"><tr><td valign="top"><span class="copyright">Copyright (c) Microsoft Corporation. All rights reserved.</span><br /><span class="button" onclick="copySourceToClipboard()">Copy full source to clipboard</span></td></tr></table><div id="debugdiv"> </div></body></html>

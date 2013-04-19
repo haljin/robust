@@ -124,6 +124,7 @@
   <ItemGroup>
     <Content Include="CoinDatabase.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="StockDatabase.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

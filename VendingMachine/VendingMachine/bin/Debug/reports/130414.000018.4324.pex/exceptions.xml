@@ -1,0 +1,22 @@
+﻿<frameTree version="0.94.51006.1"><frameException type="System.Diagnostics.Contracts.__ContractsRuntime+ContractException"><tag exceptionState="expected"><generatedTestRef idref="50cc4edd-bb65-4f1f-8e2a-4ca1ee3399c9"/>
+</tag>
+<frameNode><frame value="  at CoinExtensions.ToValue(Coin) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Data\Coin.cs(18)" method="CoinExtensions.ToValue(Coin)" offset="26" file="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Data\Coin.cs" line="18"><method assemblyName="VendingMachine" name="ToValue" static="true" token="600004b"><declaringType assemblyName="VendingMachine" name="CoinExtensions" token="200000c" namespace="VendingMachine.Data"/>
+<parameter name="coin" position="0"><type spec="ValueType"><definition assemblyName="VendingMachine" valueType="true" name="Coin" token="200000b" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Decimal" token="20000cd" namespace="System"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[    {
+        public static decimal ToValue(this Coin coin)
+        {]]></beforeSource>
+<source><![CDATA[            Contract.Requires(coin <= Coin.Kr20 && coin>=Coin.Ore50);]]></source>
+<afterSource><![CDATA[            Contract.Ensures(Contract.Result<decimal>() > 0);
+            switch (coin)
+            {]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="50cc4edd-bb65-4f1f-8e2a-4ca1ee3399c9"/>
+</tag>
+</frameNode>
+</frameException>
+</frameTree>

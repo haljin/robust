@@ -1,0 +1,161 @@
+﻿<frameTree version="0.94.51006.1"><frameException type="System.Diagnostics.Contracts.__ContractsRuntime+ContractException"><tag exceptionState="expected"><generatedTestRef idref="b007c3e9-1a7a-4c4f-a7ef-e0c8691bf23a"/>
+</tag>
+<frameNode><frame value="  at CoinManager.EjectCoin(Coin, Int32, LinkedList`1&lt;Coin&gt;) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(91)" method="CoinManager.EjectCoin(Coin, Int32, LinkedList`1&lt;Coin&gt;)" offset="51" file="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="91"><method assemblyName="VendingMachine" name="EjectCoin" token="6000017"><declaringType assemblyName="VendingMachine" name="CoinManager" token="2000004" namespace="VendingMachine.Stock"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="VendingMachine" name="CoinManager" token="2000004" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="coin" position="1"><type spec="ValueType"><definition assemblyName="VendingMachine" valueType="true" name="Coin" token="200000b" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+<parameter name="ammount" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000fe" namespace="System"/>
+</type>
+</parameter>
+<parameter name="coinCase" position="3"><type spec="Class"><definition assemblyName="System" name="LinkedList`1" token="2000241" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="ValueType"><definition assemblyName="VendingMachine" valueType="true" name="Coin" token="200000b" namespace="VendingMachine.Data"/>
+</genericTypeArgument>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[
+        public void EjectCoin(Coin coin, int ammount, LinkedList<Coin> coinCase)
+        {]]></beforeSource>
+<source><![CDATA[            Contract.Requires(coinCase != null);]]></source>
+<afterSource><![CDATA[            Contract.Requires(ammount > 0);
+            Contract.Requires(Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single() >= ammount,
+                    "PRE: There must be enough of coins of given type to eject");]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="b007c3e9-1a7a-4c4f-a7ef-e0c8691bf23a"/>
+</tag>
+</frameNode>
+<frameNode><frame value="  at CoinManager.EjectCoin(Coin, Int32, LinkedList`1&lt;Coin&gt;) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(92)" method="CoinManager.EjectCoin(Coin, Int32, LinkedList`1&lt;Coin&gt;)" offset="67" file="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="92"><method assemblyName="VendingMachine" name="EjectCoin" token="6000017"><declaringType assemblyName="VendingMachine" name="CoinManager" token="2000004" namespace="VendingMachine.Stock"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="VendingMachine" name="CoinManager" token="2000004" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="coin" position="1"><type spec="ValueType"><definition assemblyName="VendingMachine" valueType="true" name="Coin" token="200000b" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+<parameter name="ammount" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000fe" namespace="System"/>
+</type>
+</parameter>
+<parameter name="coinCase" position="3"><type spec="Class"><definition assemblyName="System" name="LinkedList`1" token="2000241" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="ValueType"><definition assemblyName="VendingMachine" valueType="true" name="Coin" token="200000b" namespace="VendingMachine.Data"/>
+</genericTypeArgument>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        public void EjectCoin(Coin coin, int ammount, LinkedList<Coin> coinCase)
+        {
+            Contract.Requires(coinCase != null);]]></beforeSource>
+<source><![CDATA[            Contract.Requires(ammount > 0);]]></source>
+<afterSource><![CDATA[            Contract.Requires(Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single() >= ammount,
+                    "PRE: There must be enough of coins of given type to eject");
+            Contract.Ensures(coinCase.Where(c => c == coin).Count() >= ammount,]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="f206f1d2-7f4d-4a3e-9127-2e9f5f2934c8"/>
+</tag>
+</frameNode>
+<frameNode><frame value="  at CoinExtensions.ToValue(Coin) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Data\Coin.cs(18)" method="CoinExtensions.ToValue(Coin)" offset="26" file="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Data\Coin.cs" line="18"><method assemblyName="VendingMachine" name="ToValue" static="true" token="600004b"><declaringType assemblyName="VendingMachine" name="CoinExtensions" token="200000c" namespace="VendingMachine.Data"/>
+<parameter name="coin" position="0"><type spec="ValueType"><definition assemblyName="VendingMachine" valueType="true" name="Coin" token="200000b" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Decimal" token="20000cd" namespace="System"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[    {
+        public static decimal ToValue(this Coin coin)
+        {]]></beforeSource>
+<source><![CDATA[            Contract.Requires(coin <= Coin.Kr20 && coin>=Coin.Ore50);]]></source>
+<afterSource><![CDATA[            Contract.Ensures(Contract.Result<decimal>() > 0);
+            switch (coin)
+            {]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="4dd21a39-583d-446d-af5c-437ca0743e6a"/>
+</tag>
+<frameNode><frame value="  at CoinManager_&lt;&gt;c__DisplayClass11_0.&lt;EjectCoin&gt;b__c(XElement) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(93)" method="CoinManager_&lt;&gt;c__DisplayClass11_0.&lt;EjectCoin&gt;b__c(XElement)" offset="27" file="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="93"><method assemblyName="VendingMachine" name="&lt;EjectCoin&gt;b__c" token="6000068"><declaringType assemblyName="VendingMachine" name="CoinManager_&lt;&gt;c__DisplayClass11_0" token="2000015"><declaringType assemblyName="VendingMachine" name="CoinManager" token="2000004" namespace="VendingMachine.Stock"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="VendingMachine" name="CoinManager_&lt;&gt;c__DisplayClass11_0" token="2000015"><declaringType assemblyName="VendingMachine" name="CoinManager" token="2000004" namespace="VendingMachine.Stock"/>
+</definition>
+</type>
+</parameter>
+<parameter name="c" position="1"><type spec="Class"><definition assemblyName="System.Xml.Linq" name="XElement" token="2000011" namespace="System.Xml.Linq"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+<beforeSource><![CDATA[        {
+            Contract.Requires(coinCase != null);
+            Contract.Requires(ammount > 0);]]></beforeSource>
+<source><![CDATA[            Contract.Requires(Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single() >= ammount,]]></source>
+<afterSource><![CDATA[                    "PRE: There must be enough of coins of given type to eject");
+            Contract.Ensures(coinCase.Where(c => c == coin).Count() >= ammount,
+                    "POST: The ejected coins must be in the case");]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="4dd21a39-583d-446d-af5c-437ca0743e6a"/>
+</tag>
+<frameNode><frame value="  at WhereSelectEnumerableIterator`2.MoveNext()" method="WhereSelectEnumerableIterator`2.MoveNext()" offset="78"><method assemblyName="System.Core" name="MoveNext" token="60004e0"><declaringType assemblyName="System.Core" name="WhereSelectEnumerableIterator`2" token="2000058"><declaringType assemblyName="System.Core" name="Enumerable" token="2000053" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TResult"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="System.Core" name="WhereSelectEnumerableIterator`2" token="2000058"><declaringType assemblyName="System.Core" name="Enumerable" token="2000053" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<genericParameter value="TResult"/>
+</definition>
+<genericTypeArgument spec="GenericTypeParameter" index="0"/>
+<genericTypeArgument spec="GenericTypeParameter" index="1"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="4dd21a39-583d-446d-af5c-437ca0743e6a"/>
+</tag>
+<frameNode><frame value="  at Enumerable.Single(IEnumerable`1&lt;!!0&gt;)" method="Enumerable.Single(IEnumerable`1&lt;!!0&gt;)" offset="71"><method assemblyName="System.Core" name="Single" static="true" token="6000457"><declaringType assemblyName="System.Core" name="Enumerable" token="2000053" namespace="System.Linq"/>
+<genericParameter value="TSource"/>
+<parameter name="source" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="200004d" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="GenericMethodParameter" index="0"/>
+</type>
+</parameter>
+<resultType spec="GenericMethodParameter" index="0"/>
+</method>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="4dd21a39-583d-446d-af5c-437ca0743e6a"/>
+</tag>
+<frameNode><frame value="  at CoinManager.EjectCoin(Coin, Int32, LinkedList`1&lt;Coin&gt;) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(93)" method="CoinManager.EjectCoin(Coin, Int32, LinkedList`1&lt;Coin&gt;)" offset="139" file="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="93"><method assemblyName="VendingMachine" name="EjectCoin" token="6000017"><declaringType assemblyName="VendingMachine" name="CoinManager" token="2000004" namespace="VendingMachine.Stock"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="VendingMachine" name="CoinManager" token="2000004" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="coin" position="1"><type spec="ValueType"><definition assemblyName="VendingMachine" valueType="true" name="Coin" token="200000b" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+<parameter name="ammount" position="2"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000fe" namespace="System"/>
+</type>
+</parameter>
+<parameter name="coinCase" position="3"><type spec="Class"><definition assemblyName="System" name="LinkedList`1" token="2000241" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="ValueType"><definition assemblyName="VendingMachine" valueType="true" name="Coin" token="200000b" namespace="VendingMachine.Data"/>
+</genericTypeArgument>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        {
+            Contract.Requires(coinCase != null);
+            Contract.Requires(ammount > 0);]]></beforeSource>
+<source><![CDATA[            Contract.Requires(Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single() >= ammount,]]></source>
+<afterSource><![CDATA[                    "PRE: There must be enough of coins of given type to eject");
+            Contract.Ensures(coinCase.Where(c => c == coin).Count() >= ammount,
+                    "POST: The ejected coins must be in the case");]]></afterSource>
+</frame>
+<tag exceptionState="unexpected"><generatedTestRef idref="4dd21a39-583d-446d-af5c-437ca0743e6a"/>
+</tag>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameException>
+</frameTree>

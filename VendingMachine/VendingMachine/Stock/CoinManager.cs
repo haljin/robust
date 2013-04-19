@@ -89,12 +89,13 @@ namespace VendingMachine.Stock
         public void EjectCoin(Coin coin, int ammount, LinkedList<Coin> coinCase)
         {
             Contract.Requires(coinCase != null);
+            Contract.Requires(ammount > 0);
             Contract.Requires(Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single() >= ammount,
                     "PRE: There must be enough of coins of given type to eject");
-            Contract.Ensures(coinCase.Where(c => c == coin).Count() == ammount,
+            Contract.Ensures(coinCase.Where(c => c == coin).Count() >= ammount,
                     "POST: The ejected coins must be in the case");
             //Contract.Ensures(Contract.OldValue<IEnumerable<XElement>>(Wallet).Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single()
-            //        - ammount  == Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single(),
+            //        - ammount == Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Select(c => (int)c.Element("Ammount")).Single(),
             //        "POST: The ammount of the coins ejected must be deduced");
             
             XElement soughtCoin = Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Single();
@@ -109,6 +110,7 @@ namespace VendingMachine.Stock
         {
             Contract.Requires(Contract.Exists(Wallet, el => (decimal)el.Element("Type") == coin.ToValue()),
                 "PRE: The coin type must exist in the wallet");
+           // Contract.Ensures(Wallet.Where(el => (decimal)el.Element("Type") == coin.ToValue()).Select(el => (int)el.Element("Ammount")).Single() + ammount);
 
             XElement soughtCoin = Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Single();
             soughtCoin.Element("Ammount").Value = ((int)soughtCoin.Element("Ammount") + ammount).ToString();
