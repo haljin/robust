@@ -12,6 +12,7 @@ using System;
 using VendingMachine.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Pex.Framework.Generated;
+using Microsoft.Pex.Engine.Exceptions;
 
 namespace VendingMachine.Stock
 {

@@ -51,7 +51,8 @@ namespace VendingMachine.Stock
             Contract.Requires(productCase != null);
             Contract.Requires(product != null);
             Contract.Ensures(productCase.Contains(product), "POST: Sought item must be ejected");
-
+            Contract.Ensures(Contract.OldValue((int)Stock.Where(el => (string)el.Element("Name") == product.Name).Single().Element("Ammount")) - 1 ==
+                   (int)Stock.Where(el => (string)el.Element("Name") == product.Name).Single().Element("Ammount"));
 
             XElement node = Stock.Where(el => (string)el.Element("Name") == product.Name).Single();
             node.Element("Ammount").Value = ((int)node.Element("Ammount") - 1).ToString();
@@ -67,6 +68,10 @@ namespace VendingMachine.Stock
             Contract.Requires(product != null);
             Contract.Requires(product.Ammount > 0, "PRE: Added ammount must be >= 0");
             Contract.Ensures(Contract.Exists(Stock, p => (string)p.Element("Name") == product.Name && (int)p.Element("Price") == product.Price), "POST: The added item must be in Stock");
+            Contract.Ensures((int)Stock.Where(p => (string)p.Element("Name") == product.Name).Select(c => (int)c.Element("Ammount")).Single() > product.Ammount);
+            Contract.Ensures(Contract.OldValue((int)Stock.Where(el => (string)el.Element("Name") == product.Name).Single().Element("Ammount")) + product.Ammount ==
+                   (int)Stock.Where(el => (string)el.Element("Name") == product.Name).Single().Element("Ammount"));
+
 
             if (CheckAvailability(product))
             {

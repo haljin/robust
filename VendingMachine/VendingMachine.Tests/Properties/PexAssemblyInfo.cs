@@ -1,39 +1,38 @@
+using Microsoft.Pex.Framework.Suppression;
+using System;
+using __Auxiliary;
+using System.Diagnostics.Contracts.Internal;
 // <copyright file="PexAssemblyInfo.cs">Copyright ©  2013</copyright>
-using Microsoft.Pex.Framework.Coverage;
-using Microsoft.Pex.Framework.Creatable;
-using Microsoft.Pex.Framework.Instrumentation;
-using Microsoft.Pex.Framework.Moles;
-using Microsoft.Pex.Framework.Settings;
-using Microsoft.Pex.Framework.Validation;
-using Microsoft.Pex.Linq;
-
 // Microsoft.Pex.Framework.Settings
-[assembly: PexAssemblySettings(TestFramework = "VisualStudioUnitTest")]
+[assembly: global::Microsoft.Pex.Framework.Settings.PexAssemblySettings(TestFramework = "VisualStudioUnitTest")]
 
 // Microsoft.Pex.Framework.Instrumentation
-[assembly: PexAssemblyUnderTest("VendingMachine")]
-[assembly: PexInstrumentAssembly("System.Windows.Forms")]
-[assembly: PexInstrumentAssembly("System.Drawing")]
-[assembly: PexInstrumentAssembly("System.Xml.Linq")]
-[assembly: PexInstrumentAssembly("System.Core")]
+[assembly: global::Microsoft.Pex.Framework.Instrumentation.PexAssemblyUnderTest("VendingMachine")]
+[assembly: global::Microsoft.Pex.Framework.Instrumentation.PexInstrumentAssembly("System.Core")]
+[assembly: global::Microsoft.Pex.Framework.Instrumentation.PexInstrumentAssembly("System.Drawing")]
+[assembly: global::Microsoft.Pex.Framework.Instrumentation.PexInstrumentAssembly("System.Windows.Forms")]
+[assembly: global::Microsoft.Pex.Framework.Instrumentation.PexInstrumentAssembly("System.Xml.Linq")]
 
 // Microsoft.Pex.Framework.Creatable
-[assembly: PexCreatableFactoryForDelegates]
+[assembly: global::Microsoft.Pex.Framework.Creatable.PexCreatableFactoryForDelegates]
 
 // Microsoft.Pex.Framework.Validation
-[assembly: PexAllowedContractRequiresFailureAtTypeUnderTestSurface]
-[assembly: PexAllowedXmlDocumentedException]
+[assembly: global::Microsoft.Pex.Framework.Validation.PexAllowedContractRequiresFailureAtTypeUnderTestSurface]
+[assembly: global::Microsoft.Pex.Framework.Validation.PexAllowedXmlDocumentedException]
 
 // Microsoft.Pex.Framework.Coverage
-[assembly: PexCoverageFilterAssembly(PexCoverageDomain.UserOrTestCode, "System.Windows.Forms")]
-[assembly: PexCoverageFilterAssembly(PexCoverageDomain.UserOrTestCode, "System.Drawing")]
-[assembly: PexCoverageFilterAssembly(PexCoverageDomain.UserOrTestCode, "System.Xml.Linq")]
-[assembly: PexCoverageFilterAssembly(PexCoverageDomain.UserOrTestCode, "System.Core")]
+[assembly: global::Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssembly(global::Microsoft.Pex.Framework.Coverage.PexCoverageDomain.UserOrTestCode, "System.Core")]
+[assembly: global::Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssembly(global::Microsoft.Pex.Framework.Coverage.PexCoverageDomain.UserOrTestCode, "System.Drawing")]
+[assembly: global::Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssembly(global::Microsoft.Pex.Framework.Coverage.PexCoverageDomain.UserOrTestCode, "System.Windows.Forms")]
+[assembly: global::Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssembly(global::Microsoft.Pex.Framework.Coverage.PexCoverageDomain.UserOrTestCode, "System.Xml.Linq")]
 
 // Microsoft.Pex.Framework.Moles
-[assembly: PexAssumeContractEnsuresFailureAtBehavedSurface]
-[assembly: PexChooseAsBehavedCurrentBehavior]
+[assembly: global::Microsoft.Pex.Framework.Moles.PexAssumeContractEnsuresFailureAtBehavedSurface]
+[assembly: global::Microsoft.Pex.Framework.Moles.PexChooseAsBehavedCurrentBehavior]
 
 // Microsoft.Pex.Linq
-[assembly: PexLinqPackage]
+[assembly: global::Microsoft.Pex.Linq.PexLinqPackage]
 
+[assembly: PexSuppressUninstrumentedMethodFromType(typeof(Exception))]
+[assembly: PexSuppressUninstrumentedMethodFromType(typeof(ContractHelper))]
+[assembly: PexSuppressUninstrumentedMethodFromType(typeof(EventHandler<>))]

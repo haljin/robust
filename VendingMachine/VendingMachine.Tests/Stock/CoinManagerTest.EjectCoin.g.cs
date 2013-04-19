@@ -9,16 +9,62 @@
 // compile anymore, you may delete this file and invoke Pex again.
 // </auto-generated>
 using System;
+using Microsoft.Pex.Framework.Generated;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VendingMachine.Data;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.Pex.Framework.Generated;
 using Microsoft.Pex.Engine.Exceptions;
-using Microsoft.ExtendedReflection.DataAccess;
 
 namespace VendingMachine.Stock
 {
     public partial class CoinManagerTest
     {
+[TestMethod]
+[PexGeneratedBy(typeof(CoinManagerTest))]
+[PexRaisedContractException(PexExceptionState.Expected)]
+public void EjectCoinThrowsContractException849()
+{
+    try
+    {
+      if (!PexContract.HasRequiredRuntimeContracts
+               (typeof(CoinManager), (PexRuntimeContractsFlags)28927))
+        Assert.Inconclusive
+            ("assembly VendingMachine is not instrumented with runtime contracts");
+      CoinManager coinManager;
+      coinManager = new CoinManager();
+      this.EjectCoin(coinManager, Coin.Ore50, 1, (LinkedList<Coin>)null);
+      throw 
+        new AssertFailedException("expected an exception of type ContractException");
+    }
+    catch(Exception ex)
+    {
+      if (!PexContract.IsContractException(ex))
+        throw ex;
+    }
+}
+[TestMethod]
+[PexGeneratedBy(typeof(CoinManagerTest))]
+public void EjectCoin502()
+{
+    CoinManager coinManager;
+    LinkedList<Coin> linkedList;
+    coinManager = new CoinManager();
+    Coin[] @is = new Coin[0];
+    linkedList = new LinkedList<Coin>((IEnumerable<Coin>)@is);
+    this.EjectCoin(coinManager, Coin.Ore50, 1, linkedList);
+    Assert.IsNotNull((object)coinManager);
+}
+[TestMethod]
+[PexGeneratedBy(typeof(CoinManagerTest))]
+public void EjectCoin257()
+{
+    CoinManager coinManager;
+    LinkedList<Coin> linkedList;
+    coinManager = new CoinManager();
+    Coin[] @is = new Coin[0];
+    linkedList = new LinkedList<Coin>((IEnumerable<Coin>)@is);
+    this.EjectCoin(coinManager, Coin.Kr1, 1, linkedList);
+    Assert.IsNotNull((object)coinManager);
+}
     }
 }

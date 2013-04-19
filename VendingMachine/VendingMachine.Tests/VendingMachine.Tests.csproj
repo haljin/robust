@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C95824DA-495F-454F-86D3-65A935112DF9}</ProjectGuid>
+    <ProjectGuid>{7EBF364D-8237-4E62-841A-B4F0B3614A46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VendingMachine.Tests</RootNamespace>
@@ -37,6 +37,7 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ExtendedReflection, Version=0.94.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Moles.Framework, Version=0.94.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Pex.Framework, Version=0.94.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -46,6 +47,14 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="VendingMachine.Moles, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
@@ -59,23 +68,50 @@
       <Name>VendingMachine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Compile Include="Data\CoinExtensionsTest.cs" />
+    <Compile Include="Data\CoinExtensionsTest.ToValue.g.cs">
+      <DependentUpon>CoinExtensionsTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProductTest.cs" />
+    <Compile Include="Data\ProductTest.Equals01.g.cs">
+      <DependentUpon>ProductTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form1Test.cs" />
+    <Compile Include="Machine\VendMachineTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="Stock\CoinManagerTest.AddCoin.g.cs">
       <DependentUpon>CoinManagerTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock\CoinManagerTest.Constructor.g.cs">
+    <Compile Include="Stock\CoinManagerTest.CheckChange.cs">
       <DependentUpon>CoinManagerTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Stock\CoinManagerTest.cs" />
     <Compile Include="Stock\CoinManagerTest.EjectCoin.g.cs">
       <DependentUpon>CoinManagerTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stock\CoinManagerTest.GiveChange.cs">
+      <DependentUpon>CoinManagerTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\StockManagerTest.AddProduct.g.cs">
+      <DependentUpon>StockManagerTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\StockManagerTest.CheckAvailability.g.cs">
+      <DependentUpon>StockManagerTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\StockManagerTest.cs" />
+    <Compile Include="Stock\StockManagerTest.EjectProduct.cs">
+      <DependentUpon>StockManagerTest.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Moles Include="VendingMachine.moles" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Stock\StockManagerTest.GetPrice.cs">
+      <DependentUpon>StockManagerTest.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
