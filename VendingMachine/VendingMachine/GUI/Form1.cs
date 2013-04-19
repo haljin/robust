@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using VendingMachine.Data;
 using VendingMachine.Machine;
+using VendingMachine.Stock;
 
 namespace VendingMachine.GUI
 {
@@ -20,6 +21,9 @@ namespace VendingMachine.GUI
             InitializeComponent();
             machine = new VendMachine();
             prepareOutOfStockLights();
+
+            CoinManager coins = new CoinManager();
+            coins.EjectCoin(Coin.Ore50, 1, new LinkedList<Coin>());
         }
 
         private void purchaseB_Click(object sender, EventArgs e)

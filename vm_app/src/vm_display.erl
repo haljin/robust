@@ -7,8 +7,9 @@ terminate/2]).
 -export([start/0, display/2]).
 
 start() ->
-    gen_event:start_link({local,?MODULE}),
-    gen_event:add_handler(?MODULE, vm_display, []).
+    Result = gen_event:start_link({local,?MODULE}),
+    gen_event:add_sup_handler(?MODULE, vm_display, []),
+    Result.
 
 display(Info, Args)->
    gen_event:notify(?MODULE,{display,Info,Args}).

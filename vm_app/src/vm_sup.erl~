@@ -1,14 +1,23 @@
 -module(vm_sup).
-%-behavior(supervisor).
+-behavior(supervisor).
 
--export([start/2, start/3, stop/0]).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% supervisor callbacks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-export([init/1]).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% API calls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-export([start/0, stop/0]).
 
 
-start(Stock, Coins)->
-    ok.
-
-start(dets, StockDets, CoinDets)->
-    ok.
+start()->
+    supervisor:start_link({local,?MODULE},?MODULE,[]).
 
 stop()->
-    ok.
+    exit(whereis(?MODULE),normal).
+
+init([])->
+    StockCase = {vmdb, {vmdb_sup, start, []}, permanent, infinity, supervisor, [vmdb_sup]},
+    CoinCase = {vmcases, {vmcase_sup, start, []}, permanent, infinity, supervisor, [vmcase_sup]},
+    {ok, {{one_for_one,2,1}, [StockCase, CoinCase]}}.

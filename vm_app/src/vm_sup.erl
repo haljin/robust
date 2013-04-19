@@ -18,6 +18,7 @@ stop()->
     exit(whereis(?MODULE),normal).
 
 init([])->
-    StockCase = {vmdb, {vmdb_sup, start, []}, permanent, infinity, supervisor, [vmdb_sup]},
-    CoinCase = {vmcases, {vmcase_sup, start, []}, permanent, infinity, supervisor, [vmcase_sup]},
-    {ok, {{one_for_one,2,1}, [StockCase, CoinCase]}}.
+    Database = {vmdb, {vmdb_sup, start, []}, permanent, infinity, supervisor, [vmdb_sup]},
+    Cases = {vmcases, {vmcase_sup, start, []}, permanent, infinity, supervisor, [vmcase_sup]},
+    Control = {vmuser, {vmuser_sup, start, []}, permanent, infinity, supervisor, [vmuser_sup]},
+    {ok, {{one_for_one,2,1}, [Database, Cases, Control]}}.

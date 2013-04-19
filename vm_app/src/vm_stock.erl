@@ -63,6 +63,8 @@ handle_call({insert_prod, #product{name = Name, price = Price, ammount = Am} = P
 handle_call({check_prod, ProdName}, _From, #state{table = Table} = Products) ->
     Response = case dets:lookup(Table, ProdName) of 
 		   {error,Reason} -> false;
+		   [] ->
+		       false;
 		   [#product{ammount = 0}] ->
 		       false;
 		   _ ->
@@ -72,6 +74,8 @@ handle_call({check_prod, ProdName}, _From, #state{table = Table} = Products) ->
 handle_call({prod_info, ProdName}, _From, #state{table = Table} = Products) ->
     Response = case dets:lookup(Table, ProdName) of 
 		   {error,Reason} -> false;
+		   [] ->
+		       false;
 		   [#product{ammount = 0}] ->
 		       {prod, out_of_stock};
 		   [Product] ->

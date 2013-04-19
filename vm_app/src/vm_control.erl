@@ -38,16 +38,16 @@ init([]) ->
 idle({choose_product, Product}, #state{} = State)->
     case vm_stock:check_prod(Product) of
 	true->
-	    vm_display:display("You have chosen: ~p~n",[Product]),
+	    vm_display:display("You have chosen: ~p",[Product]),
 	    {next_state,chosen_product,State#state{product=Product}};
 	false ->
-	    vm_display:display("Out of stock~n",[]),
+	    vm_display:display("Out of stock",[]),
 	    {next_state,idle,State}
     end.
 chosen_product({choose_product,Product}, #state{}=State)->
     case vm_stock:check_prod(Product) of
 	true->
-	    vm_display:display("You have chosen: ~p~n",[Product]),
+	    vm_display:display("You have chosen: ~p",[Product]),
 	    {next_state,chosen_product,State#state{product=Product}};
 	false ->
 	    vm_display:display("Out of stock~n",[]),
@@ -57,22 +57,24 @@ chosen_product({insert_coin,Coin}, #state{product=Prod}=State) ->
     {prod, ProdInfo} = vm_stock:prod_info(Prod),
     case vm_coin:coin_to_val(Coin)< ProdInfo#product.price  of
 	true->
-	     vm_display:display("You have inserted ~p coins.Not enough. The price is ~p~n",[Coin,ProdInfo#product.price]),
+	     vm_display:display("You have inserted ~p coins.Not enough. The price is ~p",
+				[vm_coin:coin_to_val(Coin),ProdInfo#product.price]),
 	    {next_state,coin_inserted,State#state{money=vm_coin:coin_to_val(Coin)}};
 	false->
 	    vm_stock:get_prod(Prod,vm_coin:coin_to_val(Coin)),
-	    vm_display:display("Take your ~p~n",[Prod]),
+	    vm_display:display("Take your ~p",[Prod]),
 	    {next_state,idle,#state{}}
     end.
 coin_inserted({insert_coin,Coin},#state{product=Prod,money=Money}=State)->
     {prod, ProdInfo} = vm_stock:prod_info(Prod),
-    case vm_coin:coin_to_val(Coin)< ProdInfo#product.price  of
+    case vm_coin:coin_to_val(Coin) + Money < ProdInfo#product.price  of
 	true->
-	    vm_display:display("You have inserted ~p coins.Not enough. The price is ~p~n",[Coin,ProdInfo#product.price]),
+	    vm_display:display("You have inserted ~p coins.Not enough. The price is ~p",
+			       [vm_coin:coin_to_val(Coin) + Money ,ProdInfo#product.price]),
 	    {next_state,coin_inserted,State#state{money=Money+vm_coin:coin_to_val(Coin)}};
 	false->
 	    vm_stock:get_prod(Prod,Money+vm_coin:coin_to_val(Coin)),
-	    vm_display:display("Take your ~p~n",[Prod]),
+	    vm_display:display("Take your ~p",[Prod]),
 	    {next_state,idle,#state{}}
     end.
 
@@ -86,6 +88,7 @@ coin_inserted({insert_coin,Coin},#state{product=Prod,money=Money}=State)->
 
 handle_event(cancel, _,#state{money=Money}) ->
     vm_coin:get_change(Money),
+    vm_display:display("Cancelled!", []),
     {next_state,idle,#state{}};
 handle_event(stop,_,State) ->
     {stop,normal,State}.
@@ -121,7 +124,7 @@ handle_info(_Info, StateName, StateData) ->
 %% --------------------------------------------------------------------
 terminate(_Reason,_,#state{money=Money}) ->
     vm_coin:get_change(Money),
-    vm_display:display("Termination ~n",[]),
+    vm_display:display("Termination ",[]),
     ok.
 
 %% --------------------------------------------------------------------

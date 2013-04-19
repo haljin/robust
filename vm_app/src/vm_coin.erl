@@ -109,7 +109,6 @@ return_coin(Name, Amount) ->
 
 return_coins(Ammount, Coins) ->
     CoinList = lists:flatten(dets:match(Coins, '$1')),	% sort the coins list descending by value
-    io:format("COINS: ~p~n", [CoinList]),
     SortedCoins = lists:reverse(lists:keysort(#coin.value,CoinList)),
     RetCoins = get_coins(Ammount, SortedCoins), % get as many coins as needed
     return_all_coins(RetCoins), % insert them to coincase
@@ -119,7 +118,7 @@ get_coins(_Ammount, []) ->
     [];
 get_coins(Ammount, [#coin{type = N, value =V, ammount = A}|T]) ->
     if 
-	Ammount > V -> 	% it is possible to add this coin to list
+	(Ammount > V) and (A > 0) -> 	% it is possible to add this coin to list
 	    Rest = trunc(Ammount / V),
 		if
 		    Rest =< A -> 
@@ -141,7 +140,6 @@ remove_coins(Coins, [{N,A}|T]) ->
 	
 check_change(Ammount, Table) ->
     CoinList = lists:flatten(dets:match(Table, '$1')),	% sort the coins list descending by value
-    io:format("COINS: ~p~n", [CoinList]),
     SortedCoins = lists:reverse(lists:keysort(#coin.value,CoinList)),
     Temp = sum_coin(get_coins(Ammount, SortedCoins)),
     if Ammount == Temp -> true;
