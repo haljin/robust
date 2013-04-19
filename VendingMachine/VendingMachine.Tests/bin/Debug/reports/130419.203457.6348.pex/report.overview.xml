@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?><pex id="{d78abc95-6ced-4662-968f-49e544756b1d}" creationTime="2013-04-19 18:34:57Z" configuration="VendingMachine.Stock!\CoinManagerTest!\EjectCoin!" product="VendingMachine" created="2013-04-19 18:34:57Z" pexVersion="0.94.51006.1" xml="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\bin\Debug\reports\130419.203457.6348.pex\report.per" html="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\bin\Debug\reports\130419.203457.6348.pex\report.html"><environment commandLine="&quot;C:\Program Files (x86)\Microsoft Pex\bin\Microsoft.Pex.x86.exe&quot; C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\bin\Debug\VendingMachine.Tests.dll /diagnostic /membernamefilter:M:EjectCoin! /methodnamefilter:EjectCoin! /namespacefilter:VendingMachine.Stock! /typefilter:CoinManagerTest! /targetx86 /x64failsilently /clrversion:v4.0.30319 /referencedprojectassemblies:VendingMachine /donotopenreport /reportlevel:Xml /reportrootpath:C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\bin\Debug\reports /testframework:VisualStudioUnitTest /testlanguage:cs /testprojectfile:C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\VendingMachine.Tests.csproj /testprojectnotupdate /testprojectskip" machineName="PAUL-PC" osVersion="Microsoft Windows NT 6.1.7601 Service Pack 1" processorCount="4" clrVersion="4.0.30319.296" bitness="x86" user="Paul"><envVars><envVar name="HOMEPATH" value="\Users\Paul"/>
+<envVar name="PUBLIC" value="C:\Users\Public"/>
+<envVar name="COMPUTERNAME" value="PAUL-PC"/>
+<envVar name="CLRMONITOR_INJECT_TYPES" value=""/>
+<envVar name="COMPLUS_ProfAPI_ProfilerCompatibilitySetting" value="EnableV2Profiler"/>
+<envVar name="CommonProgramFiles(x86)" value="C:\Program Files (x86)\Common Files"/>
+<envVar name="PROCESSOR_IDENTIFIER" value="Intel64 Family 6 Model 15 Stepping 11, GenuineIntel"/>
+<envVar name="TMP" value="C:\Users\Paul\AppData\Local\Temp"/>
+<envVar name="PROCESSOR_REVISION" value="0f0b"/>
+<envVar name="CLRMONITOR_INSTRUMENT_TYPES_EXCLUSIONS" value=""/>
+<envVar name="PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC"/>
+<envVar name="COMPLUS_DEFAULTVERSION" value="v4.0.30319"/>
+<envVar name="CLRMONITOR_CLSID" value="{21bbb412-71ac-41f9-a377-48529a4859cf}"/>
+<envVar name="VSPID" value="6444"/>
+<envVar name="SSH_AGENT_PID" value="4212"/>
+<envVar name="TEMP" value="C:\Users\Paul\AppData\Local\Temp"/>
+<envVar name="LOCALAPPDATA" value="C:\Users\Paul\AppData\Local"/>
+<envVar name="CLRMONITOR_INSTRUMENT_NAMESPACES_EXCLUSIONS" value=""/>
+<envVar name="CLRMONITOR_PROTECT_TYPES" value="Microsoft.FSharp.Text.Printf,Microsoft.FSharp.Text.PrintfImpl"/>
+<envVar name="CLRMONITOR_INJECT_ASSEMBLIES" value=""/>
+<envVar name="SSH_AUTH_SOCK" value="/tmp/ssh-GnAlrr5548/agent.5548"/>
+<envVar name="ProgramData" value="C:\ProgramData"/>
+<envVar name="CLRMONITOR_INITIALIZED" value="0x10"/>
+<envVar name="USERDOMAIN" value="Paul-PC"/>
+<envVar name="windir" value="C:\Windows"/>
+<envVar name="CLRMONITOR_ERASE_FINALIZER_TYPES" value=""/>
+<envVar name="CLRMONITOR_INJECT_NAMESPACES" value=""/>
+<envVar name="NUMBER_OF_PROCESSORS" value="4"/>
+<envVar name="windows_tracing_flags" value="3"/>
+<envVar name="Path" value="C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Intel\DMIX;C:\Program Files\Java\jdk1.7.0_09\bin"/>
+<envVar name="pex_wait_for_server_channel" value="1"/>
+<envVar name="ProgramFiles(x86)" value="C:\Program Files (x86)"/>
+<envVar name="PROCESSOR_LEVEL" value="6"/>
+<envVar name="PROCESSOR_ARCHITEW6432" value="AMD64"/>
+<envVar name="CommonProgramFiles" value="C:\Program Files (x86)\Common Files"/>
+<envVar name="CLRMONITOR_FLAGS" value=""/>
+<envVar name="CLRMONITOR_PROTECT_ALL_CCTORS" value="1"/>
+<envVar name="pex_instrumentation" value="1"/>
+<envVar name="SESSIONNAME" value="Console"/>
+<envVar name="CLRMONITOR_INSTRUMENT_TYPES" value="System.Array,System.Array+ArrayEnumerator,System.Array+FunctorComparer`1,System.Array+SZArrayEnumerator,System.Array+SorterGenericArray,System.Array+SorterObjectArray,System.Boolean,System.Byte,System.Char,System.CharEnumerator,System.ComponentModel.Component,System.ComponentModel.Container,System.ComponentModel.Container+Site,System.Convert,System.Currency,System.DateTime,System.Decimal,System.Diagnostics.Assert,System.Double,System.Globalization.CharUnicodeInfo,System.Globalization.CultureTableRecord,System.Globalization.TextInfo,System.Guid,System.IO.MemoryStream,System.IO.Stream,System.IO.StreamReader,System.IO.StreamWriter,System.IO.StringReader,System.IO.StringWriter,System.Int16,System.Int32,System.Int64,System.Lazy`1,System.Lazy`1+Boxed,System.Lazy`1+LazyInternalExceptionHolder,System.Linq.Expressions.ExpressionCompiler,System.Math,System.Nullable,System.Nullable`1,System.OrdinalComparer,System.SByte,System.SZArrayHelper,System.SZArrayHelper+SZGenericArrayEnumerator`1,System.Single,System.String,System.StringComparer,System.Text.ASCIIEncoding,System.Text.DecoderNLS,System.Text.Encoding,System.Text.UTF8Encoding,System.TimeSpan,System.Tuple,System.Tuple`1,System.Tuple`2,System.Tuple`3,System.Tuple`4,System.Tuple`5,System.Tuple`6,System.Tuple`7,System.Tuple`8,System.UInt16,System.UInt32,System.UInt64,System.Xml.XmlTextWriter,System.Xml.XmlTextWriter+Namespace,System.Xml.XmlTextWriter+NamespaceState,System.Xml.XmlTextWriter+SpecialAttr,System.Xml.XmlTextWriter+State,System.Xml.XmlTextWriter+TagInfo,System.Xml.XmlTextWriter+Token,System.Xml.XmlWriter,__Box`1,__SzArrayHelper`1"/>
+<envVar name="PSModulePath" value="C:\Windows\system32\WindowsPowerShell\v1.0\Modules\"/>
+<envVar name="CodeContractsInstallDir" value="C:\Program Files (x86)\Microsoft\Contracts\"/>
+<envVar name="ProgramW6432" value="C:\Program Files"/>
+<envVar name="ProgramFiles" value="C:\Program Files (x86)"/>
+<envVar name="CLRMONITOR_ERASE_CCTOR_TYPES" value=""/>
+<envVar name="FP_NO_HOST_CHECK" value="NO"/>
+<envVar name="pex_clientid" value="pex6444_1"/>
+<envVar name="SystemRoot" value="C:\Windows"/>
+<envVar name="CLRMONITOR_INSTRUMENT_ATTRIBUTE" value="Microsoft.Moles.Framework.Moles.MolesInstrumentAttribute"/>
+<envVar name="HOME" value="C:\"/>
+<envVar name="CommonProgramW6432" value="C:\Program Files\Common Files"/>
+<envVar name="LOGONSERVER" value="\\PAUL-PC"/>
+<envVar name="USERPROFILE" value="C:\Users\Paul"/>
+<envVar name="VisualStudioDir" value="C:\Users\Paul\Documents\Visual Studio 2010"/>
+<envVar name="CLRMONITOR_SUBSTITUTIONS" value="C:\Windows\assembly\GAC_MSIL\Microsoft.ExtendedReflection\0.94.0.0__31bf3856ad364e35\Microsoft.ExtendedReflection.dll,C:\Windows\assembly\GAC_MSIL\Microsoft.Pex.Linq\0.94.0.0__31bf3856ad364e35\Microsoft.Pex.Linq.dll"/>
+<envVar name="CLRMONITOR_INSTRUMENT_ASSEMBLIES_EXCLUSIONS" value=""/>
+<envVar name="APPDATA" value="C:\Users\Paul\AppData\Roaming"/>
+<envVar name="HOMEDRIVE" value="C:"/>
+<envVar name="windows_tracing_logfile" value="C:\BVTBin\Tests\installpackage\csilogfile.log"/>
+<envVar name="ComSpec" value="C:\Windows\system32\cmd.exe"/>
+<envVar name="VS100COMNTOOLS" value="C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools\"/>
+<envVar name="USERNAME" value="Paul"/>
+<envVar name="COR_PROFILER" value="{21bbb412-71ac-41f9-a377-48529a4859cf}"/>
+<envVar name="PROCESSOR_ARCHITECTURE" value="x86"/>
+<envVar name="pex_server_channel" value="pex6444"/>
+<envVar name="OS" value="Windows_NT"/>
+<envVar name="CLRMONITOR_INSTRUMENT_NAMESPACES" value="System.Collections,System.Collections.Generic,System.Collections.ObjectModel,System.Collections.Specialized,System.Diagnostics.Contracts"/>
+<envVar name="SystemDrive" value="C:"/>
+<envVar name="CLRMONITOR_INSTRUMENT_ASSEMBLIES" value="FSharp.Core,FSharp.PowerPack,Microsoft.Contracts,Microsoft.VisualBasic,Microsoft.VisualStudio.QualityTools.UnitTestFramework,System,System.Core,System.Drawing,System.Web,System.Windows.Forms,System.Xml.Linq,VendingMachine,VendingMachine.Tests"/>
+<envVar name="ALLUSERSPROFILE" value="C:\ProgramData"/>
+</envVars>
+</environment>
+<settings/>
+<reflection><existingTest method="CheckAvailability755" type="VendingMachine.Stock.StockManagerTest" token="6000001" generated="true"/>
+<existingTest method="ToValue1" type="VendingMachine.Data.CoinExtensionsTest" token="600000e" generated="true"/>
+<existingTest method="ToValue66" type="VendingMachine.Data.CoinExtensionsTest" token="6000011" generated="true"/>
+<existingTest method="ToValue347" type="VendingMachine.Data.CoinExtensionsTest" token="6000010" generated="true"/>
+<existingTest method="ToValue513" type="VendingMachine.Data.CoinExtensionsTest" token="600000c" generated="true"/>
+<existingTest method="ToValue832" type="VendingMachine.Data.CoinExtensionsTest" token="600000b" generated="true"/>
+<existingTest method="ToValue932" type="VendingMachine.Data.CoinExtensionsTest" token="600000f" generated="true"/>
+<existingTest method="ToValueThrowsContractException646" type="VendingMachine.Data.CoinExtensionsTest" token="600000d" generated="true" exceptionType="System.Diagnostics.Contracts.ContractException"/>
+<existingTest method="Equals01413" type="VendingMachine.Data.ProductTest" token="6000023" generated="true"/>
+<existingTest method="Equals01573" type="VendingMachine.Data.ProductTest" token="6000021" generated="true"/>
+<existingTest method="Equals01ThrowsNullReferenceException295" type="VendingMachine.Data.ProductTest" token="6000022" generated="true" exceptionType="System.NullReferenceException"/>
+</reflection>
+<assembly name="VendingMachine.Tests" version="0.0.0.0" fileVersion="0.0.0.0" fullName="VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" location="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\bin\Debug\VendingMachine.Tests.dll" fileName="VendingMachine.Tests.dll"><settings testFramework="VisualStudioUnitTest" testLanguage="cs"/>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="System.Data" version="4.0.0.0" fileVersion="4.0.30319.237" fullName="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll" fileName="System.Data.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="mscorlib" version="4.0.0.0" fileVersion="4.0.30319.296" fullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" location="C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll" fileName="mscorlib.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest"><focusedAssembly name="Microsoft.Moles.Framework" version="0.94.0.0" fileVersion="0.94.51006.1" fullName="Microsoft.Moles.Framework, Version=0.94.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" location="C:\Windows\assembly\GAC_MSIL\Microsoft.Moles.Framework\0.94.0.0__31bf3856ad364e35\Microsoft.Moles.Framework.dll" fileName="Microsoft.Moles.Framework.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="System.Web" version="4.0.0.0" fileVersion="4.0.30319.272" fullName="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll" fileName="System.Web.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="System.Xml" version="4.0.0.0" fileVersion="4.0.30319.233" fullName="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll" fileName="System.Xml.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="System" version="4.0.0.0" fileVersion="4.0.30319.1001" fullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll" fileName="System.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="System.Core" version="4.0.0.0" fileVersion="4.0.30319.233" fullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll" fileName="System.Core.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="System.Configuration" version="4.0.0.0" fileVersion="4.0.30319.1" fullName="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll" fileName="System.Configuration.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"/>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="FSharp.Core" version="4.0.0.0" fileVersion="4.0.30319.1" fullName="FSharp.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\FSharp.Core\v4.0_4.0.0.0__b03f5f7f11d50a3a\FSharp.Core.dll" fileName="FSharp.Core.dll"/>
+</focus>
+<focus type="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" typeName="PexFocusOnAssemblyAttribute" token="20001f8" description="Microsoft.Pex.Framework.Focus.PexFocusOnAssemblyAttribute" searchPriority="lowest" coverage="true"><focusedAssembly name="Microsoft.VisualBasic" version="10.0.0.0" fileVersion="10.0.30319.1" fullName="Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualBasic\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualBasic.dll" fileName="Microsoft.VisualBasic.dll"/>
+</focus>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="user code under test types from Assembly VendingMachine"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="user or test code types from Assembly System.Core"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="user or test code types from Assembly System.Drawing"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="user or test code types from Assembly System.Windows.Forms"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="user or test code types from Assembly System.Xml.Linq"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly System.Data"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly mscorlib"/>
+<coverageFilter type="Microsoft.Pex.Engine.Libraries.MolesLibrary+MolesCoverageFilterAttribute+Filter" typeName="Filter" token="20002c9" description="types marked with the MoledAssemblyAttribute attribute"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly Microsoft.Moles.Framework"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssembliesAttribute+CoverageFilter" typeName="CoverageFilter" token="2000330" description="system code types from assemblies Microsoft.ExtendedReflection.Collections.SafeSet`1[System.String]"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly System.Web"/>
+<coverageFilter type="Microsoft.Pex.Engine.Libraries.ContractsLibrary+ContractsRuntimeFilterCoverageAttribute+Filter" typeName="Filter" token="20002bb" description="Microsoft.Pex.Engine.Libraries.ContractsLibrary+ContractsRuntimeFilterCoverageAttribute+Filter"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly Microsoft.Contracts"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly System.Xml"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly System"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterNamespaceAttribute+CoverageFilter" typeName="CoverageFilter" token="20001cc" description="systemcode namespaces ending in &apos;__InstrumentedRegularExpressions&apos;"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly Microsoft.Pex.Framework"/>
+<coverageFilter type="Microsoft.Pex.Engine.Libraries.PexFrameworkLibrary+PexTestFrameworkCoverageFilterAttribute+CoverageFilter" typeName="CoverageFilter" token="2000168" description="system code types from test framework assemblies Microsoft.VisualStudio.QualityTools.UnitTestFramework"/>
+<coverageFilter type="Microsoft.Pex.Engine.Libraries.PexFrameworkLibrary+PexCoverageFilterCompilerGeneratedMethodsAttribute+CoverageFilter" typeName="CoverageFilter" token="2000163" description="compiler generated methods"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly Microsoft.ExtendedReflection"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly Microsoft.Pex"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly System.Core"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly System.Configuration"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly FSharp.PowerPack"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly FSharp.Core"/>
+<coverageFilter type="Microsoft.Pex.Framework.Coverage.PexCoverageFilterAssemblyAttribute+CoverageFilter" typeName="CoverageFilter" token="20001c6" description="system code types from Assembly Microsoft.VisualBasic"/>
+<fixture name="CoinManagerTest" type="VendingMachine.Stock.CoinManagerTest" typeName="CoinManagerTest" token="2000003" href="fix\VendingMachine.Tests.631.html"><type spec="Class"><definition assemblyName="VendingMachine.Tests" name="CoinManagerTest" token="2000003" namespace="VendingMachine.Stock"/>
+</type>
+<settings typeUnderTest="VendingMachine.Stock.CoinManager"/>
+<exploration shortName="EjectCoin(CoinManager, Coin, Int32, LinkedList`1&lt;Coin&gt;)" fullName="VendingMachine.Stock.CoinManagerTest.EjectCoin(CoinManager, Coin, Int32, LinkedList`1&lt;Coin&gt;)"><settings maxConditions="2000"/>
+<log level="message" time="2013-04-19 18:34:58Z" category="progress" message="    0 runs"/>
+<log level="error" time="2013-04-19 18:34:58Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to open"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="could not load symbols for C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualBasic\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualBasic.dll"/>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="search path: ;"/>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="could not load symbols for C:\Windows\assembly\GAC_MSIL\Microsoft.Pex.Framework\0.94.0.0__31bf3856ad364e35\Microsoft.Pex.Framework.dll"/>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="could not load symbols for C:\Windows\assembly\GAC_MSIL\Microsoft.Pex\0.94.0.0__31bf3856ad364e35\Microsoft.Pex.exe"/>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Open()" method="Context.Open()" offset="17"/>
+<frame value="  at PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" method="PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<explorable title="guessed how to create VendingMachine.Stock.CoinManager" kind="guessedclass"><explorableType spec="Class"><definition assemblyName="VendingMachine" name="CoinManager" token="2000005" namespace="VendingMachine.Stock"/>
+</explorableType>
+<testAssemblyName name="VendingMachine.Tests"/>
+<update kind="CollectionCodeUpdate" name="Accept/Edit Factory"><codeUpdate kind="AddTypeCodeUpdate" name="Add type" fileNameHint="Factories\CoinManagerFactory" abstract="true" sealed="true" visibility="Public"><doc><![CDATA[<summary>A factory for VendingMachine.Stock.CoinManager instances</summary>
+]]></doc>
+<reference name="mscorlib"/>
+<reference name="Microsoft.Pex.Framework"/>
+<reference name="VendingMachine" location="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\bin\Debug\VendingMachine.exe"/>
+<typeDefinition assemblyName="VendingMachine.Tests" name="CoinManagerFactory" token="ffffffff" namespace="VendingMachine.Stock"/>
+<baseType spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</baseType>
+<target><assembly name="VendingMachine.Tests"/>
+</target>
+</codeUpdate>
+<codeUpdate kind="AddMethodCodeUpdate" name="Add method" visibility="Public"><attribute><ctor><definition assemblyName="Microsoft.Pex.Framework" name=".ctor" token="6000e48"><declaringType assemblyName="Microsoft.Pex.Framework" name="PexFactoryMethodAttribute" token="200027d" namespace="Microsoft.Pex.Framework"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex.Framework" name="PexFactoryMethodAttribute" token="200027d" namespace="Microsoft.Pex.Framework"/>
+</type>
+</parameter>
+<parameter name="factoredTypeAssembly" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="Type" token="2000130" namespace="System"/>
+</type>
+</parameter>
+<parameter name="factoredTypeFullName" position="2"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004e" namespace="System"/>
+</type>
+</parameter>
+</definition>
+</ctor>
+<ctorArgument><value kind="TypeOfExpression"><typeDefinition assemblyName="VendingMachine" valueType="true" name="Coin" token="2000003" namespace="VendingMachine.Data"/>
+</value>
+</ctorArgument>
+<ctorArgument><value kind="StringExpression">VendingMachine.Stock.CoinManager</value>
+</ctorArgument>
+</attribute>
+<doc><![CDATA[<summary>A factory for VendingMachine.Stock.CoinManager instances</summary>
+]]></doc>
+<reference name="VendingMachine" location="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\bin\Debug\VendingMachine.exe"/>
+<reference name="mscorlib"/>
+<methodDefinition assemblyName="VendingMachine.Tests" name="Create" static="true"><declaringType assemblyName="VendingMachine.Tests" name="CoinManagerFactory" token="ffffffff" namespace="VendingMachine.Stock"/>
+<resultType spec="Class"><definition assemblyName="VendingMachine" name="CoinManager" token="2000005" namespace="VendingMachine.Stock"/>
+</resultType>
+</methodDefinition>
+<target><typeDefinition assemblyName="VendingMachine.Tests" name="CoinManagerFactory" token="ffffffff" namespace="VendingMachine.Stock"/>
+</target>
+</codeUpdate>
+<codeUpdate kind="SelectCodeUpdate" name="Select" selectKind="Body"><target><methodDefinition assemblyName="VendingMachine.Tests" name="Create" static="true"><declaringType assemblyName="VendingMachine.Tests" name="CoinManagerFactory" token="ffffffff" namespace="VendingMachine.Stock"/>
+<resultType spec="Class"><definition assemblyName="VendingMachine" name="CoinManager" token="2000005" namespace="VendingMachine.Stock"/>
+</resultType>
+</methodDefinition>
+</target>
+</codeUpdate>
+</update>
+</explorable>
+<log level="error" time="2013-04-19 18:34:58Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to rollback"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Rollback(IPexPathComponent)" method="Context.Rollback(IPexPathComponent)" offset="17"/>
+<frame value="  at PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" method="PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<log level="error" time="2013-04-19 18:34:58Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to open"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Open()" method="Context.Open()" offset="17"/>
+<frame value="  at PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" method="PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="could not load symbols for C:\Windows\assembly\GAC_MSIL\Microsoft.ExtendedReflection\0.94.0.0__31bf3856ad364e35\Microsoft.ExtendedReflection.dll"/>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="could not load symbols for C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll"/>
+<observedCallMismatch wikiTopic="Observed Call Mismatch" methodDisplayName="System.Void VendingMachine.Stock.CoinManager..ctor()" declaringTypeDisplayName="VendingMachine.Stock.CoinManager" methodShortDisplayName="CoinManager..ctor()"><intendedCallee methodDisplayName="System.Boolean System.IO.File.Exists(System.String path)" declaringTypeDisplayName="System.IO.File" methodShortDisplayName="File.Exists(String)"/>
+<actualCallee methodDisplayName="System.Void System.Array.Copy(System.Array sourceArray, System.Array destinationArray, System.Int32 length)" declaringTypeDisplayName="System.Array" methodShortDisplayName="Array.Copy(Array, Array, Int32)"/>
+<stackTrace><frame value="  at Frame..ctor(IThread, IFrame, Int32, Method, Boolean&amp;)" method="Frame..ctor(IThread, IFrame, Int32, Method, Boolean&amp;)" offset="339"/>
+<frame value="  at EvolvingFrame..ctor(EvolvingThread, IFrame, Int32, Method, Boolean&amp;)" method="EvolvingFrame..ctor(EvolvingThread, IFrame, Int32, Method, Boolean&amp;)" offset="13"/>
+<frame value="  at EvolvingThread.CreateFrame(Method, IFrame, Int32, Boolean&amp;)" method="EvolvingThread.CreateFrame(Method, IFrame, Int32, Boolean&amp;)" offset="11"/>
+<frame value="  at Thread.Microsoft.ExtendedReflection.Interpretation.States.IThread.PushStackFrame(Method, Boolean&amp;)" method="Thread.Microsoft.ExtendedReflection.Interpretation.States.IThread.PushStackFrame(Method, Boolean&amp;)" offset="33"/>
+<frame value="  at InstructionInterpreter.EnterMethod(Method)" method="InstructionInterpreter.EnterMethod(Method)" offset="183"/>
+<frame value="  at _Special.EnterMethod(Method)" method="_Special.EnterMethod(Method)" offset="6"/>
+<frame value="  at Array.$stub$Copy(Array, Array, Int32)" method="Array.$stub$Copy(Array, Array, Int32)" offset="0"/>
+<frame value="  at FileIOPermission.AddPathList(FileIOPermissionAccess, AccessControlActions, String[], Boolean, Boolean, Boolean)" method="FileIOPermission.AddPathList(FileIOPermissionAccess, AccessControlActions, String[], Boolean, Boolean, Boolean)" offset="75"/>
+<frame value="  at FileIOPermission..ctor(FileIOPermissionAccess, String[], Boolean, Boolean)" method="FileIOPermission..ctor(FileIOPermissionAccess, String[], Boolean, Boolean)" offset="24"/>
+<frame value="  at File.Exists(String)" method="File.Exists(String)" offset="81"/>
+<frame value="  at CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(19)" method="CoinManager..ctor()" offset="5" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="19"><beforeSource><![CDATA[
+        public CoinManager()
+        {]]></beforeSource>
+<source><![CDATA[            Contract.Requires(File.Exists("CoinDatabase.xml"), "PRE: Database file must exist");]]></source>
+<afterSource><![CDATA[            Contract.Ensures(Wallet != null && Wallet.Count() > 0, "POST: Wallet must contain coin types");
+
+            Database = XDocument.Load("CoinDatabase.xml");]]></afterSource>
+</frame>
+<frame value="  at CoinManagerFactory.Create()" method="CoinManagerFactory.Create()" offset="0"/>
+<frame value="  at Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" method="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" offset="-1"/>
+<frame value="  at PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" method="PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" offset="547"/>
+<frame value="  at PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" method="PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" offset="291"/>
+<frame value="  at PexPathDriver.InternalRun(Object)" method="PexPathDriver.InternalRun(Object)" offset="0"/>
+<frame value="  at PexPathDriver.Run(Object)" method="PexPathDriver.Run(Object)" offset="10"/>
+<frame value="  at PexExplorationDriver.InternalExplore()" method="PexExplorationDriver.InternalExplore()" offset="315"/>
+<frame value="  at PexExplorationDriverBase.CheckedExploreInternal()" method="PexExplorationDriverBase.CheckedExploreInternal()" offset="32"/>
+<frame value="  at PexExplorationDriverBase.Execute()" method="PexExplorationDriverBase.Execute()" offset="6"/>
+<frame value="  at PexExplorationDriverBase.Explore()" method="PexExplorationDriverBase.Explore()" offset="456"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" method="PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" offset="123"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteFixture(PexFixture)" method="PexTestFrameworkDriver.ExecuteFixture(PexFixture)" offset="319"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" method="PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" offset="220"/>
+<frame value="  at PexDriver.ExecuteAssembly()" method="PexDriver.ExecuteAssembly()" offset="50"/>
+<frame value="  at PexDriver.ExecuteAll()" method="PexDriver.ExecuteAll()" offset="95"/>
+<frame value="  at PexDriver.ExecuteExplorationProtectedInSeparateStack()" method="PexDriver.ExecuteExplorationProtectedInSeparateStack()" offset="132"/>
+<frame value="  at &lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" method="&lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" offset="0"/>
+<frame value="  at ThreadHelper.ThreadStart_Context(Object)" method="ThreadHelper.ThreadStart_Context(Object)" offset="59"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" offset="142"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" offset="9"/>
+<frame value="  at ThreadHelper.ThreadStart(Object)" method="ThreadHelper.ThreadStart(Object)" offset="50"/>
+</stackTrace>
+</observedCallMismatch>
+<uninstrumented testability="true" methodDisplayName="System.Boolean System.IO.File.Exists(System.String path)" declaringTypeDisplayName="System.IO.File" methodShortDisplayName="File.Exists(String)" wikiTopic="Testability Issue"/>
+<uninstrumented methodDisplayName="System.Void System.Array.Copy(System.Array sourceArray, System.Int32 sourceIndex, System.Array destinationArray, System.Int32 destinationIndex, System.Int32 length, System.Boolean reliable)" declaringTypeDisplayName="System.Array" methodShortDisplayName="Array.Copy(Array, Int32, Array, Int32, Int32, Boolean)" wikiTopic="Uninstrumented Method Called"/>
+<observedCallMismatch wikiTopic="Observed Call Mismatch" methodDisplayName="System.Void VendingMachine.Stock.CoinManager..ctor()" declaringTypeDisplayName="VendingMachine.Stock.CoinManager" methodShortDisplayName="CoinManager..ctor()"><intendedCallee methodDisplayName="System.Boolean System.IO.File.Exists(System.String path)" declaringTypeDisplayName="System.IO.File" methodShortDisplayName="File.Exists(String)"/>
+<actualCallee methodDisplayName="System.Void System.Collections.ArrayList..ctor()" declaringTypeDisplayName="System.Collections.ArrayList" methodShortDisplayName="ArrayList..ctor()"/>
+<stackTrace><frame value="  at Frame..ctor(IThread, IFrame, Int32, Method, Boolean&amp;)" method="Frame..ctor(IThread, IFrame, Int32, Method, Boolean&amp;)" offset="339"/>
+<frame value="  at EvolvingFrame..ctor(EvolvingThread, IFrame, Int32, Method, Boolean&amp;)" method="EvolvingFrame..ctor(EvolvingThread, IFrame, Int32, Method, Boolean&amp;)" offset="13"/>
+<frame value="  at EvolvingThread.CreateFrame(Method, IFrame, Int32, Boolean&amp;)" method="EvolvingThread.CreateFrame(Method, IFrame, Int32, Boolean&amp;)" offset="11"/>
+<frame value="  at Thread.Microsoft.ExtendedReflection.Interpretation.States.IThread.PushStackFrame(Method, Boolean&amp;)" method="Thread.Microsoft.ExtendedReflection.Interpretation.States.IThread.PushStackFrame(Method, Boolean&amp;)" offset="33"/>
+<frame value="  at InstructionInterpreter.EnterMethod(Method)" method="InstructionInterpreter.EnterMethod(Method)" offset="183"/>
+<frame value="  at _Special.EnterMethod(Method)" method="_Special.EnterMethod(Method)" offset="6"/>
+<frame value="  at ArrayList.$stub$.ctor()" method="ArrayList.$stub$.ctor()" offset="0"/>
+<frame value="  at StringExpressionSet.CreateListFromExpressions(String[], Boolean)" method="StringExpressionSet.CreateListFromExpressions(String[], Boolean)" offset="20"/>
+<frame value="  at FileIOPermission.AddPathList(FileIOPermissionAccess, AccessControlActions, String[], Boolean, Boolean, Boolean)" method="FileIOPermission.AddPathList(FileIOPermissionAccess, AccessControlActions, String[], Boolean, Boolean, Boolean)" offset="81"/>
+<frame value="  at FileIOPermission..ctor(FileIOPermissionAccess, String[], Boolean, Boolean)" method="FileIOPermission..ctor(FileIOPermissionAccess, String[], Boolean, Boolean)" offset="24"/>
+<frame value="  at File.Exists(String)" method="File.Exists(String)" offset="81"/>
+<frame value="  at CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(19)" method="CoinManager..ctor()" offset="5" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="19"><beforeSource><![CDATA[
+        public CoinManager()
+        {]]></beforeSource>
+<source><![CDATA[            Contract.Requires(File.Exists("CoinDatabase.xml"), "PRE: Database file must exist");]]></source>
+<afterSource><![CDATA[            Contract.Ensures(Wallet != null && Wallet.Count() > 0, "POST: Wallet must contain coin types");
+
+            Database = XDocument.Load("CoinDatabase.xml");]]></afterSource>
+</frame>
+<frame value="  at CoinManagerFactory.Create()" method="CoinManagerFactory.Create()" offset="0"/>
+<frame value="  at Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" method="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" offset="-1"/>
+<frame value="  at PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" method="PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" offset="547"/>
+<frame value="  at PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" method="PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" offset="291"/>
+<frame value="  at PexPathDriver.InternalRun(Object)" method="PexPathDriver.InternalRun(Object)" offset="0"/>
+<frame value="  at PexPathDriver.Run(Object)" method="PexPathDriver.Run(Object)" offset="10"/>
+<frame value="  at PexExplorationDriver.InternalExplore()" method="PexExplorationDriver.InternalExplore()" offset="315"/>
+<frame value="  at PexExplorationDriverBase.CheckedExploreInternal()" method="PexExplorationDriverBase.CheckedExploreInternal()" offset="32"/>
+<frame value="  at PexExplorationDriverBase.Execute()" method="PexExplorationDriverBase.Execute()" offset="6"/>
+<frame value="  at PexExplorationDriverBase.Explore()" method="PexExplorationDriverBase.Explore()" offset="456"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" method="PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" offset="123"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteFixture(PexFixture)" method="PexTestFrameworkDriver.ExecuteFixture(PexFixture)" offset="319"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" method="PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" offset="220"/>
+<frame value="  at PexDriver.ExecuteAssembly()" method="PexDriver.ExecuteAssembly()" offset="50"/>
+<frame value="  at PexDriver.ExecuteAll()" method="PexDriver.ExecuteAll()" offset="95"/>
+<frame value="  at PexDriver.ExecuteExplorationProtectedInSeparateStack()" method="PexDriver.ExecuteExplorationProtectedInSeparateStack()" offset="132"/>
+<frame value="  at &lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" method="&lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" offset="0"/>
+<frame value="  at ThreadHelper.ThreadStart_Context(Object)" method="ThreadHelper.ThreadStart_Context(Object)" offset="59"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" offset="142"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" offset="9"/>
+<frame value="  at ThreadHelper.ThreadStart(Object)" method="ThreadHelper.ThreadStart(Object)" offset="50"/>
+</stackTrace>
+</observedCallMismatch>
+<uninstrumented methodDisplayName="System.Void System.Object..ctor()" declaringTypeDisplayName="System.Object" methodShortDisplayName="Object..ctor()" wikiTopic="Uninstrumented Method Called"/>
+<observedCallMismatch wikiTopic="Observed Call Mismatch" methodDisplayName="System.Void VendingMachine.Stock.CoinManager..ctor()" declaringTypeDisplayName="VendingMachine.Stock.CoinManager" methodShortDisplayName="CoinManager..ctor()"><intendedCallee methodDisplayName="System.Boolean System.IO.File.Exists(System.String path)" declaringTypeDisplayName="System.IO.File" methodShortDisplayName="File.Exists(String)"/>
+<actualCallee methodDisplayName="System.Int32 System.Collections.ArrayList.Add(System.Object value)" declaringTypeDisplayName="System.Collections.ArrayList" methodShortDisplayName="ArrayList.Add(Object)"/>
+<stackTrace><frame value="  at Frame..ctor(IThread, IFrame, Int32, Method, Boolean&amp;)" method="Frame..ctor(IThread, IFrame, Int32, Method, Boolean&amp;)" offset="339"/>
+<frame value="  at EvolvingFrame..ctor(EvolvingThread, IFrame, Int32, Method, Boolean&amp;)" method="EvolvingFrame..ctor(EvolvingThread, IFrame, Int32, Method, Boolean&amp;)" offset="13"/>
+<frame value="  at EvolvingThread.CreateFrame(Method, IFrame, Int32, Boolean&amp;)" method="EvolvingThread.CreateFrame(Method, IFrame, Int32, Boolean&amp;)" offset="11"/>
+<frame value="  at Thread.Microsoft.ExtendedReflection.Interpretation.States.IThread.PushStackFrame(Method, Boolean&amp;)" method="Thread.Microsoft.ExtendedReflection.Interpretation.States.IThread.PushStackFrame(Method, Boolean&amp;)" offset="33"/>
+<frame value="  at InstructionInterpreter.EnterMethod(Method)" method="InstructionInterpreter.EnterMethod(Method)" offset="183"/>
+<frame value="  at _Special.EnterMethod(Method)" method="_Special.EnterMethod(Method)" offset="6"/>
+<frame value="  at ArrayList.$stub$Add(Object)" method="ArrayList.$stub$Add(Object)" offset="0"/>
+<frame value="  at StringExpressionSet.CreateListFromExpressions(String[], Boolean)" method="StringExpressionSet.CreateListFromExpressions(String[], Boolean)" offset="142"/>
+<frame value="  at FileIOPermission.AddPathList(FileIOPermissionAccess, AccessControlActions, String[], Boolean, Boolean, Boolean)" method="FileIOPermission.AddPathList(FileIOPermissionAccess, AccessControlActions, String[], Boolean, Boolean, Boolean)" offset="81"/>
+<frame value="  at FileIOPermission..ctor(FileIOPermissionAccess, String[], Boolean, Boolean)" method="FileIOPermission..ctor(FileIOPermissionAccess, String[], Boolean, Boolean)" offset="24"/>
+<frame value="  at File.Exists(String)" method="File.Exists(String)" offset="81"/>
+<frame value="  at CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(19)" method="CoinManager..ctor()" offset="5" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="19"><beforeSource><![CDATA[
+        public CoinManager()
+        {]]></beforeSource>
+<source><![CDATA[            Contract.Requires(File.Exists("CoinDatabase.xml"), "PRE: Database file must exist");]]></source>
+<afterSource><![CDATA[            Contract.Ensures(Wallet != null && Wallet.Count() > 0, "POST: Wallet must contain coin types");
+
+            Database = XDocument.Load("CoinDatabase.xml");]]></afterSource>
+</frame>
+<frame value="  at CoinManagerFactory.Create()" method="CoinManagerFactory.Create()" offset="0"/>
+<frame value="  at Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" method="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" offset="-1"/>
+<frame value="  at PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" method="PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" offset="547"/>
+<frame value="  at PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" method="PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" offset="291"/>
+<frame value="  at PexPathDriver.InternalRun(Object)" method="PexPathDriver.InternalRun(Object)" offset="0"/>
+<frame value="  at PexPathDriver.Run(Object)" method="PexPathDriver.Run(Object)" offset="10"/>
+<frame value="  at PexExplorationDriver.InternalExplore()" method="PexExplorationDriver.InternalExplore()" offset="315"/>
+<frame value="  at PexExplorationDriverBase.CheckedExploreInternal()" method="PexExplorationDriverBase.CheckedExploreInternal()" offset="32"/>
+<frame value="  at PexExplorationDriverBase.Execute()" method="PexExplorationDriverBase.Execute()" offset="6"/>
+<frame value="  at PexExplorationDriverBase.Explore()" method="PexExplorationDriverBase.Explore()" offset="456"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" method="PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" offset="123"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteFixture(PexFixture)" method="PexTestFrameworkDriver.ExecuteFixture(PexFixture)" offset="319"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" method="PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" offset="220"/>
+<frame value="  at PexDriver.ExecuteAssembly()" method="PexDriver.ExecuteAssembly()" offset="50"/>
+<frame value="  at PexDriver.ExecuteAll()" method="PexDriver.ExecuteAll()" offset="95"/>
+<frame value="  at PexDriver.ExecuteExplorationProtectedInSeparateStack()" method="PexDriver.ExecuteExplorationProtectedInSeparateStack()" offset="132"/>
+<frame value="  at &lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" method="&lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" offset="0"/>
+<frame value="  at ThreadHelper.ThreadStart_Context(Object)" method="ThreadHelper.ThreadStart_Context(Object)" offset="59"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" offset="142"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" offset="9"/>
+<frame value="  at ThreadHelper.ThreadStart(Object)" method="ThreadHelper.ThreadStart(Object)" offset="50"/>
+</stackTrace>
+</observedCallMismatch>
+<observedCallMismatch wikiTopic="Observed Call Mismatch" methodDisplayName="System.Void VendingMachine.Stock.CoinManager..ctor()" declaringTypeDisplayName="VendingMachine.Stock.CoinManager" methodShortDisplayName="CoinManager..ctor()"><intendedCallee methodDisplayName="System.Boolean System.IO.File.Exists(System.String path)" declaringTypeDisplayName="System.IO.File" methodShortDisplayName="File.Exists(String)"/>
+<actualCallee methodDisplayName="System.Void System.Collections.ArrayList..ctor(System.Collections.ICollection c)" declaringTypeDisplayName="System.Collections.ArrayList" methodShortDisplayName="ArrayList..ctor(ICollection)"/>
+<stackTrace><frame value="  at Frame..ctor(IThread, IFrame, Int32, Method, Boolean&amp;)" method="Frame..ctor(IThread, IFrame, Int32, Method, Boolean&amp;)" offset="339"/>
+<frame value="  at EvolvingFrame..ctor(EvolvingThread, IFrame, Int32, Method, Boolean&amp;)" method="EvolvingFrame..ctor(EvolvingThread, IFrame, Int32, Method, Boolean&amp;)" offset="13"/>
+<frame value="  at EvolvingThread.CreateFrame(Method, IFrame, Int32, Boolean&amp;)" method="EvolvingThread.CreateFrame(Method, IFrame, Int32, Boolean&amp;)" offset="11"/>
+<frame value="  at Thread.Microsoft.ExtendedReflection.Interpretation.States.IThread.PushStackFrame(Method, Boolean&amp;)" method="Thread.Microsoft.ExtendedReflection.Interpretation.States.IThread.PushStackFrame(Method, Boolean&amp;)" offset="33"/>
+<frame value="  at InstructionInterpreter.EnterMethod(Method)" method="InstructionInterpreter.EnterMethod(Method)" offset="183"/>
+<frame value="  at _Special.EnterMethod(Method)" method="_Special.EnterMethod(Method)" offset="6"/>
+<frame value="  at ArrayList.$stub$.ctor(ICollection)" method="ArrayList.$stub$.ctor(ICollection)" offset="0"/>
+<frame value="  at StringExpressionSet.AddExpressions(ArrayList, Boolean)" method="StringExpressionSet.AddExpressions(ArrayList, Boolean)" offset="43"/>
+<frame value="  at FileIOPermission.AddPathList(FileIOPermissionAccess, AccessControlActions, String[], Boolean, Boolean, Boolean)" method="FileIOPermission.AddPathList(FileIOPermissionAccess, AccessControlActions, String[], Boolean, Boolean, Boolean)" offset="128"/>
+<frame value="  at FileIOPermission..ctor(FileIOPermissionAccess, String[], Boolean, Boolean)" method="FileIOPermission..ctor(FileIOPermissionAccess, String[], Boolean, Boolean)" offset="24"/>
+<frame value="  at File.Exists(String)" method="File.Exists(String)" offset="81"/>
+<frame value="  at CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(19)" method="CoinManager..ctor()" offset="5" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="19"><beforeSource><![CDATA[
+        public CoinManager()
+        {]]></beforeSource>
+<source><![CDATA[            Contract.Requires(File.Exists("CoinDatabase.xml"), "PRE: Database file must exist");]]></source>
+<afterSource><![CDATA[            Contract.Ensures(Wallet != null && Wallet.Count() > 0, "POST: Wallet must contain coin types");
+
+            Database = XDocument.Load("CoinDatabase.xml");]]></afterSource>
+</frame>
+<frame value="  at CoinManagerFactory.Create()" method="CoinManagerFactory.Create()" offset="0"/>
+<frame value="  at Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" method="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" offset="-1"/>
+<frame value="  at PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" method="PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" offset="547"/>
+<frame value="  at PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" method="PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" offset="291"/>
+<frame value="  at PexPathDriver.InternalRun(Object)" method="PexPathDriver.InternalRun(Object)" offset="0"/>
+<frame value="  at PexPathDriver.Run(Object)" method="PexPathDriver.Run(Object)" offset="10"/>
+<frame value="  at PexExplorationDriver.InternalExplore()" method="PexExplorationDriver.InternalExplore()" offset="315"/>
+<frame value="  at PexExplorationDriverBase.CheckedExploreInternal()" method="PexExplorationDriverBase.CheckedExploreInternal()" offset="32"/>
+<frame value="  at PexExplorationDriverBase.Execute()" method="PexExplorationDriverBase.Execute()" offset="6"/>
+<frame value="  at PexExplorationDriverBase.Explore()" method="PexExplorationDriverBase.Explore()" offset="456"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" method="PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" offset="123"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteFixture(PexFixture)" method="PexTestFrameworkDriver.ExecuteFixture(PexFixture)" offset="319"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" method="PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" offset="220"/>
+<frame value="  at PexDriver.ExecuteAssembly()" method="PexDriver.ExecuteAssembly()" offset="50"/>
+<frame value="  at PexDriver.ExecuteAll()" method="PexDriver.ExecuteAll()" offset="95"/>
+<frame value="  at PexDriver.ExecuteExplorationProtectedInSeparateStack()" method="PexDriver.ExecuteExplorationProtectedInSeparateStack()" offset="132"/>
+<frame value="  at &lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" method="&lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" offset="0"/>
+<frame value="  at ThreadHelper.ThreadStart_Context(Object)" method="ThreadHelper.ThreadStart_Context(Object)" offset="59"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" offset="142"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" offset="9"/>
+<frame value="  at ThreadHelper.ThreadStart(Object)" method="ThreadHelper.ThreadStart(Object)" offset="50"/>
+</stackTrace>
+</observedCallMismatch>
+<uninstrumented methodDisplayName="System.Int32 System.Array.get_Rank()" declaringTypeDisplayName="System.Array" methodShortDisplayName="Array.get_Rank()" wikiTopic="Uninstrumented Method Called"/>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="could not load symbols for C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll"/>
+<uninstrumented methodDisplayName="System.Void System.Xml.XmlReaderSettings..ctor()" declaringTypeDisplayName="System.Xml.XmlReaderSettings" methodShortDisplayName="XmlReaderSettings..ctor()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Xml.XmlReaderSettings.set_IgnoreWhitespace(System.Boolean value)" declaringTypeDisplayName="System.Xml.XmlReaderSettings" methodShortDisplayName="XmlReaderSettings.set_IgnoreWhitespace(Boolean)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Xml.XmlReaderSettings.set_DtdProcessing(System.Xml.DtdProcessing value)" declaringTypeDisplayName="System.Xml.XmlReaderSettings" methodShortDisplayName="XmlReaderSettings.set_DtdProcessing(DtdProcessing)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Xml.XmlReaderSettings.set_MaxCharactersFromEntities(System.Int64 value)" declaringTypeDisplayName="System.Xml.XmlReaderSettings" methodShortDisplayName="XmlReaderSettings.set_MaxCharactersFromEntities(Int64)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Xml.XmlReaderSettings.set_XmlResolver(System.Xml.XmlResolver value)" declaringTypeDisplayName="System.Xml.XmlReaderSettings" methodShortDisplayName="XmlReaderSettings.set_XmlResolver(XmlResolver)" wikiTopic="Uninstrumented Method Called"/>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="could not load symbols for C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll"/>
+<log level="message" time="2013-04-19 18:34:58Z" category="symbols" message="could not load symbols for C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll"/>
+<uninstrumented methodDisplayName="System.Xml.XmlReader System.Xml.XmlReader.Create(System.String inputUri, System.Xml.XmlReaderSettings settings)" declaringTypeDisplayName="System.Xml.XmlReader" methodShortDisplayName="XmlReader.Create(String, XmlReaderSettings)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Int32 System.Runtime.CompilerServices.RuntimeHelpers.get_OffsetToStringData()" declaringTypeDisplayName="System.Runtime.CompilerServices.RuntimeHelpers" methodShortDisplayName="RuntimeHelpers.get_OffsetToStringData()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Int32 System.IntPtr.get_Size()" declaringTypeDisplayName="System.IntPtr" methodShortDisplayName="IntPtr.get_Size()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Threading.Monitor.Enter(System.Object obj, System.Boolean&amp; lockTaken)" declaringTypeDisplayName="System.Threading.Monitor" methodShortDisplayName="Monitor.Enter(Object, Boolean&amp;)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Threading.Monitor.Exit(System.Object obj)" declaringTypeDisplayName="System.Threading.Monitor" methodShortDisplayName="Monitor.Exit(Object)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented uninstrumentable="true" methodDisplayName="System.Char[] System.Uri.UnescapeString(System.String input, System.Int32 start, System.Int32 end, System.Char[] dest, System.Int32&amp; destPosition, System.Char rsvd1, System.Char rsvd2, System.Char rsvd3, System.Uri+UnescapeMode unescapeMode, System.UriParser syntax, System.Boolean isQuery, System.Boolean readOnlyConfig)" declaringTypeDisplayName="System.Uri" methodShortDisplayName="Uri.UnescapeString(String, Int32, Int32, Char[], Int32&amp;, Char, Char, Char, UnescapeMode, UriParser, Boolean, Boolean)" wikiTopic="Uninstrumentable Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.MarshalByRefObject..ctor()" declaringTypeDisplayName="System.MarshalByRefObject" methodShortDisplayName="MarshalByRefObject..ctor()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented extern="true" methodDisplayName="System.Void System.Buffer.BlockCopy(System.Array src, System.Int32 srcOffset, System.Array dst, System.Int32 dstOffset, System.Int32 count)" declaringTypeDisplayName="System.Buffer" methodShortDisplayName="Buffer.BlockCopy(Array, Int32, Array, Int32, Int32)" wikiTopic="External Method Called"/>
+<uninstrumented uninstrumentable="true" methodDisplayName="System.Char[] System.Uri.UnescapeString(System.Char* pStr, System.Int32 start, System.Int32 end, System.Char[] dest, System.Int32&amp; destPosition, System.Char rsvd1, System.Char rsvd2, System.Char rsvd3, System.Uri+UnescapeMode unescapeMode, System.UriParser syntax, System.Boolean isQuery, System.Boolean readOnlyConfig)" declaringTypeDisplayName="System.Uri" methodShortDisplayName="Uri.UnescapeString(Char*, Int32, Int32, Char[], Int32&amp;, Char, Char, Char, UnescapeMode, UriParser, Boolean, Boolean)" wikiTopic="Uninstrumentable Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Text.EncoderReplacementFallback..ctor(System.String replacement)" declaringTypeDisplayName="System.Text.EncoderReplacementFallback" methodShortDisplayName="EncoderReplacementFallback..ctor(String)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Text.DecoderReplacementFallback..ctor(System.String replacement)" declaringTypeDisplayName="System.Text.DecoderReplacementFallback" methodShortDisplayName="DecoderReplacementFallback..ctor(String)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Text.EncoderFallback System.Text.EncoderFallback.get_ExceptionFallback()" declaringTypeDisplayName="System.Text.EncoderFallback" methodShortDisplayName="EncoderFallback.get_ExceptionFallback()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Text.DecoderFallback System.Text.DecoderFallback.get_ExceptionFallback()" declaringTypeDisplayName="System.Text.DecoderFallback" methodShortDisplayName="DecoderFallback.get_ExceptionFallback()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Globalization.CodePageDataItem System.Globalization.EncodingTable.GetCodePageDataItem(System.Int32 codepage)" declaringTypeDisplayName="System.Globalization.EncodingTable" methodShortDisplayName="EncodingTable.GetCodePageDataItem(Int32)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.String System.Globalization.CodePageDataItem.get_WebName()" declaringTypeDisplayName="System.Globalization.CodePageDataItem" methodShortDisplayName="CodePageDataItem.get_WebName()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Text.Decoder..ctor()" declaringTypeDisplayName="System.Text.Decoder" methodShortDisplayName="Decoder..ctor()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Text.UTF8Encoding+UTF8Decoder.Reset()" declaringTypeDisplayName="System.Text.UTF8Encoding+UTF8Decoder" methodShortDisplayName="UTF8Decoder.Reset()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Xml.ReadState System.Xml.XmlTextReaderImpl.get_ReadState()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.get_ReadState()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Boolean System.Xml.XmlTextReaderImpl.Read()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.Read()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Xml.XmlNodeType System.Xml.XmlTextReaderImpl.get_NodeType()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.get_NodeType()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.String System.Xml.XmlTextReaderImpl.GetAttribute(System.String name)" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.GetAttribute(String)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.String System.Xml.XmlTextReaderImpl.get_NamespaceURI()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.get_NamespaceURI()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Int32 System.String.GetHashCode()" declaringTypeDisplayName="System.String" methodShortDisplayName="String.GetHashCode()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Xml.Linq.XHashtable`1+ExtractKeyDelegate..ctor(System.Object object, System.IntPtr method)" declaringTypeDisplayName="System.Xml.Linq.XHashtable`1+ExtractKeyDelegate" methodShortDisplayName="ExtractKeyDelegate..ctor(Object, IntPtr)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.WeakReference..ctor(System.Object target)" declaringTypeDisplayName="System.WeakReference" methodShortDisplayName="WeakReference..ctor(Object)" wikiTopic="Uninstrumented Method Called"/>
+<staticFieldStore fieldDisplayName="System.Xml.Linq.XNamespace.refNone" declaringTypeDisplayName="System.Xml.Linq.XNamespace" fieldShortDisplayName="refNone" wikiTopic="Value Stored In Static Field"><field><definition assemblyName="System.Xml.Linq" name="refNone" static="true" token="4000005"><declaringType assemblyName="System.Xml.Linq" name="XNamespace" token="2000003" namespace="System.Xml.Linq"/>
+<fieldType spec="Class"><definition assemblyName="mscorlib" name="WeakReference" token="200018e" namespace="System"/>
+</fieldType>
+</definition>
+</field>
+<stackTrace><frame value="  at State.StoreStaticField(Field, Term)" method="State.StoreStaticField(Field, Term)" offset="70"/>
+<frame value="  at IndirectStorer.VisitPointerToStaticField(TermBuilder, Term, Field)" method="IndirectStorer.VisitPointerToStaticField(TermBuilder, Term, Field)" offset="19"/>
+<frame value="  at PointerToStaticField.Visit(ITermVisitor`2&lt;!!0,!!1&gt;, !!1)" method="PointerToStaticField.Visit(ITermVisitor`2&lt;!!0,!!1&gt;, !!1)" offset="0"/>
+<frame value="  at TermManagerBase.VisitTerm(ITermVisitor`2&lt;!!0,!!1&gt;, !!1, Term)" method="TermManagerBase.VisitTerm(ITermVisitor`2&lt;!!0,!!1&gt;, !!1, Term)" offset="0"/>
+<frame value="  at TermVisitorBase`2.VisitTerm(!1, Term)" method="TermVisitorBase`2.VisitTerm(!1, Term)" offset="0"/>
+<frame value="  at State.PrivateStore(Layout, Term, TermBuilder)" method="State.PrivateStore(Layout, Term, TermBuilder)" offset="77"/>
+<frame value="  at State.Store(Layout, Term, Term)" method="State.Store(Layout, Term, Term)" offset="20"/>
+<frame value="  at InstructionInterpreter.S_Interlocked_CompareExchange(Layout)" method="InstructionInterpreter.S_Interlocked_CompareExchange(Layout)" offset="122"/>
+<frame value="  at Interlocked.CompareExchange(!!0&amp;, !!0, !!0)" method="Interlocked.CompareExchange(!!0&amp;, !!0, !!0)" offset="6"/>
+<frame value="  at XNamespace.EnsureNamespace(WeakReference&amp;, String)" method="XNamespace.EnsureNamespace(WeakReference&amp;, String)" offset="42"/>
+<frame value="  at XNamespace.get_None()" method="XNamespace.get_None()" offset="10"/>
+<frame value="  at XNamespace.Get(String, Int32, Int32)" method="XNamespace.Get(String, Int32, Int32)" offset="3"/>
+<frame value="  at XNamespace.Get(String)" method="XNamespace.Get(String)" offset="22"/>
+<frame value="  at NamespaceCache.Get(String)" method="NamespaceCache.Get(String)" offset="25"/>
+<frame value="  at XContainer.ReadContentFrom(XmlReader)" method="XContainer.ReadContentFrom(XmlReader)" offset="137"/>
+<frame value="  at XContainer.ReadContentFrom(XmlReader, LoadOptions)" method="XContainer.ReadContentFrom(XmlReader, LoadOptions)" offset="7"/>
+<frame value="  at XDocument.Load(XmlReader, LoadOptions)" method="XDocument.Load(XmlReader, LoadOptions)" offset="131"/>
+<frame value="  at XDocument.Load(String, LoadOptions)" method="XDocument.Load(String, LoadOptions)" offset="17"/>
+<frame value="  at XDocument.Load(String)" method="XDocument.Load(String)" offset="2"/>
+<frame value="  at CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs(22)" method="CoinManager..ctor()" offset="40" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" line="22"><beforeSource><![CDATA[            Contract.Requires(File.Exists("CoinDatabase.xml"), "PRE: Database file must exist");
+            Contract.Ensures(Wallet != null && Wallet.Count() > 0, "POST: Wallet must contain coin types");
+]]></beforeSource>
+<source><![CDATA[            Database = XDocument.Load("CoinDatabase.xml");]]></source>
+<afterSource><![CDATA[            Wallet = Database.Descendants("Coin");
+        }
+]]></afterSource>
+</frame>
+<frame value="  at CoinManagerFactory.Create()" method="CoinManagerFactory.Create()" offset="0"/>
+<frame value="  at Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" method="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.CoinManagerFactory.Create(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" offset="-1"/>
+<frame value="  at PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" method="PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" offset="547"/>
+<frame value="  at PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" method="PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" offset="291"/>
+<frame value="  at PexPathDriver.InternalRun(Object)" method="PexPathDriver.InternalRun(Object)" offset="0"/>
+<frame value="  at PexPathDriver.Run(Object)" method="PexPathDriver.Run(Object)" offset="10"/>
+<frame value="  at PexExplorationDriver.InternalExplore()" method="PexExplorationDriver.InternalExplore()" offset="315"/>
+<frame value="  at PexExplorationDriverBase.CheckedExploreInternal()" method="PexExplorationDriverBase.CheckedExploreInternal()" offset="32"/>
+<frame value="  at PexExplorationDriverBase.Execute()" method="PexExplorationDriverBase.Execute()" offset="6"/>
+<frame value="  at PexExplorationDriverBase.Explore()" method="PexExplorationDriverBase.Explore()" offset="456"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" method="PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" offset="123"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteFixture(PexFixture)" method="PexTestFrameworkDriver.ExecuteFixture(PexFixture)" offset="319"/>
+<frame value="  at PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" method="PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" offset="220"/>
+<frame value="  at PexDriver.ExecuteAssembly()" method="PexDriver.ExecuteAssembly()" offset="50"/>
+<frame value="  at PexDriver.ExecuteAll()" method="PexDriver.ExecuteAll()" offset="95"/>
+<frame value="  at PexDriver.ExecuteExplorationProtectedInSeparateStack()" method="PexDriver.ExecuteExplorationProtectedInSeparateStack()" offset="132"/>
+<frame value="  at &lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" method="&lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" offset="0"/>
+<frame value="  at ThreadHelper.ThreadStart_Context(Object)" method="ThreadHelper.ThreadStart_Context(Object)" offset="59"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" offset="142"/>
+<frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" offset="9"/>
+<frame value="  at ThreadHelper.ThreadStart(Object)" method="ThreadHelper.ThreadStart(Object)" offset="50"/>
+</stackTrace>
+</staticFieldStore>
+<uninstrumented methodDisplayName="System.Object System.WeakReference.get_Target()" declaringTypeDisplayName="System.WeakReference" methodShortDisplayName="WeakReference.get_Target()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.String System.Xml.XmlTextReaderImpl.get_LocalName()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.get_LocalName()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.String __StringHelper.Uninstrumented.OriginalSubstring(System.String receiver, System.Int32 startIndex, System.Int32 length)" declaringTypeDisplayName="__StringHelper.Uninstrumented" methodShortDisplayName="Uninstrumented.OriginalSubstring(String, Int32, Int32)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.String System.Xml.XmlConvert.VerifyNCName(System.String name)" declaringTypeDisplayName="System.Xml.XmlConvert" methodShortDisplayName="XmlConvert.VerifyNCName(String)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Threading.Thread.MemoryBarrier()" declaringTypeDisplayName="System.Threading.Thread" methodShortDisplayName="Thread.MemoryBarrier()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="!0 System.Xml.Linq.XHashtable`1.Add(!0 value)" declaringTypeDisplayName="System.Xml.Linq.XHashtable`1" methodShortDisplayName="XHashtable`1.Add(!0)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Boolean System.Xml.XmlTextReaderImpl.MoveToFirstAttribute()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.MoveToFirstAttribute()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Boolean System.Xml.XmlTextReaderImpl.get_IsEmptyElement()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.get_IsEmptyElement()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.String System.Xml.XmlTextReaderImpl.get_Value()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.get_Value()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Int32 __StringHelper.Uninstrumented.OriginalCompare(System.String strA, System.Int32 indexA, System.String strB, System.Int32 indexB, System.Int32 length)" declaringTypeDisplayName="__StringHelper.Uninstrumented" methodShortDisplayName="Uninstrumented.OriginalCompare(String, Int32, String, Int32, Int32)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Boolean System.Xml.XmlTextReaderImpl.get_EOF()" declaringTypeDisplayName="System.Xml.XmlTextReaderImpl" methodShortDisplayName="XmlTextReaderImpl.get_EOF()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Xml.Linq.XDocument System.Xml.Linq.XDocument.Load(System.Xml.XmlReader reader, System.Xml.Linq.LoadOptions options)" declaringTypeDisplayName="System.Xml.Linq.XDocument" methodShortDisplayName="XDocument.Load(XmlReader, LoadOptions)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.Xml.XmlReader.Dispose()" declaringTypeDisplayName="System.Xml.XmlReader" methodShortDisplayName="XmlReader.Dispose()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Void System.GC.SuppressFinalize(System.Object obj)" declaringTypeDisplayName="System.GC" methodShortDisplayName="GC.SuppressFinalize(Object)" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Threading.Thread System.Threading.Thread.get_CurrentThread()" declaringTypeDisplayName="System.Threading.Thread" methodShortDisplayName="Thread.get_CurrentThread()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Int32 System.Threading.Thread.get_ManagedThreadId()" declaringTypeDisplayName="System.Threading.Thread" methodShortDisplayName="Thread.get_ManagedThreadId()" wikiTopic="Uninstrumented Method Called"/>
+<uninstrumented methodDisplayName="System.Exception Microsoft.Pex.Framework.PexAssume+SafeFailer.CreateFail()" declaringTypeDisplayName="Microsoft.Pex.Framework.PexAssume+SafeFailer" methodShortDisplayName="SafeFailer.CreateFail()" wikiTopic="Uninstrumented Method Called"/>
+<log level="error" time="2013-04-19 18:35:00Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to rollback"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Rollback(IPexPathComponent)" method="Context.Rollback(IPexPathComponent)" offset="17"/>
+<frame value="  at PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" method="PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<log level="error" time="2013-04-19 18:35:00Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to open"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Open()" method="Context.Open()" offset="17"/>
+<frame value="  at PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" method="PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<uninstrumented methodDisplayName="System.Exception Microsoft.Pex.Framework.PexAssume+SafeFailer.CreateFail(System.String message)" declaringTypeDisplayName="Microsoft.Pex.Framework.PexAssume+SafeFailer" methodShortDisplayName="SafeFailer.CreateFail(String)" wikiTopic="Uninstrumented Method Called"/>
+<log level="error" time="2013-04-19 18:35:00Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to rollback"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Rollback(IPexPathComponent)" method="Context.Rollback(IPexPathComponent)" offset="17"/>
+<frame value="  at PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" method="PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<log level="error" time="2013-04-19 18:35:00Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to open"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Open()" method="Context.Open()" offset="17"/>
+<frame value="  at PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" method="PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<log level="error" time="2013-04-19 18:35:00Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to rollback"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Rollback(IPexPathComponent)" method="Context.Rollback(IPexPathComponent)" offset="17"/>
+<frame value="  at PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" method="PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<log level="error" time="2013-04-19 18:35:00Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to open"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Open()" method="Context.Open()" offset="17"/>
+<frame value="  at PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" method="PexRuntimeContextManager.OpenContext(IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<log level="error" time="2013-04-19 18:35:00Z" wikiTopic="Missing Wiki Topic" category="execution" message="runtime context Microsoft.Pex.Engine.Libraries.MicrosoftVisualBasicLibrary+ProjectErrorRuntimeContextAttribute+Context failed to rollback"><exceptionChain><exception typeDisplayName="InvalidProgramException" source="Microsoft.VisualBasic"><message><![CDATA[Common Language Runtime detected an invalid program.]]></message>
+<type spec="Class"><definition assemblyName="mscorlib" name="InvalidProgramException" token="2000104" namespace="System"/>
+</type>
+<stackTrace><frame value="  at ProjectData..ctor()" method="ProjectData..ctor()" offset="-1"/>
+<frame value="  at ProjectData.GetProjectData()" method="ProjectData.GetProjectData()" offset="0"/>
+<frame value="  at Information.Err()" method="Information.Err()" offset="0"/>
+<frame value="  at ProjectData.ClearProjectError()" method="ProjectData.ClearProjectError()" offset="0"/>
+<frame value="  at Context.Rollback(IPexPathComponent)" method="Context.Rollback(IPexPathComponent)" offset="17"/>
+<frame value="  at PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" method="PexRuntimeContextManager.RollbackContext(SafeList`1&lt;IPexRuntimeContextRollback&gt;, IPexPathComponent, IPexRuntimeContext)" offset="0"/>
+</stackTrace>
+</exception>
+</exceptionChain>
+</log>
+<imprecision wikiTopic="Imprecisions At Method" offset="00001" methodDisplayName="System.Void Microsoft.Pex.Framework.PexAssume.IsTrue(System.Boolean condition)" declaringTypeDisplayName="Microsoft.Pex.Framework.PexAssume" methodShortDisplayName="PexAssume.IsTrue(Boolean)"/>
+<log level="warning" time="2013-04-19 18:35:00Z" wikiTopic="Missing Wiki Topic" category="explorables" message="invalid solution minimization: some provided objects were not used in the solution"/>
+<log level="warning" time="2013-04-19 18:35:01Z" wikiTopic="Missing Wiki Topic" category="execution" message="could not generate any test in 5 runs"/>
+<coverage domain="usercodeundertest" unit="block" covered="0" total="16" coveredRatio="0"/>
+<coverage domain="usercodeundertest" unit="asserts" covered="1" total="1" coveredRatio="1"/>
+<sourceCoverage xml="cov\e344\cov.xml" html="cov\e344\cov.html"/>
+<explorable title="could not create an instance of VendingMachine.Stock.CoinManager" kind="unexplorableclass"><explorableType spec="Class"><definition assemblyName="VendingMachine" name="CoinManager" token="2000005" namespace="VendingMachine.Stock"/>
+</explorableType>
+<testAssemblyName name="VendingMachine.Tests"/>
+</explorable>
+<result name="EjectCoin(CoinManager, Coin, Int32, LinkedList`1&lt;Coin&gt;)" state="failed" duration="3.64902541158556"/>
+<duration start="2013-04-19 18:34:58Z" end="2013-04-19 18:35:01Z" seconds="3.6612094"/>
+</exploration>
+<coverage domain="usercodeundertest" unit="block" covered="0" total="16" coveredRatio="0"/>
+<coverage domain="usercodeundertest" unit="asserts" covered="1" total="1" coveredRatio="1"/>
+<sourceCoverage xml="cov\t631\cov.xml" html="cov\t631\cov.html"/>
+<duration start="2013-04-19 18:34:58Z" end="2013-04-19 18:35:01Z" seconds="3.6782103"/>
+</fixture>
+<coverage domain="usercodeundertest" unit="block" covered="0" total="16" coveredRatio="0"/>
+<coverage domain="usercodeundertest" unit="asserts" covered="1" total="1" coveredRatio="1"/>
+<sourceCoverage xml="cov\a51360074\cov.xml" html="cov\a51360074\cov.html"/>
+<duration start="2013-04-19 18:34:58Z" end="2013-04-19 18:35:01Z" seconds="3.7952171"/>
+</assembly>
+<duration start="2013-04-19 18:34:57Z" end="2013-04-19 18:35:01Z" seconds="4.0632325"/>
+<background/>
+</pex>

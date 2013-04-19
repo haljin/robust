@@ -1,0 +1,993 @@
+﻿<documents created="2013-04-19 18:37:48Z"><document src="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs" renderPrefix="s0"><chunk hits="-1" domain="unknown"><source><![CDATA[using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Diagnostics.Contracts;
+using System.Xml.Linq;
+using VendingMachine.Data;
+
+namespace VendingMachine.Stock
+{
+    class CoinManager
+    {
+        XDocument Database { get; set; }
+        public IEnumerable<XElement> Wallet { get; set; }
+
+        ]]></source>
+</chunk>
+<chunk hits="0" offset="001a" domain="usercodeundertest"><source><![CDATA[public CoinManager()]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="0" offset="0021" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<method name=".ctor" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager" typeName="CoinManager" token="6000007" module="VendingMachine.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="0" total="16" coveredRatio="0"/>
+<coverage domain="usercodeundertest" unit="asserts" covered="1" total="1" coveredRatio="1"/>
+</method>
+<chunk hits="0" offset="0000" domain="usercodeundertest"><source><![CDATA[Contract.Requires(File.Exists("CoinDatabase.xml"), "PRE: Database file must exist");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0055" domain="usercodeundertest"><source><![CDATA[Contract.Ensures(Wallet != null && Wallet.Count() > 0, "POST: Wallet must contain coin types");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0022" domain="usercodeundertest"><source><![CDATA[Database = XDocument.Load("CoinDatabase.xml");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="0" offset="0033" domain="usercodeundertest"><source><![CDATA[Wallet = Database.Descendants("Coin");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="0" offset="004f" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+
+        public bool CheckChange(decimal price, decimal inserted)
+        {
+            //Contract.Requires(inserted >= price, "PRE: User must have insterted more money than the price of the product");
+            Contract.Requires(Wallet != null);
+            if (inserted <= price)
+                return true;
+
+            decimal change = inserted - price;
+
+            Coin currCoin = Coin.Kr20;
+            while (change > 0 && currCoin >= Coin.Ore50)
+            {
+                decimal value = currCoin.ToValue();
+                int coinAmmount = (int)Wallet.Where(c => (decimal)c.Element("Type") == value).Select(c => c.Element("Ammount")).Single();
+
+                int needed = (int)(change / value);
+                if (needed > coinAmmount)
+                    change -= coinAmmount * value;
+                else
+                    change -= needed * value;
+                currCoin--;
+
+            }
+            if (change == 0)
+                return true;
+
+            return false;
+        }
+
+        public void GiveChange(decimal price, decimal inserted, LinkedList<Coin> coinCase)
+        {
+            Contract.Requires(inserted >= price, "PRE: User must have insterted more money than the price of the product");
+            Contract.Requires(price >= 0 && inserted >= 0);
+            Contract.Requires(Wallet != null);
+            Contract.Requires(coinCase != null);
+
+            decimal change = inserted - price;
+
+            Coin currCoin = Coin.Kr20;
+            while (change > 0 && currCoin >= Coin.Ore50)
+            {
+                decimal value = currCoin.ToValue();
+                int coinAmmount = (int)Wallet.Where(c => (decimal)c.Element("Type") == value).Select(c => c.Element("Ammount")).Single();
+
+                int needed = (int)(change / value);
+                if (needed > coinAmmount)
+                {
+                    change -= coinAmmount * value;
+                    EjectCoin(currCoin, coinAmmount, coinCase);
+                }
+                else
+                {
+                    change -= needed * value;
+                    EjectCoin(currCoin, needed, coinCase);
+                }
+                currCoin--;
+            }  
+        }
+
+        public void EjectCoin(Coin coin, int ammount, LinkedList<Coin> coinCase)
+        ]]></source>
+</chunk>
+<method name="EjectCoin" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager" typeName="CoinManager" token="600000a" module="VendingMachine.exe"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="5" value="1"/>
+<hit index="6" value="1"/>
+<hit index="7" value="1"/>
+<hit index="8" value="1"/>
+<hit index="9" value="1"/>
+<hit index="10" value="1"/>
+<hit index="11" value="1"/>
+<hit index="12" value="1"/>
+<hit index="13" value="1"/>
+<hit index="15" value="1"/>
+<hit index="16" value="1"/>
+<hit index="17" value="1"/>
+<hit index="18" value="1"/>
+<hit index="19" value="1"/>
+<hit index="21" value="1"/>
+<hit index="22" value="1"/>
+<hit index="23" value="1"/>
+<hit index="24" value="1"/>
+<hit index="25" value="1"/>
+<hit index="26" value="1"/>
+<hit index="27" value="1"/>
+<hit index="28" value="1"/>
+<hit index="29" value="1"/>
+<hit index="31" value="1"/>
+<hit index="33" value="1"/>
+<hit index="34" value="1"/>
+<hit index="35" value="1"/>
+<hit index="36" value="1"/>
+<hit index="37" value="1"/>
+<hit index="51" value="1"/>
+<hit index="52" value="1"/>
+<hit index="53" value="1"/>
+<hit index="55" value="1"/>
+<hit index="56" value="1"/>
+<hit index="57" value="1"/>
+<hit index="58" value="1"/>
+<hit index="59" value="1"/>
+<hit index="60" value="1"/>
+<hit index="61" value="1"/>
+<hit index="62" value="1"/>
+<hit index="63" value="1"/>
+<hit index="64" value="1"/>
+<hit index="65" value="2"/>
+<hit index="66" value="1"/>
+<hit index="67" value="1"/>
+<hit index="78" value="1"/>
+<hit index="80" value="1"/>
+<hit index="81" value="1"/>
+<hit index="82" value="1"/>
+<hit index="83" value="1"/>
+<hit index="84" value="1"/>
+<hit index="85" value="1"/>
+<hit index="87" value="1"/>
+<hit index="88" value="1"/>
+<hit index="89" value="1"/>
+<hit index="90" value="1"/>
+<hit index="91" value="1"/>
+<hit index="92" value="1"/>
+<hit index="93" value="1"/>
+<hit index="94" value="1"/>
+<hit index="95" value="1"/>
+<hit index="96" value="1"/>
+<hit index="97" value="2"/>
+<hit index="98" value="1"/>
+<hit index="99" value="1"/>
+<hit index="100" value="1"/>
+<hit index="101" value="1"/>
+<hit index="102" value="1"/>
+<hit index="103" value="2"/>
+<hit index="104" value="1"/>
+<hit index="105" value="1"/>
+<hit index="106" value="1"/>
+<hit index="107" value="1"/>
+<hit index="108" value="1"/>
+<hit index="109" value="1"/>
+<hit index="110" value="1"/>
+<hit index="111" value="2"/>
+<hit index="117" value="1"/>
+<hit index="118" value="1"/>
+<hit index="119" value="1"/>
+<hit index="120" value="1"/>
+<hit index="121" value="1"/>
+<hit index="122" value="1"/>
+<hit index="123" value="2"/>
+<hit index="124" value="1"/>
+<hit index="125" value="1"/>
+<hit index="127" value="1"/>
+<hit index="128" value="1"/>
+<hit index="129" value="1"/>
+<hit index="130" value="1"/>
+<hit index="131" value="1"/>
+<hit index="132" value="1"/>
+<hit index="133" value="1"/>
+<hit index="134" value="1"/>
+<hit index="135" value="1"/>
+<hit index="136" value="1"/>
+<hit index="138" value="1"/>
+<hit index="139" value="1"/>
+<hit index="140" value="1"/>
+<hit index="141" value="1"/>
+<hit index="142" value="1"/>
+<hit index="143" value="1"/>
+<hit index="144" value="1"/>
+<hit index="145" value="1"/>
+<hit index="146" value="1"/>
+<hit index="147" value="1"/>
+<hit index="148" value="2"/>
+<hit index="149" value="1"/>
+<hit index="150" value="1"/>
+<hit index="151" value="1"/>
+<hit index="152" value="1"/>
+<hit index="160" value="1"/>
+</hits>
+<tags><tag offset="005b">call to external method Func`2..ctor(Object, IntPtr)</tag>
+<tag offset="0076">call to external method Func`2..ctor(Object, IntPtr)</tag>
+<tag offset="00c5">call to external method Func`2..ctor(Object, IntPtr)</tag>
+</tags>
+<coverage domain="usercodeundertest" unit="block" covered="54" total="71" coveredRatio="0.76056338028169013"/>
+<coverage domain="usercodeundertest" unit="asserts" covered="2" total="2" coveredRatio="1"/>
+</method>
+<chunk hits="2" offset="000f" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0027" domain="usercodeundertest"><source><![CDATA[Contract.Requires(coinCase != null);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="003a" domain="usercodeundertest"><source><![CDATA[Contract.Requires(ammount >= 0);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="004d" domain="usercodeundertest" tag="true"><tooltip><![CDATA[call to external method Func`2..ctor(Object, IntPtr)]]></tooltip>
+<source><![CDATA[Contract.Requires(Wallet.Where(c => ]]></source>
+</chunk>
+<method name="&lt;EjectCoin&gt;b__a" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" typeName="CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" token="600006e" module="VendingMachine.exe"><hits><hit index="0" value="6"/>
+<hit index="1" value="6"/>
+<hit index="2" value="6"/>
+<hit index="3" value="6"/>
+<hit index="4" value="6"/>
+<hit index="5" value="6"/>
+<hit index="6" value="12"/>
+<hit index="7" value="6"/>
+<hit index="8" value="6"/>
+<hit index="9" value="6"/>
+<hit index="10" value="6"/>
+<hit index="11" value="6"/>
+<hit index="12" value="6"/>
+<hit index="13" value="6"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="6" total="6" coveredRatio="1"/>
+</method>
+<chunk hits="6" offset="0000" domain="usercodeundertest"><source><![CDATA[(decimal)c.Element("Type") == coin.ToValue()]]></source>
+</chunk>
+<chunk hits="1" offset="004d" domain="usercodeundertest"><source><![CDATA[).Select(c => ]]></source>
+</chunk>
+<method name="CoinManager_&lt;EjectCoin&gt;b__b_0" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager" typeName="CoinManager" token="600000f" module="VendingMachine.exe"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="5" value="1"/>
+<hit index="6" value="2"/>
+<hit index="7" value="1"/>
+<hit index="8" value="1"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="4" total="4" coveredRatio="1"/>
+</method>
+<chunk hits="1" offset="0000" domain="usercodeundertest"><source><![CDATA[(int)c.Element("Ammount")]]></source>
+</chunk>
+<chunk hits="1" offset="004d" domain="usercodeundertest"><source><![CDATA[).Single() >= ammount,
+                    "PRE: There must be enough of coins of given type to eject");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0217" domain="usercodeundertest"><source><![CDATA[Contract.Ensures(Contract.OldValue(coinCase.Where(c => ]]></source>
+</chunk>
+<method name="&lt;EjectCoin&gt;b__c" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" typeName="CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" token="600006f" module="VendingMachine.exe"><hits><hit index="0" value="3"/>
+<hit index="1" value="3"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<chunk hits="3" offset="0000" domain="usercodeundertest"><source><![CDATA[c == coin]]></source>
+</chunk>
+<chunk hits="1" offset="0217" domain="usercodeundertest"><source><![CDATA[).Count()) + ammount == coinCase.Where(c => ]]></source>
+</chunk>
+<method name="&lt;EjectCoin&gt;b__d" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" typeName="CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" token="6000070" module="VendingMachine.exe"><hits><hit index="0" value="3"/>
+<hit index="1" value="3"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<chunk hits="3" offset="0000" domain="usercodeundertest"><source><![CDATA[c == coin]]></source>
+</chunk>
+<chunk hits="1" offset="0217" domain="usercodeundertest"><source><![CDATA[).Count(),
+                    "POST: The ejected coins must be in the case");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0246" domain="usercodeundertest"><source><![CDATA[Contract.Ensures(Contract.OldValue((int)Wallet.Where(c => ]]></source>
+</chunk>
+<method name="&lt;EjectCoin&gt;b__e" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" typeName="CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" token="6000071" module="VendingMachine.exe"><hits><hit index="0" value="6"/>
+<hit index="1" value="6"/>
+<hit index="2" value="6"/>
+<hit index="3" value="6"/>
+<hit index="4" value="6"/>
+<hit index="5" value="6"/>
+<hit index="6" value="12"/>
+<hit index="7" value="6"/>
+<hit index="8" value="6"/>
+<hit index="9" value="6"/>
+<hit index="10" value="6"/>
+<hit index="11" value="6"/>
+<hit index="12" value="6"/>
+<hit index="13" value="6"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="6" total="6" coveredRatio="1"/>
+</method>
+<chunk hits="6" offset="0000" domain="usercodeundertest"><source><![CDATA[(decimal)c.Element("Type") == coin.ToValue()]]></source>
+</chunk>
+<chunk hits="1" offset="0246" domain="usercodeundertest"><source><![CDATA[).Single().Element("Ammount")) - ammount ==
+                   (int)Wallet.Where(c => ]]></source>
+</chunk>
+<method name="&lt;EjectCoin&gt;b__f" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" typeName="CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" token="6000072" module="VendingMachine.exe"><hits><hit index="0" value="6"/>
+<hit index="1" value="6"/>
+<hit index="2" value="6"/>
+<hit index="3" value="6"/>
+<hit index="4" value="6"/>
+<hit index="5" value="6"/>
+<hit index="6" value="12"/>
+<hit index="7" value="6"/>
+<hit index="8" value="6"/>
+<hit index="9" value="6"/>
+<hit index="10" value="6"/>
+<hit index="11" value="6"/>
+<hit index="12" value="6"/>
+<hit index="13" value="6"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="6" total="6" coveredRatio="1"/>
+</method>
+<chunk hits="6" offset="0000" domain="usercodeundertest"><source><![CDATA[(decimal)c.Element("Type") == coin.ToValue()]]></source>
+</chunk>
+<chunk hits="1" offset="0246" domain="usercodeundertest"><source><![CDATA[).Single().Element("Ammount"));]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            
+            ]]></source>
+</chunk>
+<chunk hits="2" offset="0175" domain="usercodeundertest"><source><![CDATA[XElement soughtCoin = Wallet.Where(c => ]]></source>
+</chunk>
+<method name="&lt;EjectCoin&gt;b__10" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManager+&lt;&gt;c__DisplayClass12" typeName="CoinManager+&lt;&gt;c__DisplayClass12" token="6000066" module="VendingMachine.exe"><hits><hit index="0" value="6"/>
+<hit index="1" value="6"/>
+<hit index="2" value="6"/>
+<hit index="3" value="6"/>
+<hit index="4" value="6"/>
+<hit index="5" value="6"/>
+<hit index="6" value="12"/>
+<hit index="7" value="6"/>
+<hit index="8" value="6"/>
+<hit index="9" value="6"/>
+<hit index="10" value="6"/>
+<hit index="11" value="6"/>
+<hit index="12" value="6"/>
+<hit index="13" value="6"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="6" total="6" coveredRatio="1"/>
+</method>
+<chunk hits="6" offset="0000" domain="usercodeundertest"><source><![CDATA[(decimal)c.Element("Type") == coin.ToValue()]]></source>
+</chunk>
+<chunk hits="2" offset="0175" domain="usercodeundertest"><source><![CDATA[).Single();]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0192" domain="usercodeundertest"><source><![CDATA[soughtCoin.Element("Ammount").Value = ((int)soughtCoin.Element("Ammount") - ammount).ToString();]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            for (]]></source>
+</chunk>
+<chunk hits="3" offset="01c7" domain="usercodeundertest"><source><![CDATA[int i = 0;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[ ]]></source>
+</chunk>
+<chunk hits="3" offset="01df" domain="usercodeundertest"><source><![CDATA[i < ammount]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[; ]]></source>
+</chunk>
+<chunk hits="0" offset="01db" domain="usercodeundertest"><source><![CDATA[++i]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[)
+                ]]></source>
+</chunk>
+<chunk hits="0" offset="01ce" domain="usercodeundertest"><source><![CDATA[coinCase.AddLast(coin);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+             ]]></source>
+</chunk>
+<chunk hits="1" offset="01e9" domain="usercodeundertest"><source><![CDATA[Database.Save("CoinDatabase.xml");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="3" offset="01fa" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+        public void AddCoin(Coin coin, int ammount)
+        {
+            Contract.Requires(ammount > 0);
+            Contract.Requires(Contract.Exists(Wallet, el => (decimal)el.Element("Type") == coin.ToValue()),
+                "PRE: The coin type must exist in the wallet");
+            Contract.Ensures(ammount <= (int)Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Single().Element("Ammount"));
+            Contract.Ensures(Contract.OldValue((int)Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Single().Element("Ammount")) + ammount ==
+                    (int)Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Single().Element("Ammount"));
+
+
+            XElement soughtCoin = Wallet.Where(c => (decimal)c.Element("Type") == coin.ToValue()).Single();
+            soughtCoin.Element("Ammount").Value = ((int)soughtCoin.Element("Ammount") + ammount).ToString();
+
+            Database.Save("CoinDatabase.xml");
+        }
+
+    }
+}
+]]></source>
+</chunk>
+</document>
+<document src="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\CoinManagerTest.cs" renderPrefix="s1"><chunk hits="-1" domain="unknown"><source><![CDATA[using Microsoft.Pex.Framework;
+using Microsoft.Pex.Framework.Validation;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using VendingMachine.Data;
+// <copyright file="CoinManagerTest.cs">Copyright �  2013</copyright>
+
+namespace VendingMachine.Stock
+{
+    /// <summary>This class contains parameterized unit tests for CoinManager</summary>
+    [PexClass(typeof(global::VendingMachine.Stock.CoinManager))]
+    [PexAllowedExceptionFromTypeUnderTest(typeof(global::System.InvalidOperationException))]
+    [PexAllowedExceptionFromTypeUnderTest(typeof(global::System.ArgumentException), AcceptExceptionSubtypes = true)]
+    [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
+    public partial class CoinManagerTest
+    {
+        /// <summary>Test stub for AddCoin(Coin, Int32)</summary>
+        [PexMethod(MaxConditions = 2000)]
+        internal void AddCoin(
+            [PexAssumeUnderTest]CoinManager target,
+            Coin coin,
+            int ammount
+        )
+        {
+
+            PexAssume.IsTrue(5 >= (int)coin && 0 <= (int) coin, "proper coin");
+            target.AddCoin(coin, ammount);
+        }
+
+        /// <summary>Test stub for EjectCoin(Coin, Int32, LinkedList`1&lt;Coin&gt;)</summary>
+        [PexMethod(MaxConditions = 3000)]
+        internal void EjectCoin(
+            [PexAssumeUnderTest]CoinManager target,
+            Coin coin,
+            int ammount,
+            LinkedList<global::VendingMachine.Data.Coin> coinCase
+        )
+        ]]></source>
+</chunk>
+<method name="EjectCoin" namespace="VendingMachine.Stock" type="VendingMachine.Stock.CoinManagerTest" typeName="CoinManagerTest" token="6000009" module="VendingMachine.Tests.dll"><hits><hit index="0" value="1"/>
+<hit index="1" value="1"/>
+<hit index="2" value="1"/>
+<hit index="3" value="1"/>
+<hit index="4" value="1"/>
+<hit index="5" value="1"/>
+<hit index="6" value="1"/>
+<hit index="7" value="2"/>
+<hit index="10" value="1"/>
+</hits>
+<coverage domain="userortestcode" unit="block" covered="4" total="5" coveredRatio="0.8"/>
+</method>
+<chunk hits="1" offset="0000" domain="userortestcode"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0001" domain="userortestcode"><source><![CDATA[PexAssume.IsTrue(5 >= (int)coin && 0 <= (int)coin, "proper coin");]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="1" offset="0020" domain="userortestcode"><source><![CDATA[target.EjectCoin(coin, ammount, coinCase);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        ]]></source>
+</chunk>
+<chunk hits="3" offset="002b" domain="userortestcode"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+
+    }
+}
+]]></source>
+</chunk>
+</document>
+<document src="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Data\Coin.cs" renderPrefix="s2"><chunk hits="-1" domain="unknown"><source><![CDATA[using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Linq;
+using System.Text;
+
+namespace VendingMachine.Data
+{
+    public enum Coin
+    {
+        Ore50, Kr1, Kr2, Kr5, Kr10, Kr20
+    }
+
+    public static class CoinExtensions
+    {
+        public static decimal ToValue(this Coin coin)
+        ]]></source>
+</chunk>
+<chunk hits="24" offset="0020" domain="usercodeundertest"><source><![CDATA[{]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<method name="ToValue" namespace="VendingMachine.Data" type="VendingMachine.Data.CoinExtensions" typeName="CoinExtensions" token="6000002" module="VendingMachine.exe"><hits><hit index="0" value="24"/>
+<hit index="1" value="24"/>
+<hit index="2" value="24"/>
+<hit index="3" value="24"/>
+<hit index="5" value="24"/>
+<hit index="7" value="24"/>
+<hit index="8" value="24"/>
+<hit index="10" value="24"/>
+<hit index="26" value="24"/>
+<hit index="27" value="24"/>
+<hit index="29" value="24"/>
+<hit index="30" value="24"/>
+<hit index="31" value="24"/>
+<hit index="32" value="24"/>
+<hit index="33" value="24"/>
+<hit index="37" value="24"/>
+<hit index="38" value="24"/>
+</hits>
+<coverage domain="usercodeundertest" unit="block" covered="12" total="23" coveredRatio="0.52173913043478259"/>
+<coverage domain="usercodeundertest" unit="asserts" covered="1" total="1" coveredRatio="1"/>
+</method>
+<chunk hits="24" offset="0000" domain="usercodeundertest"><source><![CDATA[Contract.Requires(coin <= Coin.Kr20 && coin>=Coin.Ore50);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="24" offset="00be" domain="usercodeundertest"><source><![CDATA[Contract.Ensures(Contract.Result<decimal>() > 0);]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            ]]></source>
+</chunk>
+<chunk hits="24" offset="0021" domain="usercodeundertest"><source><![CDATA[switch (coin)]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            {
+                case Coin.Ore50:
+                    ]]></source>
+</chunk>
+<chunk hits="24" offset="0046" domain="usercodeundertest"><source><![CDATA[return 0.5m;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                case Coin.Kr1:
+                    ]]></source>
+</chunk>
+<chunk hits="24" offset="0056" domain="usercodeundertest"><source><![CDATA[return 1;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                case Coin.Kr2:
+                    ]]></source>
+</chunk>
+<chunk hits="0" offset="0062" domain="usercodeundertest"><source><![CDATA[return 2;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                case Coin.Kr5:
+                    ]]></source>
+</chunk>
+<chunk hits="0" offset="006e" domain="usercodeundertest"><source><![CDATA[return 5;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                case Coin.Kr10:
+                    ]]></source>
+</chunk>
+<chunk hits="0" offset="007a" domain="usercodeundertest"><source><![CDATA[return 10;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                case Coin.Kr20:
+                    ]]></source>
+</chunk>
+<chunk hits="0" offset="0087" domain="usercodeundertest"><source><![CDATA[return 20;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+                default:
+                    ]]></source>
+</chunk>
+<chunk hits="0" offset="0094" domain="usercodeundertest"><source><![CDATA[return 0;]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+            }
+            
+            
+        ]]></source>
+</chunk>
+<chunk hits="48" offset="00a0" domain="usercodeundertest"><source><![CDATA[}]]></source>
+</chunk>
+<chunk hits="-1" domain="unknown"><source><![CDATA[
+        
+    }
+}
+]]></source>
+</chunk>
+</document>
+<document src="(no sources available for some parts of System.Xml.Linq, VendingMachine, VendingMachine.Explorables, System.Core, System.Explorables)" missing="true"><method name="GetXmlReaderSettings" type="System.Xml.Linq.XNode" token="6000073" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="7" coveredRatio="0"/>
+</method>
+<method name="Load" type="System.Xml.Linq.XDocument" token="6000132" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="36" coveredRatio="0"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XDeclaration" token="6000167" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="6" coveredRatio="0"/>
+</method>
+<method name="ReadContentFrom" type="System.Xml.Linq.XContainer" token="60000b7" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="77" coveredRatio="0"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XNamespace" token="600001c" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="5" coveredRatio="0"/>
+</method>
+<method name="EnsureNamespace" type="System.Xml.Linq.XNamespace" token="6000021" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="5" total="8" coveredRatio="0.625"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XName" token="600000e" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="5" coveredRatio="0"/>
+</method>
+<method name="TryAdd" type="System.Xml.Linq.XHashtable`1+XHashtableState" token="600002c" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="16" coveredRatio="0"/>
+</method>
+<method name="GetName" type="System.Xml.Linq.XNamespace" token="600001d" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="7" coveredRatio="0.42857142857142855"/>
+</method>
+<method name="Load" type="System.Xml.Linq.XDocument" token="600012c" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="6" coveredRatio="0"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XContainer+&lt;GetDescendants&gt;d__a" token="600036a" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="4" coveredRatio="1"/>
+</method>
+<method name="ReportFailure" type="System.Diagnostics.Contracts.__ContractsRuntime" token="6000056" module="VendingMachine.exe"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="4" coveredRatio="0.75"/>
+</method>
+<method name=".ctor" type="System.Diagnostics.Contracts.__ContractsRuntime+ContractException" token="600009c" module="VendingMachine.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="6" total="6" coveredRatio="1"/>
+</method>
+<method name=".ctor" type="VendingMachine.Stock.CoinManager+CoinManager_&lt;&gt;c__DisplayClass12_0" token="600006d" module="VendingMachine.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="Create" type="VendingMachine.Stock.CoinManagerFactory" token="6000002" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name="Requires" type="System.Diagnostics.Contracts.__ContractsRuntime" token="6000058" module="VendingMachine.exe"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="3" coveredRatio="1"/>
+</method>
+<method name="Load" type="System.Xml.Linq.XDocument" token="600012b" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XDocument" token="6000122" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XContainer" token="600008e" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XNode" token="600004d" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XObject" token="600002f" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name="set_Declaration" type="System.Xml.Linq.XDocument" token="6000127" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="1" coveredRatio="0"/>
+</method>
+<method name="ReadContentFrom" type="System.Xml.Linq.XContainer" token="60000b8" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="133" coveredRatio="0"/>
+</method>
+<method name="Get" type="System.Xml.Linq.NamespaceCache" token="6000259" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="4" coveredRatio="0"/>
+</method>
+<method name="Get" type="System.Xml.Linq.XNamespace" token="6000015" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="5" coveredRatio="0"/>
+</method>
+<method name="Get" type="System.Xml.Linq.XNamespace" token="600001e" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="30" coveredRatio="0"/>
+</method>
+<method name="get_None" type="System.Xml.Linq.XNamespace" token="6000012" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XHashtable`1" token="6000022" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="3" coveredRatio="0"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XHashtable`1+XHashtableState" token="6000029" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name="op_Inequality" type="System.Xml.Linq.XNamespace" token="600001b" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="GetName" type="System.Xml.Linq.XNamespace" token="6000010" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="5" coveredRatio="0.6"/>
+</method>
+<method name="TryGetValue" type="System.Xml.Linq.XHashtable`1" token="6000023" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="TryGetValue" type="System.Xml.Linq.XHashtable`1+XHashtableState" token="600002b" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="5" coveredRatio="0.8"/>
+</method>
+<method name="ComputeHashCode" type="System.Xml.Linq.XHashtable`1+XHashtableState" token="600002e" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="3" coveredRatio="1"/>
+</method>
+<method name="FindEntry" type="System.Xml.Linq.XHashtable`1+XHashtableState" token="600002d" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="10" total="16" coveredRatio="0.625"/>
+</method>
+<method name="GetHashCode" type="System.Xml.Linq.XNamespace" token="6000019" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="1" coveredRatio="0"/>
+</method>
+<method name="ExtractLocalName" type="System.Xml.Linq.XNamespace" token="600001f" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="get_LocalName" type="System.Xml.Linq.XName" token="6000001" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.XElement" token="60000bf" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="6" coveredRatio="0"/>
+</method>
+<method name="op_Equality" type="System.Xml.Linq.XName" token="600000a" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="AddNodeSkipNotify" type="System.Xml.Linq.XContainer" token="60000ab" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="12" coveredRatio="0"/>
+</method>
+<method name="ValidateNode" type="System.Xml.Linq.XDocument" token="6000143" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="18" coveredRatio="0"/>
+</method>
+<method name="get_NodeType" type="System.Xml.Linq.XElement" token="60000cb" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="1" coveredRatio="0"/>
+</method>
+<method name="ValidateDocument" type="System.Xml.Linq.XDocument" token="6000146" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="15" coveredRatio="0"/>
+</method>
+<method name="ConvertTextToNode" type="System.Xml.Linq.XContainer" token="60000b4" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="5" coveredRatio="0"/>
+</method>
+<method name="AppendNodeSkipNotify" type="System.Xml.Linq.XContainer" token="60000af" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="4" coveredRatio="0"/>
+</method>
+<method name="ValidateNode" type="System.Xml.Linq.XElement" token="6000116" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="9" coveredRatio="0"/>
+</method>
+<method name="AddStringSkipNotify" type="System.Xml.Linq.XContainer" token="60000ad" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="14" coveredRatio="0.21428571428571427"/>
+</method>
+<method name="ValidateString" type="System.Xml.Linq.XContainer" token="60000a7" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="get_Root" type="System.Xml.Linq.XDocument" token="600012a" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name="GetFirstNode" type="System.Xml.Linq.XDocument" token="6000142" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="5" coveredRatio="0"/>
+</method>
+<method name="set_Database" type="VendingMachine.Stock.CoinManager" token="6000004" module="VendingMachine.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="0" total="1" coveredRatio="0"/>
+</method>
+<method name="get_Database" type="VendingMachine.Stock.CoinManager" token="6000003" module="VendingMachine.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="op_Implicit" type="System.Xml.Linq.XName" token="6000007" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="4" coveredRatio="0.75"/>
+</method>
+<method name="Get" type="System.Xml.Linq.XName" token="6000005" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="6" total="20" coveredRatio="0.3"/>
+</method>
+<method name="Descendants" type="System.Xml.Linq.XContainer" token="6000098" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="6" coveredRatio="0"/>
+</method>
+<method name="op_Inequality" type="System.Xml.Linq.XName" token="600000b" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="1" coveredRatio="0"/>
+</method>
+<method name="GetDescendants" type="System.Xml.Linq.XContainer" token="60000a4" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+<method name="set_Wallet" type="VendingMachine.Stock.CoinManager" token="6000006" module="VendingMachine.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="0" total="1" coveredRatio="0"/>
+</method>
+<method name="get_Wallet" type="VendingMachine.Stock.CoinManager" token="6000005" module="VendingMachine.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="Count" type="System.Linq.Enumerable" token="6000465" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="10" total="16" coveredRatio="0.625"/>
+</method>
+<method name="System.Collections.Generic.IEnumerable&lt;System.Xml.Linq.XElement&gt;.GetEnumerator" type="System.Xml.Linq.XContainer+&lt;GetDescendants&gt;d__a" token="6000363" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="6" total="7" coveredRatio="0.8571428571428571"/>
+</method>
+<method name="MoveNext" type="System.Xml.Linq.XContainer+&lt;GetDescendants&gt;d__a" token="6000365" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="18" total="25" coveredRatio="0.72"/>
+</method>
+<method name="System.IDisposable.Dispose" type="System.Xml.Linq.XContainer+&lt;GetDescendants&gt;d__a" token="6000368" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="Ensures" type="System.Diagnostics.Contracts.__ContractsRuntime" token="6000059" module="VendingMachine.exe"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="3" coveredRatio="0.66666666666666663"/>
+</method>
+<method name="TriggerFailure" type="System.Diagnostics.Contracts.__ContractsRuntime" token="6000057" module="VendingMachine.exe"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="op_Explicit" type="System.Xml.Linq.XElement" token="6000103" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="6" coveredRatio="0.66666666666666663"/>
+</method>
+<method name="op_Explicit" type="System.Xml.Linq.XElement" token="60000f7" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="6" coveredRatio="0.66666666666666663"/>
+</method>
+<method name="GetXmlWriterSettings" type="System.Xml.Linq.XNode" token="6000074" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="5" total="7" coveredRatio="0.7142857142857143"/>
+</method>
+<method name="Save" type="System.Xml.Linq.XDocument" token="6000136" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="13" total="14" coveredRatio="0.9285714285714286"/>
+</method>
+<method name="WriteTo" type="System.Xml.Linq.XDocument" token="600013c" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="13" total="19" coveredRatio="0.68421052631578949"/>
+</method>
+<method name="WriteStartElement" type="System.Xml.Linq.ElementWriter" token="6000261" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="10" total="23" coveredRatio="0.43478260869565216"/>
+</method>
+<method name="WriteElement" type="System.Xml.Linq.ElementWriter" token="600025b" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="15" total="19" coveredRatio="0.78947368421052633"/>
+</method>
+<method name="WriteFullEndElement" type="System.Xml.Linq.ElementWriter" token="6000260" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="3" coveredRatio="1"/>
+</method>
+<method name="Select" type="System.Linq.Enumerable" token="60003fa" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="5" total="17" coveredRatio="0.29411764705882354"/>
+</method>
+<method name="Select" type="System.Linq.Enumerable+WhereEnumerableIterator`1" token="60004d1" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name=".ctor" type="System.Linq.Enumerable+WhereSelectEnumerableIterator`2" token="60004dd" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name=".ctor" type="System.Linq.Enumerable+Iterator`1" token="60004c2" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="4" coveredRatio="1"/>
+</method>
+<method name="GetEnumerator" type="System.Linq.Enumerable+Iterator`1" token="60004c6" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="5" total="7" coveredRatio="0.7142857142857143"/>
+</method>
+<method name="get_Current" type="System.Linq.Enumerable+Iterator`1" token="60004c3" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="Single" type="System.Linq.Enumerable" token="6000457" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="11" total="24" coveredRatio="0.45833333333333331"/>
+</method>
+<method name="MoveNext" type="System.Linq.Enumerable+WhereSelectEnumerableIterator`2" token="60004e0" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="13" total="14" coveredRatio="0.9285714285714286"/>
+</method>
+<method name="Dispose" type="System.Linq.Enumerable+WhereSelectEnumerableIterator`2" token="60004df" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="4" coveredRatio="1"/>
+</method>
+<method name="Dispose" type="System.Linq.Enumerable+Iterator`1" token="60004c5" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name=".ctor" type="VendingMachine.Stock.CoinManager+&lt;&gt;c__DisplayClass12" token="6000060" module="VendingMachine.exe"><hits/>
+<coverage domain="usercodeundertest" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="RemoveNodes" type="System.Xml.Linq.XContainer" token="600009d" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="30" coveredRatio="0.13333333333333333"/>
+</method>
+<method name="SkipNotify" type="System.Xml.Linq.XObject" token="6000048" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="5" total="9" coveredRatio="0.55555555555555558"/>
+</method>
+<method name="RemoveNodesSkipNotify" type="System.Xml.Linq.XContainer" token="60000ba" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="3" coveredRatio="0.66666666666666663"/>
+</method>
+<method name="set_Value" type="System.Xml.Linq.XElement" token="60000cd" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="6" coveredRatio="0.66666666666666663"/>
+</method>
+<method name="Add" type="System.Xml.Linq.XContainer" token="6000091" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="37" coveredRatio="0.10810810810810811"/>
+</method>
+<method name="AddContentSkipNotify" type="System.Xml.Linq.XContainer" token="60000a9" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="5" total="33" coveredRatio="0.15151515151515152"/>
+</method>
+<method name="GetSaveOptionsFromAnnotations" type="System.Xml.Linq.XObject" token="6000049" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="5" total="10" coveredRatio="0.5"/>
+</method>
+<method name="get_Encoding" type="System.Xml.Linq.XDeclaration" token="6000160" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="get_Standalone" type="System.Xml.Linq.XDeclaration" token="6000162" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name=".ctor" type="System.Xml.Linq.ElementWriter" token="600025a" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="PushAncestors" type="System.Xml.Linq.ElementWriter" token="600025d" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="16" coveredRatio="0.125"/>
+</method>
+<method name="PushElement" type="System.Xml.Linq.ElementWriter" token="600025e" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="15" coveredRatio="0.2"/>
+</method>
+<method name="PushScope" type="System.Xml.Linq.NamespaceResolver" token="6000262" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="get_Namespace" type="System.Xml.Linq.XName" token="6000002" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="GetPrefixOfNamespace" type="System.Xml.Linq.ElementWriter" token="600025c" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="11" coveredRatio="0.27272727272727271"/>
+</method>
+<method name="get_Name" type="System.Xml.Linq.XElement" token="60000c9" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="get_NamespaceName" type="System.Xml.Linq.XNamespace" token="600000f" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="PopScope" type="System.Xml.Linq.NamespaceResolver" token="6000263" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="7" coveredRatio="0.2857142857142857"/>
+</method>
+<method name="WriteContentTo" type="System.Xml.Linq.XContainer" token="60000bb" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="6" total="11" coveredRatio="0.54545454545454541"/>
+</method>
+<method name="WriteTo" type="System.Xml.Linq.XElement" token="60000f3" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="6" coveredRatio="0.66666666666666663"/>
+</method>
+<method name="Where" type="System.Linq.Enumerable" token="60003f7" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="7" total="17" coveredRatio="0.41176470588235292"/>
+</method>
+<method name=".ctor" type="System.Linq.Enumerable+WhereEnumerableIterator`1" token="60004cd" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="MoveNext" type="System.Linq.Enumerable+WhereEnumerableIterator`1" token="60004d0" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="11" total="12" coveredRatio="0.91666666666666663"/>
+</method>
+<method name="Dispose" type="System.Linq.Enumerable+WhereEnumerableIterator`1" token="60004cf" module="System.Core.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="4" total="4" coveredRatio="1"/>
+</method>
+<method name="Save" type="System.Xml.Linq.XDocument" token="6000135" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="3" coveredRatio="1"/>
+</method>
+<method name="Save" type="System.Xml.Linq.XDocument" token="600013b" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="2" total="2" coveredRatio="1"/>
+</method>
+<method name="System.Collections.Generic.IEnumerator&lt;System.Xml.Linq.XElement&gt;.get_Current" type="System.Xml.Linq.XContainer+&lt;GetDescendants&gt;d__a" token="6000366" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="1" total="1" coveredRatio="1"/>
+</method>
+<method name="Element" type="System.Xml.Linq.XContainer" token="6000099" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="6" total="7" coveredRatio="0.8571428571428571"/>
+</method>
+<method name="get_Value" type="System.Xml.Linq.XElement" token="60000cc" module="System.Xml.Linq.dll"><hits/>
+<coverage domain="userortestcode" unit="block" covered="3" total="8" coveredRatio="0.375"/>
+</method>
+<method name="Create" type="System.Collections.Generic.LinkedListFactory" token="6000018" module="&lt;In Memory Module&gt;"><hits/>
+<coverage domain="userortestcode" unit="block" covered="0" total="2" coveredRatio="0"/>
+</method>
+</document>
+</documents>

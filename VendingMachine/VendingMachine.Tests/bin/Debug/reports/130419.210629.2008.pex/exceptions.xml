@@ -1,0 +1,663 @@
+﻿<frameTree version="0.94.51006.1"><frameException type="System.Diagnostics.Contracts.__ContractsRuntime+ContractException"><tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at __ContractsRuntime.TriggerFailure(ContractFailureKind, String, String, String, Exception) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Program.cs(0)" method="__ContractsRuntime.TriggerFailure(ContractFailureKind, String, String, String, Exception)" offset="11" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Program.cs" line="0"><method assemblyName="VendingMachine" name="TriggerFailure" static="true" token="6000057"><declaringType assemblyName="VendingMachine" name="__ContractsRuntime" token="200000e" namespace="System.Diagnostics.Contracts"/>
+<parameter name="kind" position="0"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="ContractFailureKind" token="20003d4" namespace="System.Diagnostics.Contracts"/>
+</type>
+</parameter>
+<parameter name="msg" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004e" namespace="System"/>
+</type>
+</parameter>
+<parameter name="userMessage" position="2"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004e" namespace="System"/>
+</type>
+</parameter>
+<parameter name="conditionTxt" position="3"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004e" namespace="System"/>
+</type>
+</parameter>
+<parameter name="inner" position="4"><type spec="Class"><definition assemblyName="mscorlib" name="Exception" token="2000008" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+<generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at __ContractsRuntime.ReportFailure(ContractFailureKind, String, String, Exception) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Program.cs(0)" method="__ContractsRuntime.ReportFailure(ContractFailureKind, String, String, Exception)" offset="21" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Program.cs" line="0"><method assemblyName="VendingMachine" name="ReportFailure" static="true" token="6000056"><declaringType assemblyName="VendingMachine" name="__ContractsRuntime" token="200000e" namespace="System.Diagnostics.Contracts"/>
+<parameter name="kind" position="0"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="ContractFailureKind" token="20003d4" namespace="System.Diagnostics.Contracts"/>
+</type>
+</parameter>
+<parameter name="msg" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004e" namespace="System"/>
+</type>
+</parameter>
+<parameter name="conditionTxt" position="2"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004e" namespace="System"/>
+</type>
+</parameter>
+<parameter name="inner" position="3"><type spec="Class"><definition assemblyName="mscorlib" name="Exception" token="2000008" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+<generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at __ContractsRuntime.Requires(Boolean, String, String) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Program.cs(0)" method="__ContractsRuntime.Requires(Boolean, String, String)" offset="10" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Program.cs" line="0"><method assemblyName="VendingMachine" name="Requires" static="true" token="6000058"><declaringType assemblyName="VendingMachine" name="__ContractsRuntime" token="200000e" namespace="System.Diagnostics.Contracts"/>
+<parameter name="condition" position="0"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</type>
+</parameter>
+<parameter name="msg" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004e" namespace="System"/>
+</type>
+</parameter>
+<parameter name="conditionTxt" position="2"><type spec="Class"><definition assemblyName="mscorlib" name="String" token="200004e" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+<generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at StockManager.AddProduct(Product) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\StockManager.cs(68)" method="StockManager.AddProduct(Product)" offset="85" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\StockManager.cs" line="68"><method assemblyName="VendingMachine" name="AddProduct" token="6000024"><declaringType assemblyName="VendingMachine" name="StockManager" token="2000007" namespace="VendingMachine.Stock"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="VendingMachine" name="StockManager" token="2000007" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="product" position="1"><type spec="Class"><definition assemblyName="VendingMachine" name="Product" token="2000006" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        public void AddProduct(Product product)
+        {
+            Contract.Requires(Stock != null);]]></beforeSource>
+<source><![CDATA[            Contract.Requires(product != null);]]></source>
+<afterSource><![CDATA[            Contract.Requires(product.Ammount > 0, "PRE: Added ammount must be >= 0");
+            Contract.Ensures(Contract.Exists(Stock, p => (string)p.Element("Name") == product.Name && (int)p.Element("Price") == product.Price), "POST: The added item must be in Stock");
+            Contract.Ensures((int)Stock.Where(p => (string)p.Element("Name") == product.Name).Select(c => (int)c.Element("Ammount")).Single() > product.Ammount);]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at StockManagerTest.AddProduct(StockManager, Product) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\StockManagerTest.cs(20)" method="StockManagerTest.AddProduct(StockManager, Product)" offset="3" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\StockManagerTest.cs" line="20"><method assemblyName="VendingMachine.Tests" name="AddProduct" token="6000001"><declaringType assemblyName="VendingMachine.Tests" name="StockManagerTest" token="2000002" namespace="VendingMachine.Stock"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="VendingMachine.Tests" name="StockManagerTest" token="2000002" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="target" position="1"><type spec="Class"><definition assemblyName="VendingMachine" name="StockManager" token="2000007" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="product" position="2"><type spec="Class"><definition assemblyName="VendingMachine" name="Product" token="2000006" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        [global::Microsoft.Pex.Framework.PexMethod]
+        internal void AddProduct([global::Microsoft.Pex.Framework.PexAssumeUnderTest]global::VendingMachine.Stock.StockManager target, global::VendingMachine.Data.Product product)
+        {]]></beforeSource>
+<source><![CDATA[            target.AddProduct(product);]]></source>
+<afterSource><![CDATA[            
+        }
+]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.StockManagerTest.AddProduct(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" method="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.StockManagerTest.AddProduct(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" offset="-1"><method assemblyName="Microsoft.ExtendedReflection" name="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.StockManagerTest.AddProduct" static="true"><parameter position="0"><type spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="ITermConstructor`1" token="2000002" namespace="Microsoft.ExtendedReflection.DataAccess"><genericParameter value="Term"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</genericTypeArgument>
+</type>
+</parameter>
+<parameter position="1"><type spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="ITermDestructor`1" token="2000019" namespace="Microsoft.ExtendedReflection.DataAccess"><genericParameter value="Term"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</genericTypeArgument>
+</type>
+</parameter>
+<parameter position="2"><type spec="SzArray"><elementType spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</elementType>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" method="PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" offset="547"><method assemblyName="Microsoft.Pex" name="InternalRun" token="60000f2"><declaringType assemblyName="Microsoft.Pex" name="PathExecutorBase" token="2000018" namespace="Microsoft.Pex.Engine.PathExecution"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PathExecutorBase" token="2000018" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</type>
+</parameter>
+<parameter name="destructor" position="1"><type spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="ITermDestructor`1" token="2000019" namespace="Microsoft.ExtendedReflection.DataAccess"><genericParameter value="Term"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</genericTypeArgument>
+</type>
+</parameter>
+<parameter name="segmentPreparer" position="2"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PathSegmentPreparer" token="20001c3" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</type>
+</parameter>
+<parameter name="segmentReporter" position="3"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PathSegmentReporter" token="20001c4" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</type>
+</parameter>
+<parameter name="segments" position="4"><type spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="200004d" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="Microsoft.Pex" name="PathSegment" token="20001c5" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</genericTypeArgument>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" method="PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" offset="291"><method assemblyName="Microsoft.Pex" name="TryRun" token="60000ef"><declaringType assemblyName="Microsoft.Pex" name="PathExecutorBase" token="2000018" namespace="Microsoft.Pex.Engine.PathExecution"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PathExecutorBase" token="2000018" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</type>
+</parameter>
+<parameter name="runResult" position="1" out="true"><type spec="ManagedPointer"><elementType spec="ValueType"><definition assemblyName="Microsoft.Pex.Framework" valueType="true" name="PexPathExecutionResult" token="20000ec" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</elementType>
+</type>
+</parameter>
+<parameter name="finalSubstitution" position="2" out="true"><type spec="ManagedPointer"><elementType spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="ISubstitution" token="2000036" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</elementType>
+</type>
+</parameter>
+<parameter name="finalState" position="3" out="true"><type spec="ManagedPointer"><elementType spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="IState" token="20000a2" namespace="Microsoft.ExtendedReflection.Interpretation.States"/>
+</elementType>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexPathDriver.InternalRun(Object)" method="PexPathDriver.InternalRun(Object)" offset="0"><method assemblyName="Microsoft.Pex" name="InternalRun" token="6000a62"><declaringType assemblyName="Microsoft.Pex" name="PexPathDriver" token="200013e" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexPathDriver" token="200013e" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+<parameter name="concreteFixtureObject" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexPathDriver.Run(Object)" method="PexPathDriver.Run(Object)" offset="10"><method assemblyName="Microsoft.Pex" name="Run" token="6000a57"><declaringType assemblyName="Microsoft.Pex" name="PexPathDriver" token="200013e" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexPathDriver" token="200013e" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+<parameter name="concreteFixtureObject" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexExplorationDriver.InternalExplore()" method="PexExplorationDriver.InternalExplore()" offset="315"><method assemblyName="Microsoft.Pex" name="InternalExplore" token="6000a4d"><declaringType assemblyName="Microsoft.Pex" name="PexExplorationDriver" token="200013c" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexExplorationDriver" token="200013c" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexExplorationDriverBase.CheckedExploreInternal()" method="PexExplorationDriverBase.CheckedExploreInternal()" offset="32"><method assemblyName="Microsoft.Pex" name="CheckedExploreInternal" token="600027d"><declaringType assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexExplorationDriverBase.Execute()" method="PexExplorationDriverBase.Execute()" offset="6"><method assemblyName="Microsoft.Pex" name="Execute" token="6000278"><declaringType assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexExplorationDriverBase.Explore()" method="PexExplorationDriverBase.Explore()" offset="456"><method assemblyName="Microsoft.Pex" name="Explore" token="600026f"><declaringType assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" method="PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" offset="123"><method assemblyName="Microsoft.Pex" name="ExecuteExploration" token="6000843"><declaringType assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+</type>
+</parameter>
+<parameter name="exploration" position="1"><type spec="Class"><definition assemblyName="Microsoft.Pex.Framework" name="PexExplorationBase" token="20001a1" namespace="Microsoft.Pex.Engine"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexTestFrameworkDriver.ExecuteFixture(PexFixture)" method="PexTestFrameworkDriver.ExecuteFixture(PexFixture)" offset="319"><method assemblyName="Microsoft.Pex" name="ExecuteFixture" token="6000842"><declaringType assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+</type>
+</parameter>
+<parameter name="fixture" position="1"><type spec="Class"><definition assemblyName="Microsoft.Pex.Framework" name="PexFixture" token="20001a7" namespace="Microsoft.Pex.Engine"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" method="PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" offset="220"><method assemblyName="Microsoft.Pex" name="ExecuteAssembly" token="600083b"><declaringType assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+</type>
+</parameter>
+<parameter name="assemblyEx" position="1"><type spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="AssemblyEx" token="2000196" namespace="Microsoft.ExtendedReflection.Metadata"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexDriver.ExecuteAssembly()" method="PexDriver.ExecuteAssembly()" offset="50"><method assemblyName="Microsoft.Pex" name="ExecuteAssembly" token="6000951"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexDriver.ExecuteAll()" method="PexDriver.ExecuteAll()" offset="95"><method assemblyName="Microsoft.Pex" name="ExecuteAll" token="6000950"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at PexDriver.ExecuteExplorationProtectedInSeparateStack()" method="PexDriver.ExecuteExplorationProtectedInSeparateStack()" offset="132"><method assemblyName="Microsoft.Pex" name="ExecuteExplorationProtectedInSeparateStack" token="600094a"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000fe" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at &lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" method="&lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" offset="0"><method assemblyName="Microsoft.Pex" name="&lt;ExecuteExplorationProtected&gt;b__6" token="600123b"><declaringType assemblyName="Microsoft.Pex" name="&lt;&gt;c__DisplayClass7" token="200026c"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="&lt;&gt;c__DisplayClass7" token="200026c"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</definition>
+</type>
+</parameter>
+<parameter name="arg" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at ThreadHelper.ThreadStart_Context(Object)" method="ThreadHelper.ThreadStart_Context(Object)" offset="59"><method assemblyName="mscorlib" name="ThreadStart_Context" static="true" token="6001664"><declaringType assemblyName="mscorlib" name="ThreadHelper" token="20001be" namespace="System.Threading"/>
+<parameter name="state" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" offset="142"><method assemblyName="mscorlib" name="Run" static="true" token="600158d"><declaringType assemblyName="mscorlib" name="ExecutionContext" token="20001a3" namespace="System.Threading"/>
+<parameter name="executionContext" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="ExecutionContext" token="20001a3" namespace="System.Threading"/>
+</type>
+</parameter>
+<parameter name="callback" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="ContextCallback" token="20001a2" namespace="System.Threading"/>
+</type>
+</parameter>
+<parameter name="state" position="2"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+<parameter name="ignoreSyncCtx" position="3"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+<frameNode><frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" offset="9"><method assemblyName="mscorlib" name="Run" static="true" token="600158c"><declaringType assemblyName="mscorlib" name="ExecutionContext" token="20001a3" namespace="System.Threading"/>
+<parameter name="executionContext" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="ExecutionContext" token="20001a3" namespace="System.Threading"/>
+</type>
+</parameter>
+<parameter name="callback" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="ContextCallback" token="20001a2" namespace="System.Threading"/>
+</type>
+</parameter>
+<parameter name="state" position="2"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="9778ef03-5f8e-4fd2-9116-f214f087fdb1"/>
+</tag>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+<frameNode><frame value="  at StockManager.AddProduct(Product) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\StockManager.cs(69)" method="StockManager.AddProduct(Product)" offset="116" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\StockManager.cs" line="69"><method assemblyName="VendingMachine" name="AddProduct" token="6000024"><declaringType assemblyName="VendingMachine" name="StockManager" token="2000007" namespace="VendingMachine.Stock"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="VendingMachine" name="StockManager" token="2000007" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="product" position="1"><type spec="Class"><definition assemblyName="VendingMachine" name="Product" token="2000006" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        {
+            Contract.Requires(Stock != null);
+            Contract.Requires(product != null);]]></beforeSource>
+<source><![CDATA[            Contract.Requires(product.Ammount > 0, "PRE: Added ammount must be >= 0");]]></source>
+<afterSource><![CDATA[            Contract.Ensures(Contract.Exists(Stock, p => (string)p.Element("Name") == product.Name && (int)p.Element("Price") == product.Price), "POST: The added item must be in Stock");
+            Contract.Ensures((int)Stock.Where(p => (string)p.Element("Name") == product.Name).Select(c => (int)c.Element("Ammount")).Single() > product.Ammount);
+            Contract.Ensures(Contract.OldValue((int)Stock.Where(el => (string)el.Element("Name") == product.Name).Single().Element("Ammount")) + product.Ammount ==]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at StockManagerTest.AddProduct(StockManager, Product) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\StockManagerTest.cs(20)" method="StockManagerTest.AddProduct(StockManager, Product)" offset="3" file="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\StockManagerTest.cs" line="20"><method assemblyName="VendingMachine.Tests" name="AddProduct" token="6000001"><declaringType assemblyName="VendingMachine.Tests" name="StockManagerTest" token="2000002" namespace="VendingMachine.Stock"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="VendingMachine.Tests" name="StockManagerTest" token="2000002" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="target" position="1"><type spec="Class"><definition assemblyName="VendingMachine" name="StockManager" token="2000007" namespace="VendingMachine.Stock"/>
+</type>
+</parameter>
+<parameter name="product" position="2"><type spec="Class"><definition assemblyName="VendingMachine" name="Product" token="2000006" namespace="VendingMachine.Data"/>
+</type>
+</parameter>
+</method>
+<beforeSource><![CDATA[        [global::Microsoft.Pex.Framework.PexMethod]
+        internal void AddProduct([global::Microsoft.Pex.Framework.PexAssumeUnderTest]global::VendingMachine.Stock.StockManager target, global::VendingMachine.Data.Product product)
+        {]]></beforeSource>
+<source><![CDATA[            target.AddProduct(product);]]></source>
+<afterSource><![CDATA[            
+        }
+]]></afterSource>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.StockManagerTest.AddProduct(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" method="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.StockManagerTest.AddProduct(ITermConstructor`1&lt;Term&gt;, ITermDestructor`1&lt;Term&gt;, Term[])" offset="-1"><method assemblyName="Microsoft.ExtendedReflection" name="Microsoft.ExtendedReflection.__DynamicMethods.invoke:VendingMachine.Stock.StockManagerTest.AddProduct" static="true"><parameter position="0"><type spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="ITermConstructor`1" token="2000002" namespace="Microsoft.ExtendedReflection.DataAccess"><genericParameter value="Term"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</genericTypeArgument>
+</type>
+</parameter>
+<parameter position="1"><type spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="ITermDestructor`1" token="2000019" namespace="Microsoft.ExtendedReflection.DataAccess"><genericParameter value="Term"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</genericTypeArgument>
+</type>
+</parameter>
+<parameter position="2"><type spec="SzArray"><elementType spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</elementType>
+</type>
+</parameter>
+<resultType spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" method="PathExecutorBase.InternalRun(ITermDestructor`1&lt;Term&gt;, PathSegmentPreparer, PathSegmentReporter, IEnumerable`1&lt;PathSegment&gt;)" offset="547"><method assemblyName="Microsoft.Pex" name="InternalRun" token="60000f2"><declaringType assemblyName="Microsoft.Pex" name="PathExecutorBase" token="2000018" namespace="Microsoft.Pex.Engine.PathExecution"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PathExecutorBase" token="2000018" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</type>
+</parameter>
+<parameter name="destructor" position="1"><type spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="ITermDestructor`1" token="2000019" namespace="Microsoft.ExtendedReflection.DataAccess"><genericParameter value="Term"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="Term" token="2000479" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</genericTypeArgument>
+</type>
+</parameter>
+<parameter name="segmentPreparer" position="2"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PathSegmentPreparer" token="20001c3" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</type>
+</parameter>
+<parameter name="segmentReporter" position="3"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PathSegmentReporter" token="20001c4" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</type>
+</parameter>
+<parameter name="segments" position="4"><type spec="Class"><definition assemblyName="mscorlib" name="IEnumerable`1" token="200004d" namespace="System.Collections.Generic"><genericParameter value="T"/>
+</definition>
+<genericTypeArgument spec="Class"><definition assemblyName="Microsoft.Pex" name="PathSegment" token="20001c5" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</genericTypeArgument>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" method="PathExecutorBase.TryRun(PexPathExecutionResult&amp;, ISubstitution&amp;, IState&amp;)" offset="291"><method assemblyName="Microsoft.Pex" name="TryRun" token="60000ef"><declaringType assemblyName="Microsoft.Pex" name="PathExecutorBase" token="2000018" namespace="Microsoft.Pex.Engine.PathExecution"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PathExecutorBase" token="2000018" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</type>
+</parameter>
+<parameter name="runResult" position="1" out="true"><type spec="ManagedPointer"><elementType spec="ValueType"><definition assemblyName="Microsoft.Pex.Framework" valueType="true" name="PexPathExecutionResult" token="20000ec" namespace="Microsoft.Pex.Engine.PathExecution"/>
+</elementType>
+</type>
+</parameter>
+<parameter name="finalSubstitution" position="2" out="true"><type spec="ManagedPointer"><elementType spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="ISubstitution" token="2000036" namespace="Microsoft.ExtendedReflection.Interpretation"/>
+</elementType>
+</type>
+</parameter>
+<parameter name="finalState" position="3" out="true"><type spec="ManagedPointer"><elementType spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="IState" token="20000a2" namespace="Microsoft.ExtendedReflection.Interpretation.States"/>
+</elementType>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexPathDriver.InternalRun(Object)" method="PexPathDriver.InternalRun(Object)" offset="0"><method assemblyName="Microsoft.Pex" name="InternalRun" token="6000a62"><declaringType assemblyName="Microsoft.Pex" name="PexPathDriver" token="200013e" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexPathDriver" token="200013e" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+<parameter name="concreteFixtureObject" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexPathDriver.Run(Object)" method="PexPathDriver.Run(Object)" offset="10"><method assemblyName="Microsoft.Pex" name="Run" token="6000a57"><declaringType assemblyName="Microsoft.Pex" name="PexPathDriver" token="200013e" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexPathDriver" token="200013e" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+<parameter name="concreteFixtureObject" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexExplorationDriver.InternalExplore()" method="PexExplorationDriver.InternalExplore()" offset="315"><method assemblyName="Microsoft.Pex" name="InternalExplore" token="6000a4d"><declaringType assemblyName="Microsoft.Pex" name="PexExplorationDriver" token="200013c" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexExplorationDriver" token="200013c" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexExplorationDriverBase.CheckedExploreInternal()" method="PexExplorationDriverBase.CheckedExploreInternal()" offset="32"><method assemblyName="Microsoft.Pex" name="CheckedExploreInternal" token="600027d"><declaringType assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexExplorationDriverBase.Execute()" method="PexExplorationDriverBase.Execute()" offset="6"><method assemblyName="Microsoft.Pex" name="Execute" token="6000278"><declaringType assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexExplorationDriverBase.Explore()" method="PexExplorationDriverBase.Explore()" offset="456"><method assemblyName="Microsoft.Pex" name="Explore" token="600026f"><declaringType assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexExplorationDriverBase" token="2000050" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" method="PexTestFrameworkDriver.ExecuteExploration(PexExplorationBase)" offset="123"><method assemblyName="Microsoft.Pex" name="ExecuteExploration" token="6000843"><declaringType assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+</type>
+</parameter>
+<parameter name="exploration" position="1"><type spec="Class"><definition assemblyName="Microsoft.Pex.Framework" name="PexExplorationBase" token="20001a1" namespace="Microsoft.Pex.Engine"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexTestFrameworkDriver.ExecuteFixture(PexFixture)" method="PexTestFrameworkDriver.ExecuteFixture(PexFixture)" offset="319"><method assemblyName="Microsoft.Pex" name="ExecuteFixture" token="6000842"><declaringType assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+</type>
+</parameter>
+<parameter name="fixture" position="1"><type spec="Class"><definition assemblyName="Microsoft.Pex.Framework" name="PexFixture" token="20001a7" namespace="Microsoft.Pex.Engine"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" method="PexTestFrameworkDriver.ExecuteAssembly(AssemblyEx)" offset="220"><method assemblyName="Microsoft.Pex" name="ExecuteAssembly" token="600083b"><declaringType assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexTestFrameworkDriver" token="20000fb" namespace="Microsoft.Pex.Engine.TestFrameworks"/>
+</type>
+</parameter>
+<parameter name="assemblyEx" position="1"><type spec="Class"><definition assemblyName="Microsoft.ExtendedReflection" name="AssemblyEx" token="2000196" namespace="Microsoft.ExtendedReflection.Metadata"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexDriver.ExecuteAssembly()" method="PexDriver.ExecuteAssembly()" offset="50"><method assemblyName="Microsoft.Pex" name="ExecuteAssembly" token="6000951"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexDriver.ExecuteAll()" method="PexDriver.ExecuteAll()" offset="95"><method assemblyName="Microsoft.Pex" name="ExecuteAll" token="6000950"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at PexDriver.ExecuteExplorationProtectedInSeparateStack()" method="PexDriver.ExecuteExplorationProtectedInSeparateStack()" offset="132"><method assemblyName="Microsoft.Pex" name="ExecuteExplorationProtectedInSeparateStack" token="600094a"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</type>
+</parameter>
+<resultType spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Int32" token="20000fe" namespace="System"/>
+</resultType>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at &lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" method="&lt;&gt;c__DisplayClass7.&lt;ExecuteExplorationProtected&gt;b__6(Object)" offset="0"><method assemblyName="Microsoft.Pex" name="&lt;ExecuteExplorationProtected&gt;b__6" token="600123b"><declaringType assemblyName="Microsoft.Pex" name="&lt;&gt;c__DisplayClass7" token="200026c"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</declaringType>
+<parameter this="true" name="this" position="0"><type spec="Class"><definition assemblyName="Microsoft.Pex" name="&lt;&gt;c__DisplayClass7" token="200026c"><declaringType assemblyName="Microsoft.Pex" name="PexDriver" token="2000118" namespace="Microsoft.Pex.Engine.Drivers"/>
+</definition>
+</type>
+</parameter>
+<parameter name="arg" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at ThreadHelper.ThreadStart_Context(Object)" method="ThreadHelper.ThreadStart_Context(Object)" offset="59"><method assemblyName="mscorlib" name="ThreadStart_Context" static="true" token="6001664"><declaringType assemblyName="mscorlib" name="ThreadHelper" token="20001be" namespace="System.Threading"/>
+<parameter name="state" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object, Boolean)" offset="142"><method assemblyName="mscorlib" name="Run" static="true" token="600158d"><declaringType assemblyName="mscorlib" name="ExecutionContext" token="20001a3" namespace="System.Threading"/>
+<parameter name="executionContext" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="ExecutionContext" token="20001a3" namespace="System.Threading"/>
+</type>
+</parameter>
+<parameter name="callback" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="ContextCallback" token="20001a2" namespace="System.Threading"/>
+</type>
+</parameter>
+<parameter name="state" position="2"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+<parameter name="ignoreSyncCtx" position="3"><type spec="ValueType"><definition assemblyName="mscorlib" valueType="true" name="Boolean" token="200009d" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+<frameNode><frame value="  at ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" method="ExecutionContext.Run(ExecutionContext, ContextCallback, Object)" offset="9"><method assemblyName="mscorlib" name="Run" static="true" token="600158c"><declaringType assemblyName="mscorlib" name="ExecutionContext" token="20001a3" namespace="System.Threading"/>
+<parameter name="executionContext" position="0"><type spec="Class"><definition assemblyName="mscorlib" name="ExecutionContext" token="20001a3" namespace="System.Threading"/>
+</type>
+</parameter>
+<parameter name="callback" position="1"><type spec="Class"><definition assemblyName="mscorlib" name="ContextCallback" token="20001a2" namespace="System.Threading"/>
+</type>
+</parameter>
+<parameter name="state" position="2"><type spec="Class"><definition assemblyName="mscorlib" name="Object" token="2000002" namespace="System"/>
+</type>
+</parameter>
+</method>
+</frame>
+<tag exceptionState="expected"><generatedTestRef idref="5e64f12e-3b1e-48ff-be84-e9bf6b7e4bc5"/>
+</tag>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameNode>
+</frameException>
+</frameTree>

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="a1e37ae3-6469-424b-a230-971c1be43dab" name="Paul@PAUL-PC 2013-04-19 19:48:04" runUser="Paul-PC\Paul" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="73543c8f-e1ba-4016-a1b2-c5482740e447">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="Paul_PAUL-PC 2013-04-19 19_48_04">
+      <DeploymentItem filename="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\MolesAssemblies\VendingMachine.Moles.dll" />
+      <DeploymentItem filename="C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-04-19T19:48:04.2614337+02:00" queuing="2013-04-19T19:48:04.2714343+02:00" start="2013-04-19T19:48:04.2804348+02:00" finish="2013-04-19T19:48:04.6104537+02:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="5" executed="5" error="0" failed="5" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="EjectCoin218" storage="c:\users\paul\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="08283594-b636-5a1d-b5e5-168e62a74b6e">
+      <Execution id="18d66462-e26a-4d02-ad3d-a32b967931c2" />
+      <TestMethod codeBase="C:/Users/Paul/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectCoin218" />
+    </UnitTest>
+    <UnitTest name="EjectCoin234" storage="c:\users\paul\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="5c331520-5267-4642-158f-d6274a4f1357">
+      <Execution id="a73b17c6-b70f-4a15-b5f6-e94c700591c9" />
+      <TestMethod codeBase="C:/Users/Paul/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectCoin234" />
+    </UnitTest>
+    <UnitTest name="AddCoin911" storage="c:\users\paul\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="3d99bcbb-cb4c-3ab5-6940-bd878958e058">
+      <Execution id="2d068308-146d-41db-9d2a-64a6b1a8f019" />
+      <TestMethod codeBase="C:/Users/Paul/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCoin911" />
+    </UnitTest>
+    <UnitTest name="EjectCoin685" storage="c:\users\paul\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="f431da88-3ce8-5f5c-6f32-4e1134c99a60">
+      <Execution id="720a6951-5de1-49c5-9dff-395467c7746d" />
+      <TestMethod codeBase="C:/Users/Paul/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectCoin685" />
+    </UnitTest>
+    <UnitTest name="AddCoin494" storage="c:\users\paul\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="da51f33f-ea83-f502-ff09-5a7441acce99">
+      <Execution id="02714642-618e-46cd-a8b3-a9df0a6b0701" />
+      <TestMethod codeBase="C:/Users/Paul/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCoin494" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f431da88-3ce8-5f5c-6f32-4e1134c99a60" executionId="720a6951-5de1-49c5-9dff-395467c7746d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c331520-5267-4642-158f-d6274a4f1357" executionId="a73b17c6-b70f-4a15-b5f6-e94c700591c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="08283594-b636-5a1d-b5e5-168e62a74b6e" executionId="18d66462-e26a-4d02-ad3d-a32b967931c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da51f33f-ea83-f502-ff09-5a7441acce99" executionId="02714642-618e-46cd-a8b3-a9df0a6b0701" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d99bcbb-cb4c-3ab5-6940-bd878958e058" executionId="2d068308-146d-41db-9d2a-64a6b1a8f019" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="720a6951-5de1-49c5-9dff-395467c7746d" testId="f431da88-3ce8-5f5c-6f32-4e1134c99a60" testName="EjectCoin685" computerName="PAUL-PC" duration="00:00:00.0353533" startTime="2013-04-19T19:48:04.2844350+02:00" endTime="2013-04-19T19:48:04.5554505+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="720a6951-5de1-49c5-9dff-395467c7746d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method VendingMachine.Stock.CoinManagerTest.EjectCoin685 threw exception: 
+System.Diagnostics.Contracts.__ContractsRuntime+ContractException: Precondition failed: File.Exists("CoinDatabase.xml")  PRE: Database file must exist</Message>
+          <StackTrace>    at System.Diagnostics.Contracts.__ContractsRuntime.TriggerFailure(ContractFailureKind kind, String msg, String userMessage, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.ReportFailure(ContractFailureKind kind, String msg, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.Requires(Boolean condition, String msg, String conditionTxt) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at VendingMachine.Stock.CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs:line 19
+   at VendingMachine.Stock.CoinManagerTest.EjectCoin685() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\CoinManagerTest.EjectCoin.g.cs:line 141
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a73b17c6-b70f-4a15-b5f6-e94c700591c9" testId="5c331520-5267-4642-158f-d6274a4f1357" testName="EjectCoin234" computerName="PAUL-PC" duration="00:00:00.0020441" startTime="2013-04-19T19:48:04.5574506+02:00" endTime="2013-04-19T19:48:04.5654511+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a73b17c6-b70f-4a15-b5f6-e94c700591c9">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method VendingMachine.Stock.CoinManagerTest.EjectCoin234 threw exception: 
+System.Diagnostics.Contracts.__ContractsRuntime+ContractException: Precondition failed: File.Exists("CoinDatabase.xml")  PRE: Database file must exist</Message>
+          <StackTrace>    at System.Diagnostics.Contracts.__ContractsRuntime.TriggerFailure(ContractFailureKind kind, String msg, String userMessage, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.ReportFailure(ContractFailureKind kind, String msg, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.Requires(Boolean condition, String msg, String conditionTxt) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at VendingMachine.Stock.CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs:line 19
+   at VendingMachine.Stock.CoinManagerTest.EjectCoin234() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\CoinManagerTest.EjectCoin.g.cs:line 153
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="18d66462-e26a-4d02-ad3d-a32b967931c2" testId="08283594-b636-5a1d-b5e5-168e62a74b6e" testName="EjectCoin218" computerName="PAUL-PC" duration="00:00:00.0022832" startTime="2013-04-19T19:48:04.5674512+02:00" endTime="2013-04-19T19:48:04.5744516+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="18d66462-e26a-4d02-ad3d-a32b967931c2">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method VendingMachine.Stock.CoinManagerTest.EjectCoin218 threw exception: 
+System.Diagnostics.Contracts.__ContractsRuntime+ContractException: Precondition failed: File.Exists("CoinDatabase.xml")  PRE: Database file must exist</Message>
+          <StackTrace>    at System.Diagnostics.Contracts.__ContractsRuntime.TriggerFailure(ContractFailureKind kind, String msg, String userMessage, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.ReportFailure(ContractFailureKind kind, String msg, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.Requires(Boolean condition, String msg, String conditionTxt) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at VendingMachine.Stock.CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs:line 19
+   at VendingMachine.Stock.CoinManagerTest.EjectCoin218() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\CoinManagerTest.EjectCoin.g.cs:line 129
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="02714642-618e-46cd-a8b3-a9df0a6b0701" testId="da51f33f-ea83-f502-ff09-5a7441acce99" testName="AddCoin494" computerName="PAUL-PC" duration="00:00:00.0018097" startTime="2013-04-19T19:48:04.5774518+02:00" endTime="2013-04-19T19:48:04.5834521+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="02714642-618e-46cd-a8b3-a9df0a6b0701">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method VendingMachine.Stock.CoinManagerTest.AddCoin494 threw exception: 
+System.Diagnostics.Contracts.__ContractsRuntime+ContractException: Precondition failed: File.Exists("CoinDatabase.xml")  PRE: Database file must exist</Message>
+          <StackTrace>    at System.Diagnostics.Contracts.__ContractsRuntime.TriggerFailure(ContractFailureKind kind, String msg, String userMessage, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.ReportFailure(ContractFailureKind kind, String msg, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.Requires(Boolean condition, String msg, String conditionTxt) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at VendingMachine.Stock.CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs:line 19
+   at VendingMachine.Stock.CoinManagerTest.AddCoin494() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\CoinManagerTest.AddCoin.g.cs:line 58
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2d068308-146d-41db-9d2a-64a6b1a8f019" testId="3d99bcbb-cb4c-3ab5-6940-bd878958e058" testName="AddCoin911" computerName="PAUL-PC" duration="00:00:00.0021010" startTime="2013-04-19T19:48:04.5864523+02:00" endTime="2013-04-19T19:48:04.5934527+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2d068308-146d-41db-9d2a-64a6b1a8f019">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method VendingMachine.Stock.CoinManagerTest.AddCoin911 threw exception: 
+System.Diagnostics.Contracts.__ContractsRuntime+ContractException: Precondition failed: File.Exists("CoinDatabase.xml")  PRE: Database file must exist</Message>
+          <StackTrace>    at System.Diagnostics.Contracts.__ContractsRuntime.TriggerFailure(ContractFailureKind kind, String msg, String userMessage, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.ReportFailure(ContractFailureKind kind, String msg, String conditionTxt, Exception inner) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.Requires(Boolean condition, String msg, String conditionTxt) in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\GUI\Form1.Designer.cs:line 0
+   at VendingMachine.Stock.CoinManager..ctor() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\CoinManager.cs:line 19
+   at VendingMachine.Stock.CoinManagerTest.AddCoin911() in C:\Users\Paul\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\CoinManagerTest.AddCoin.g.cs:line 49
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
