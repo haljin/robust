@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7EBF364D-8237-4E62-841A-B4F0B3614A46}</ProjectGuid>
+    <ProjectGuid>{B67430FB-8274-4104-8731-2E50562C34E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VendingMachine.Tests</RootNamespace>

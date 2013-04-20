@@ -29,6 +29,7 @@ namespace VendingMachine.Machine
         CoinManager CoinMan { get; set; }
         State state { get; set; }
 
+
         public VendMachine()
         {
             state = State.Idle;
