@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VendingMachine.Data.CoinExtensions" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Coin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.Data.Product">
+    <Position X="3.5" Y="6" Width="2" />
+    <Members>
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Method Name="ObjectInvariant" Hidden="true" />
+      <Method Name="Product" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAgAAAAAQAAAAAAIEAAAAQAAAAAAA=</HashCode>
+      <FileName>Data\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.GUI.Form1" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAEECCAiAAwgICABAAzIAEAAAAAEKAAMAAARIA=</HashCode>
+      <FileName>GUI\Form1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="machine" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VendingMachine.Machine.VendMachine">
+    <Position X="3.25" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQABUQAAAIAACAAEAAACEAAAgAEEgAAAAIAAAAA=</HashCode>
+      <FileName>Machine\VendingMachine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CoinMan" />
+      <Property Name="StockMan" />
+      <Property Name="SelectedProduct" />
+      <Property Name="state" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VendingMachine.Stock.CoinManager">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAABAAAAEAAAQAAAAAAAAAAAiAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stock\CoinManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VendingMachine.Stock.StockManager">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAEAAAAAAEAAAQAIAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stock\StockManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="VendingMachine.Data.Coin">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAACAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Data\Coin.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="VendingMachine.Machine.TransactionResult">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAgAgAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Machine\VendingMachine.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="VendingMachine.Machine.State">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAAAA=</HashCode>
+      <FileName>Machine\VendingMachine.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
