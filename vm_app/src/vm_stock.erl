@@ -31,6 +31,9 @@ prod_info(ProdName) ->
 get_prod(ProdName, Money) -> 
     gen_server:call(?MODULE, {get_prod, ProdName, Money}).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Auxiliary functions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 generate_dets(ProdList)->
     {ok, Table} = dets:open_file(tempstock, [{type,set},
 					     {access,read_write},{keypos,#product.name},{file,"stock.db"}]),
@@ -60,6 +63,8 @@ handle_call({insert_prod, #product{name = Name, price = Price, ammount = Am} = P
 handle_call({check_prod, ProdName}, _From, #state{table = Table} = Products) ->
     Response = case dets:lookup(Table, ProdName) of 
 		   {error,Reason} -> false;
+		   [] ->
+		       false;
 		   [#product{ammount = 0}] ->
 		       false;
 		   _ ->
@@ -69,6 +74,8 @@ handle_call({check_prod, ProdName}, _From, #state{table = Table} = Products) ->
 handle_call({prod_info, ProdName}, _From, #state{table = Table} = Products) ->
     Response = case dets:lookup(Table, ProdName) of 
 		   {error,Reason} -> false;
+		   [] ->
+		       false;
 		   [#product{ammount = 0}] ->
 		       {prod, out_of_stock};
 		   [Product] ->
@@ -92,7 +99,7 @@ handle_call({get_prod, ProdName, Money}, _From, #state{table = Table} = Products
 						% enough money input, + give product, + give change	      
 				 dets:update_counter(Table, Name, {#product.ammount, -1}),
 				 vm_case:insert(ProdName), % product to case
-				 vm_coin:get_change(Temp) % change to coincase
+				 vm_coin:get_change(Temp) % change to coincasey
 			 end
 		     end,
     {reply, Temp, Products};

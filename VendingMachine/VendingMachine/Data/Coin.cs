@@ -32,7 +32,7 @@ namespace VendingMachine.Data
                 case Coin.Kr20:
                     return 20;
                 default:
-                    return 0;
+                    return 0.5m;
             }
             
             

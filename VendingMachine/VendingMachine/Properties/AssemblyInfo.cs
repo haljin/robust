@@ -37,3 +37,4 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("VendingMachine.Tests")]
 [assembly: InternalsVisibleTo("VendingMachine.Explorables")]
 [assembly: InternalsVisibleTo("VendingMachine1.Tests")]
+

@@ -1,0 +1,78 @@
+-module(test_vm).
+-include("../include/vmdata.hrl").
+-include_lib("eqc/include/eqc.hrl").
+
+-compile(export_all).
+
+prod_generator() ->
+    Products = [cola,chips,candy,faxe_kondi,liquorice,some_random_crap,jelly_beans],
+    ?SUCHTHAT(List, 
+	      non_empty(list(#product{name = oneof(Products), price = choose(2, 40), ammount = choose(1,10)})),
+	      lists:all(fun(E) ->
+				E=<1
+			end, 
+			lists:map(fun(El) ->
+					  lists:foldl(fun(El2, Sum) ->
+							      case El2#product.name of
+								  El ->
+								      Sum +1;
+								  _ ->
+								      Sum
+							      end
+						      end, 0, List)
+				  end, Products))).
+
+coin_generator()->
+    [#coin{type = ore50, value = 0.5, ammount = choose(0,30)},
+     #coin{type = kr1, value = 1, ammount = choose(0,30)},
+     #coin{type = kr2, value = 2, ammount = choose(0,30)},
+     #coin{type = kr5, value = 5, ammount = choose(0,30)},
+     #coin{type = kr10, value = 10, ammount = choose(0,30)},
+     #coin{type = kr20, value = 20, ammount = choose(0,30)}].
+
+operation_generator(Stock)->
+    ?LET(Choices,
+	 non_empty(list(
+		     ?LET(Product, oneof(Stock), {call, vm_control, choose_product, [Product#product.name]})
+		    )),
+	 insertion_generator(Choices, Stock)).
+
+insertion_generator(Choices, Stock) ->
+    {call, vm_control, choose_product, [ProdName]} = lists:last(Choices),
+    Product = lists:keyfind(ProdName, #product.name, Stock), 
+    Insertion = oneof([
+		       vector(Product#product.price, {call, vm_control, insert_coin, [kr1]}),
+		       ?LET(Calls, ?LET(Length, choose(1, Product#product.price-1), 
+					vector(Length, {call, vm_control, insert_coin, [kr1]})),
+			    Calls ++ {call, vm_control, cancel, []})
+		      ]),
+    {Choices, Insertion, Stock}.
+
+transaction_generator()->
+	 ?LET(Stock, 
+	      prod_generator(), 
+	      operation_generator(Stock)).
+
+
+purchase_property()->
+    ?FORALL({{Choices, Insertion, Stock}, Coins}, {transaction_generator(), coin_generator()},
+	    begin
+		case Insertion of
+		    {call, _, insert_coin, _} ->
+			ok;
+		    {call, _, cancel, _} ->
+			ok
+		end
+	    end).
+
+
+			
+		    
+
+		
+
+vm_generator()->
+    list( list_to_atom(vector(5,char()))).
+
+test()->
+    ok.
