@@ -36,8 +36,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: InternalsVisibleTo("VendingMachine.Tests")]
 [assembly: InternalsVisibleTo("VendingMachine.Explorables")]
-<<<<<<< HEAD
-[assembly: InternalsVisibleTo("VendingMachine1.Tests")]
-
-=======
->>>>>>> 2700124fc2564dc979185da6cdca793ea8bac71f
