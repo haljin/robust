@@ -46,7 +46,7 @@ namespace VendingMachine.Stock
         }
 
 
-        // Scenario: And realy! big number of products 
+        // Scenario: add really! big number of products 
         // Expected outcome: Product added
         [TestMethod]
         public void AddProductMaxValInt()
@@ -113,7 +113,7 @@ namespace VendingMachine.Stock
 
         }
 
-        // Scenario: Adding not existing product 
+        // Scenario: Adding non-existant product 
         // Expected outcome: Product added
         [TestMethod]
         public void AddProductNonExististantProduct()

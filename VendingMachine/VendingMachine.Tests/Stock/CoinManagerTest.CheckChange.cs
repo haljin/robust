@@ -12,7 +12,7 @@ namespace VendingMachine.Stock
 
     public partial class CoinManagerTest
     {
-        // Scenario: Exact amount of money is inputed
+        // Scenario: Exact amount of money is input
         // Expected outcome: Returns true -> change is equal 0
         [TestMethod]
         public void CheckChangeExactAmountOfMoney()
@@ -92,7 +92,7 @@ namespace VendingMachine.Stock
             Assert.IsTrue(result);
         }
 
-        // Scenario: The machine does not have enough small coins to give change, although the total value is correct
+        // Scenario: The machine does not have enough small coins to give change, although the total sum is enough
         // Expected outcome: Returns false
         [TestMethod]
         public void CheckChangeNotEnoughSmallCoins()

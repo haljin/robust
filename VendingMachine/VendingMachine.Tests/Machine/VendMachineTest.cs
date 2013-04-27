@@ -18,7 +18,7 @@ namespace VendingMachine.Machine
     public class VendMachineTest
     {
 
-        // Scenario: Product has been requested, correct ammount of money inputed
+        // Scenario: Product has been requested, correct ammount of money input
         // Expected outcome: Product should be ejected, change=0
         [TestMethod]
         public void VendMachineCorrect() 
@@ -214,7 +214,7 @@ namespace VendingMachine.Machine
         }
 
 
-        // Scenario: Product has been requested, correct ammount of money inputed,product out of stock
+        // Scenario: Product has been requested, correct ammount of money inputed, product out of stock
         // Expected outcome: Product should not be ejected
         [TestMethod]
         public void VendMachineOutOfStock()
@@ -281,7 +281,7 @@ namespace VendingMachine.Machine
 
         }
 
-        // Scenario:Cancel test
+        // Scenario: Cancel test
         // Expected outcome: Should be canceled
         [TestMethod]
         public void VendMachineCancel()
