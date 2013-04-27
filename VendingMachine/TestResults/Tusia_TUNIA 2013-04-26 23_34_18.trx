@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="a3f4f912-4e74-4bd5-8a54-ca3e15d9e2a7" name="Tusia@TUNIA 2013-04-26 23:34:18" runUser="Tunia\Tusia" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="73543c8f-e1ba-4016-a1b2-c5482740e447">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Tusia_TUNIA 2013-04-26 23_34_18">
+      <DeploymentItem filename="VendingMachine\StockDatabase.xml" />
+      <DeploymentItem filename="VendingMachine\CoinDatabase.xml" />
+      <DeploymentItem filename="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\MolesAssemblies\VendingMachine.Moles.dll" />
+      <DeploymentItem filename="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe" pdbFile="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-04-26T23:34:18.9495731+02:00" queuing="2013-04-26T23:34:20.3326522+02:00" start="2013-04-26T23:34:20.5946672+02:00" finish="2013-04-26T23:34:25.0909243+02:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <ResultFiles>
+      <ResultFile path="TUNIA\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="EjectProductNonExistent" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="fe82b597-1f89-4ab5-98bc-fd6f5f6215a6">
+      <Execution id="edff8feb-791b-4c8a-bb1c-4d550ccf269d" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.StockManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectProductNonExistent" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="fe82b597-1f89-4ab5-98bc-fd6f5f6215a6" executionId="edff8feb-791b-4c8a-bb1c-4d550ccf269d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="edff8feb-791b-4c8a-bb1c-4d550ccf269d" testId="fe82b597-1f89-4ab5-98bc-fd6f5f6215a6" testName="EjectProductNonExistent" computerName="TUNIA" duration="00:00:00.0636768" startTime="2013-04-26T23:34:22.5917814+02:00" endTime="2013-04-26T23:34:23.2858211+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="edff8feb-791b-4c8a-bb1c-4d550ccf269d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method VendingMachine.Stock.StockManagerTest.EjectProductNonExistent threw exception: 
+System.Diagnostics.Contracts.__ContractsRuntime+ContractException: Precondition failed: CheckAvailability(product)  PRE: Sought item must be in stock</Message>
+          <StackTrace>    at System.Diagnostics.Contracts.__ContractsRuntime.TriggerFailure(ContractFailureKind kind, String msg, String userMessage, String conditionTxt, Exception inner) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Properties\Resources.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.ReportFailure(ContractFailureKind kind, String msg, String conditionTxt, Exception inner) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Properties\Resources.Designer.cs:line 0
+   at System.Diagnostics.Contracts.__ContractsRuntime.Requires(Boolean condition, String msg, String conditionTxt) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Properties\Resources.Designer.cs:line 0
+   at VendingMachine.Stock.StockManager.EjectProduct(Product product, LinkedList`1 productCase) in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\Stock\StockManager.cs:line 64
+   at VendingMachine.Stock.StockManagerTest.EjectProductNonExistent() in C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\Stock\StockManagerTest.EjectProduct.cs:line 78
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

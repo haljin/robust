@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="619aa461-9609-451d-9b63-9f4b9ba74076" name="Tusia@TUNIA 2013-04-26 18:10:46" runUser="Tunia\Tusia" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="73543c8f-e1ba-4016-a1b2-c5482740e447">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="Tusia_TUNIA 2013-04-26 18_10_46">
+      <DeploymentItem filename="VendingMachine\StockDatabase.xml" />
+      <DeploymentItem filename="VendingMachine\CoinDatabase.xml" />
+      <DeploymentItem filename="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine.Tests\MolesAssemblies\VendingMachine.Moles.dll" />
+      <DeploymentItem filename="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Code Coverage">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe" pdbFile="C:\Users\Tusia\Documents\GitHub\robust\VendingMachine\VendingMachine\bin\Debug\VendingMachine.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-04-26T18:10:46.0492187+02:00" queuing="2013-04-26T18:10:46.9252688+02:00" start="2013-04-26T18:10:47.0302748+02:00" finish="2013-04-26T18:10:50.4354696+02:00" />
+  <ResultSummary outcome="NotRunnable">
+    <Counters total="34" executed="32" passed="32" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="2" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <ResultFiles>
+      <ResultFile path="TUNIA\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="AddCoin761" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="947c0953-7c1e-02b4-1011-fdb51c529281">
+      <Execution id="0083f16b-2d34-4a63-9cfd-92309a2d281c" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCoin761" />
+    </UnitTest>
+    <UnitTest name="GetChange1" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="96d832da-fef4-5048-6ced-c5fbd56b5956">
+      <Execution id="dbbb39c9-f2a2-42c2-9740-b8c3171b6383" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetChange1" />
+    </UnitTest>
+    <UnitTest name="GetChange6" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="a2defa04-bfcf-da58-55ba-a68e924cbc56">
+      <Execution id="34705cd3-d1a3-42b0-8c8b-2b448f217926" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetChange6" />
+    </UnitTest>
+    <UnitTest name="ToValue832" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="29afddcd-a882-5ec0-ef27-736173ee2cfa">
+      <Execution id="1e66f7e2-7706-4104-9363-e18081b7d3c9" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Data.CoinExtensionsTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToValue832" />
+    </UnitTest>
+    <UnitTest name="AddCoinThrowsContractException830" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="891b0eca-5777-6ba9-9abe-919f58267acc">
+      <Execution id="61ec9316-fc7d-41ec-b11a-6da940395efe" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCoinThrowsContractException830" />
+    </UnitTest>
+    <UnitTest name="ToValue347" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="fd0594a0-e09f-0a9f-2b91-7b43f72abdef">
+      <Execution id="591c1e07-6256-4d4c-b59b-1431f14f7238" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Data.CoinExtensionsTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToValue347" />
+    </UnitTest>
+    <UnitTest name="AddProductThrowsContractException156" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="e7702e2e-a287-a96f-4432-23c134a38cba">
+      <Execution id="588d5dd0-e1ec-4cb1-9168-474840905024" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.StockManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddProductThrowsContractException156" />
+    </UnitTest>
+    <UnitTest name="EjectCoinThrowsContractException868" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="9f90a1ba-c149-0d89-6a79-5d82a4b7d1e9">
+      <Execution id="09cf6eae-0504-4c36-871b-40cb76a8b3e6" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectCoinThrowsContractException868" />
+    </UnitTest>
+    <UnitTest name="ToValue1" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="8dfb708c-bcdc-5477-ef07-b275041ca24b">
+      <Execution id="37bab1b1-ac49-4983-9d7a-b113fbd413ab" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Data.CoinExtensionsTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToValue1" />
+    </UnitTest>
+    <UnitTest name="ConstructorTest" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="53f981c6-9727-3108-39ac-83eedd228892">
+      <Execution id="c2bab06b-a9cf-4d32-a2e1-c1257d422b05" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorTest" />
+    </UnitTest>
+    <UnitTest name="ToValueThrowsContractException646" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="55d8445b-1833-2470-93d4-70d9e8c158e2">
+      <Execution id="2fcc5457-3481-4ba4-80b8-4541770af388" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Data.CoinExtensionsTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToValueThrowsContractException646" />
+    </UnitTest>
+    <UnitTest name="GetChange3" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="5594059a-9306-ef23-6a00-ebf32694560a">
+      <Execution id="afef8d92-f672-400f-a97e-ed64d39eeaf1" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetChange3" />
+    </UnitTest>
+    <UnitTest name="GetChange2" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="c5737dec-2360-eb79-9567-2f789f1f480a">
+      <Execution id="068db229-168e-4d9e-8f38-6fd6c45f4029" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetChange2" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="3c39e665-fbbd-a325-5731-748af5e9cf8e">
+      <Execution id="51b5a581-e398-44b3-a545-531ba9af94e9" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Tests.Stock.StockManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="CheckChange5" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="84960dfc-69a6-0202-fe17-eb73cf6eef5b">
+      <Execution id="6f0d007c-1f64-46fe-894b-704beb6bc94a" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckChange5" />
+    </UnitTest>
+    <UnitTest name="GetChange5" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="5dffe32b-41dd-3453-f4d7-1dd2fd27a7da">
+      <Execution id="fc2b2c56-7f60-4bb0-a812-893432b9fbdc" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetChange5" />
+    </UnitTest>
+    <UnitTest name="CheckChange4" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="b6c2c35d-0af7-d47a-0832-f4d395487f14">
+      <Execution id="4a091296-5eff-4e22-9f68-b36bc5711776" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckChange4" />
+    </UnitTest>
+    <UnitTest name="GetChange4" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="fcea77ae-2d01-1d51-4dda-cdf4746afeb5">
+      <Execution id="9623ff7a-43b6-4b25-9f3c-928e7eb18fb6" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetChange4" />
+    </UnitTest>
+    <UnitTest name="EjectCoinCaseNotEmpty" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="ace49edf-99b2-109f-ac51-dfcee8b9cd8c">
+      <Execution id="52b6f625-ed5b-4fa0-999a-7c06b7fcd583" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectCoinCaseNotEmpty" />
+    </UnitTest>
+    <UnitTest name="EjectCoin502" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="30c9cfb6-1e60-9299-1d60-73ed769d9f7a">
+      <Execution id="8c99972e-1948-48fc-b5cb-ecaf4fef16da" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectCoin502" />
+    </UnitTest>
+    <UnitTest name="AddCoin494" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="da51f33f-ea83-f502-ff09-5a7441acce99">
+      <Execution id="0b178c0f-cd73-4260-be29-7b0671028667" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCoin494" />
+    </UnitTest>
+    <UnitTest name="AddCoin911" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="3d99bcbb-cb4c-3ab5-6940-bd878958e058">
+      <Execution id="d9c25b9a-2a4f-492a-9513-51f3b8f77bb7" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCoin911" />
+    </UnitTest>
+    <UnitTest name="EjectCoin257" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="4e37d7d6-cf35-f992-0c05-6c0385638b93">
+      <Execution id="465d8771-447b-4c7c-ac1d-ed027d6f77df" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectCoin257" />
+    </UnitTest>
+    <UnitTest name="ToValue513" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="cb63e72a-b73d-fd8f-0241-2a5abe4c325b">
+      <Execution id="fbd09a5f-562e-464a-b7f2-b04263616d5d" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Data.CoinExtensionsTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToValue513" />
+    </UnitTest>
+    <UnitTest name="CheckChange3" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="ca8fef68-3e6e-0e47-5116-2fa2d4889893">
+      <Execution id="919c88ce-fa89-44a6-a949-ab377161bcfe" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckChange3" />
+    </UnitTest>
+    <UnitTest name="GetChange7" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="6d2f4fdb-262b-0e34-2661-1d7f9a9f91b6">
+      <Execution id="08e91af7-d560-4afa-90b1-377098168c25" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetChange7" />
+    </UnitTest>
+    <UnitTest name="EjectCoinNotEnoughCoins" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="d5a36cc4-16a7-0c24-c41b-6d6de69a256e">
+      <Execution id="c68a86ea-8712-4320-a97d-f572cdad87e3" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="EjectCoinNotEnoughCoins" />
+    </UnitTest>
+    <UnitTest name="CheckChangeCorrect" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="4d0ca4a4-c15d-2656-877e-5942f7f24fd2">
+      <Execution id="af09bbfd-097a-434e-ab40-4570817b74d2" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckChangeCorrect" />
+    </UnitTest>
+    <UnitTest name="CheckChange6" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="3696d49b-035b-cd4c-8acb-25a2a6271173">
+      <Execution id="38f9846b-cbec-4206-99ee-c1ac5501beed" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckChange6" />
+    </UnitTest>
+    <UnitTest name="CheckChange1" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="a6d57736-da70-60ac-0c2b-a0701969c5fb">
+      <Execution id="3ef38dd5-9de2-4c2b-aa46-60a4f06e36cc" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckChange1" />
+    </UnitTest>
+    <UnitTest name="ToValue932" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="54049617-1cc9-58d2-6255-301b7d1b471e">
+      <Execution id="62cf9641-88b6-475a-9db2-453d77a7ba55" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Data.CoinExtensionsTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToValue932" />
+    </UnitTest>
+    <UnitTest name="ToValue66" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="088c6cd8-f53a-f171-2e65-b7eb597ed333">
+      <Execution id="28f1f8fc-4934-4c3a-8a52-5785cf9c906a" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Data.CoinExtensionsTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToValue66" />
+    </UnitTest>
+    <UnitTest name="TestMethod2" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="298b599c-963b-d5e7-3c39-e72db05f2b77">
+      <Execution id="3e25a7fc-ab1d-4792-bd03-7eea0964a89a" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Tests.Stock.StockManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod2" />
+    </UnitTest>
+    <UnitTest name="CheckChange2" storage="c:\users\tusia\documents\github\robust\vendingmachine\vendingmachine.tests\bin\debug\vendingmachine.tests.dll" id="bdce1727-9e10-705f-71df-4ed9d0cc727b">
+      <Execution id="641fc08a-f13c-4215-aa6c-87fea38085b9" />
+      <TestMethod codeBase="C:/Users/Tusia/Documents/GitHub/robust/VendingMachine/VendingMachine.Tests/bin/Debug/VendingMachine.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VendingMachine.Stock.CoinManagerTest, VendingMachine.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckChange2" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="96d832da-fef4-5048-6ced-c5fbd56b5956" executionId="dbbb39c9-f2a2-42c2-9740-b8c3171b6383" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5737dec-2360-eb79-9567-2f789f1f480a" executionId="068db229-168e-4d9e-8f38-6fd6c45f4029" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5594059a-9306-ef23-6a00-ebf32694560a" executionId="afef8d92-f672-400f-a97e-ed64d39eeaf1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fcea77ae-2d01-1d51-4dda-cdf4746afeb5" executionId="9623ff7a-43b6-4b25-9f3c-928e7eb18fb6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5dffe32b-41dd-3453-f4d7-1dd2fd27a7da" executionId="fc2b2c56-7f60-4bb0-a812-893432b9fbdc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a2defa04-bfcf-da58-55ba-a68e924cbc56" executionId="34705cd3-d1a3-42b0-8c8b-2b448f217926" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6d2f4fdb-262b-0e34-2661-1d7f9a9f91b6" executionId="08e91af7-d560-4afa-90b1-377098168c25" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="891b0eca-5777-6ba9-9abe-919f58267acc" executionId="61ec9316-fc7d-41ec-b11a-6da940395efe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d99bcbb-cb4c-3ab5-6940-bd878958e058" executionId="d9c25b9a-2a4f-492a-9513-51f3b8f77bb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="947c0953-7c1e-02b4-1011-fdb51c529281" executionId="0083f16b-2d34-4a63-9cfd-92309a2d281c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da51f33f-ea83-f502-ff09-5a7441acce99" executionId="0b178c0f-cd73-4260-be29-7b0671028667" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9f90a1ba-c149-0d89-6a79-5d82a4b7d1e9" executionId="09cf6eae-0504-4c36-871b-40cb76a8b3e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30c9cfb6-1e60-9299-1d60-73ed769d9f7a" executionId="8c99972e-1948-48fc-b5cb-ecaf4fef16da" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4e37d7d6-cf35-f992-0c05-6c0385638b93" executionId="465d8771-447b-4c7c-ac1d-ed027d6f77df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a6d57736-da70-60ac-0c2b-a0701969c5fb" executionId="3ef38dd5-9de2-4c2b-aa46-60a4f06e36cc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bdce1727-9e10-705f-71df-4ed9d0cc727b" executionId="641fc08a-f13c-4215-aa6c-87fea38085b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ca8fef68-3e6e-0e47-5116-2fa2d4889893" executionId="919c88ce-fa89-44a6-a949-ab377161bcfe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6c2c35d-0af7-d47a-0832-f4d395487f14" executionId="4a091296-5eff-4e22-9f68-b36bc5711776" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="84960dfc-69a6-0202-fe17-eb73cf6eef5b" executionId="6f0d007c-1f64-46fe-894b-704beb6bc94a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3696d49b-035b-cd4c-8acb-25a2a6271173" executionId="38f9846b-cbec-4206-99ee-c1ac5501beed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29afddcd-a882-5ec0-ef27-736173ee2cfa" executionId="1e66f7e2-7706-4104-9363-e18081b7d3c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cb63e72a-b73d-fd8f-0241-2a5abe4c325b" executionId="fbd09a5f-562e-464a-b7f2-b04263616d5d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="55d8445b-1833-2470-93d4-70d9e8c158e2" executionId="2fcc5457-3481-4ba4-80b8-4541770af388" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8dfb708c-bcdc-5477-ef07-b275041ca24b" executionId="37bab1b1-ac49-4983-9d7a-b113fbd413ab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54049617-1cc9-58d2-6255-301b7d1b471e" executionId="62cf9641-88b6-475a-9db2-453d77a7ba55" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd0594a0-e09f-0a9f-2b91-7b43f72abdef" executionId="591c1e07-6256-4d4c-b59b-1431f14f7238" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="088c6cd8-f53a-f171-2e65-b7eb597ed333" executionId="28f1f8fc-4934-4c3a-8a52-5785cf9c906a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3c39e665-fbbd-a325-5731-748af5e9cf8e" executionId="51b5a581-e398-44b3-a545-531ba9af94e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="298b599c-963b-d5e7-3c39-e72db05f2b77" executionId="3e25a7fc-ab1d-4792-bd03-7eea0964a89a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7702e2e-a287-a96f-4432-23c134a38cba" executionId="588d5dd0-e1ec-4cb1-9168-474840905024" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="53f981c6-9727-3108-39ac-83eedd228892" executionId="c2bab06b-a9cf-4d32-a2e1-c1257d422b05" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d5a36cc4-16a7-0c24-c41b-6d6de69a256e" executionId="c68a86ea-8712-4320-a97d-f572cdad87e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ace49edf-99b2-109f-ac51-dfcee8b9cd8c" executionId="52b6f625-ed5b-4fa0-999a-7c06b7fcd583" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d0ca4a4-c15d-2656-877e-5942f7f24fd2" executionId="af09bbfd-097a-434e-ab40-4570817b74d2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="dbbb39c9-f2a2-42c2-9740-b8c3171b6383" testId="96d832da-fef4-5048-6ced-c5fbd56b5956" testName="GetChange1" computerName="TUNIA" duration="00:00:00.0654386" startTime="2013-04-26T18:10:47.9503274+02:00" endTime="2013-04-26T18:10:48.4213544+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dbbb39c9-f2a2-42c2-9740-b8c3171b6383">
+    </UnitTestResult>
+    <UnitTestResult executionId="068db229-168e-4d9e-8f38-6fd6c45f4029" testId="c5737dec-2360-eb79-9567-2f789f1f480a" testName="GetChange2" computerName="TUNIA" duration="00:00:00.0125470" startTime="2013-04-26T18:10:48.4253546+02:00" endTime="2013-04-26T18:10:48.4513561+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="068db229-168e-4d9e-8f38-6fd6c45f4029">
+    </UnitTestResult>
+    <UnitTestResult executionId="afef8d92-f672-400f-a97e-ed64d39eeaf1" testId="5594059a-9306-ef23-6a00-ebf32694560a" testName="GetChange3" computerName="TUNIA" duration="00:00:00.0128857" startTime="2013-04-26T18:10:48.4783576+02:00" endTime="2013-04-26T18:10:48.5033591+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="afef8d92-f672-400f-a97e-ed64d39eeaf1">
+    </UnitTestResult>
+    <UnitTestResult executionId="9623ff7a-43b6-4b25-9f3c-928e7eb18fb6" testId="fcea77ae-2d01-1d51-4dda-cdf4746afeb5" testName="GetChange4" computerName="TUNIA" duration="00:00:00.0014038" startTime="2013-04-26T18:10:48.5073593+02:00" endTime="2013-04-26T18:10:48.5223602+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9623ff7a-43b6-4b25-9f3c-928e7eb18fb6">
+    </UnitTestResult>
+    <UnitTestResult executionId="fc2b2c56-7f60-4bb0-a812-893432b9fbdc" testId="5dffe32b-41dd-3453-f4d7-1dd2fd27a7da" testName="GetChange5" computerName="TUNIA" duration="00:00:00.0005094" startTime="2013-04-26T18:10:48.5263604+02:00" endTime="2013-04-26T18:10:48.5373610+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc2b2c56-7f60-4bb0-a812-893432b9fbdc">
+    </UnitTestResult>
+    <UnitTestResult executionId="34705cd3-d1a3-42b0-8c8b-2b448f217926" testId="a2defa04-bfcf-da58-55ba-a68e924cbc56" testName="GetChange6" computerName="TUNIA" duration="00:00:00.0004983" startTime="2013-04-26T18:10:48.5403612+02:00" endTime="2013-04-26T18:10:48.5463615+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="34705cd3-d1a3-42b0-8c8b-2b448f217926">
+    </UnitTestResult>
+    <UnitTestResult executionId="08e91af7-d560-4afa-90b1-377098168c25" testId="6d2f4fdb-262b-0e34-2661-1d7f9a9f91b6" testName="GetChange7" computerName="TUNIA" duration="00:00:00.0005060" startTime="2013-04-26T18:10:48.5503618+02:00" endTime="2013-04-26T18:10:48.5563621+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="08e91af7-d560-4afa-90b1-377098168c25">
+    </UnitTestResult>
+    <UnitTestResult executionId="61ec9316-fc7d-41ec-b11a-6da940395efe" testId="891b0eca-5777-6ba9-9abe-919f58267acc" testName="AddCoinThrowsContractException830" computerName="TUNIA" duration="00:00:00.0217791" startTime="2013-04-26T18:10:48.5603623+02:00" endTime="2013-04-26T18:10:48.5923642+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="61ec9316-fc7d-41ec-b11a-6da940395efe">
+    </UnitTestResult>
+    <UnitTestResult executionId="d9c25b9a-2a4f-492a-9513-51f3b8f77bb7" testId="3d99bcbb-cb4c-3ab5-6940-bd878958e058" testName="AddCoin911" computerName="TUNIA" duration="00:00:00.0034821" startTime="2013-04-26T18:10:48.6023647+02:00" endTime="2013-04-26T18:10:48.6143654+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9c25b9a-2a4f-492a-9513-51f3b8f77bb7">
+    </UnitTestResult>
+    <UnitTestResult executionId="0083f16b-2d34-4a63-9cfd-92309a2d281c" testId="947c0953-7c1e-02b4-1011-fdb51c529281" testName="AddCoin761" computerName="TUNIA" duration="00:00:00.0028396" startTime="2013-04-26T18:10:48.6183656+02:00" endTime="2013-04-26T18:10:48.6263661+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0083f16b-2d34-4a63-9cfd-92309a2d281c">
+    </UnitTestResult>
+    <UnitTestResult executionId="0b178c0f-cd73-4260-be29-7b0671028667" testId="da51f33f-ea83-f502-ff09-5a7441acce99" testName="AddCoin494" computerName="TUNIA" duration="00:00:00.0018858" startTime="2013-04-26T18:10:48.6353666+02:00" endTime="2013-04-26T18:10:48.6443671+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b178c0f-cd73-4260-be29-7b0671028667">
+    </UnitTestResult>
+    <UnitTestResult executionId="09cf6eae-0504-4c36-871b-40cb76a8b3e6" testId="9f90a1ba-c149-0d89-6a79-5d82a4b7d1e9" testName="EjectCoinThrowsContractException868" computerName="TUNIA" duration="00:00:00.0019641" startTime="2013-04-26T18:10:48.6503675+02:00" endTime="2013-04-26T18:10:48.6583679+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="09cf6eae-0504-4c36-871b-40cb76a8b3e6">
+    </UnitTestResult>
+    <UnitTestResult executionId="8c99972e-1948-48fc-b5cb-ecaf4fef16da" testId="30c9cfb6-1e60-9299-1d60-73ed769d9f7a" testName="EjectCoin502" computerName="TUNIA" duration="00:00:00.0033405" startTime="2013-04-26T18:10:48.6623682+02:00" endTime="2013-04-26T18:10:48.6763690+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8c99972e-1948-48fc-b5cb-ecaf4fef16da">
+    </UnitTestResult>
+    <UnitTestResult executionId="465d8771-447b-4c7c-ac1d-ed027d6f77df" testId="4e37d7d6-cf35-f992-0c05-6c0385638b93" testName="EjectCoin257" computerName="TUNIA" duration="00:00:00.0092231" startTime="2013-04-26T18:10:48.6843694+02:00" endTime="2013-04-26T18:10:48.7093708+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="465d8771-447b-4c7c-ac1d-ed027d6f77df">
+    </UnitTestResult>
+    <UnitTestResult executionId="3ef38dd5-9de2-4c2b-aa46-60a4f06e36cc" testId="a6d57736-da70-60ac-0c2b-a0701969c5fb" testName="CheckChange1" computerName="TUNIA" duration="00:00:00.0029517" startTime="2013-04-26T18:10:48.7163712+02:00" endTime="2013-04-26T18:10:48.7373724+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3ef38dd5-9de2-4c2b-aa46-60a4f06e36cc">
+    </UnitTestResult>
+    <UnitTestResult executionId="641fc08a-f13c-4215-aa6c-87fea38085b9" testId="bdce1727-9e10-705f-71df-4ed9d0cc727b" testName="CheckChange2" computerName="TUNIA" duration="00:00:00.0008798" startTime="2013-04-26T18:10:48.7463730+02:00" endTime="2013-04-26T18:10:48.7573736+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="641fc08a-f13c-4215-aa6c-87fea38085b9">
+    </UnitTestResult>
+    <UnitTestResult executionId="919c88ce-fa89-44a6-a949-ab377161bcfe" testId="ca8fef68-3e6e-0e47-5116-2fa2d4889893" testName="CheckChange3" computerName="TUNIA" duration="00:00:00.0003610" startTime="2013-04-26T18:10:48.7593737+02:00" endTime="2013-04-26T18:10:48.7663741+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="919c88ce-fa89-44a6-a949-ab377161bcfe">
+    </UnitTestResult>
+    <UnitTestResult executionId="4a091296-5eff-4e22-9f68-b36bc5711776" testId="b6c2c35d-0af7-d47a-0832-f4d395487f14" testName="CheckChange4" computerName="TUNIA" duration="00:00:00.0004743" startTime="2013-04-26T18:10:48.7693743+02:00" endTime="2013-04-26T18:10:48.7753746+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4a091296-5eff-4e22-9f68-b36bc5711776">
+    </UnitTestResult>
+    <UnitTestResult executionId="6f0d007c-1f64-46fe-894b-704beb6bc94a" testId="84960dfc-69a6-0202-fe17-eb73cf6eef5b" testName="CheckChange5" computerName="TUNIA" duration="00:00:00.0004854" startTime="2013-04-26T18:10:48.7813750+02:00" endTime="2013-04-26T18:10:48.7953758+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6f0d007c-1f64-46fe-894b-704beb6bc94a">
+    </UnitTestResult>
+    <UnitTestResult executionId="38f9846b-cbec-4206-99ee-c1ac5501beed" testId="3696d49b-035b-cd4c-8acb-25a2a6271173" testName="CheckChange6" computerName="TUNIA" duration="00:00:00.0003152" startTime="2013-04-26T18:10:48.7983759+02:00" endTime="2013-04-26T18:10:48.8053763+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38f9846b-cbec-4206-99ee-c1ac5501beed">
+    </UnitTestResult>
+    <UnitTestResult executionId="1e66f7e2-7706-4104-9363-e18081b7d3c9" testId="29afddcd-a882-5ec0-ef27-736173ee2cfa" testName="ToValue832" computerName="TUNIA" duration="00:00:00.0025509" startTime="2013-04-26T18:10:48.8103766+02:00" endTime="2013-04-26T18:10:48.8253775+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e66f7e2-7706-4104-9363-e18081b7d3c9">
+    </UnitTestResult>
+    <UnitTestResult executionId="fbd09a5f-562e-464a-b7f2-b04263616d5d" testId="cb63e72a-b73d-fd8f-0241-2a5abe4c325b" testName="ToValue513" computerName="TUNIA" duration="00:00:00.0002275" startTime="2013-04-26T18:10:48.8273776+02:00" endTime="2013-04-26T18:10:48.8343780+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fbd09a5f-562e-464a-b7f2-b04263616d5d">
+    </UnitTestResult>
+    <UnitTestResult executionId="2fcc5457-3481-4ba4-80b8-4541770af388" testId="55d8445b-1833-2470-93d4-70d9e8c158e2" testName="ToValueThrowsContractException646" computerName="TUNIA" duration="00:00:00.0436895" startTime="2013-04-26T18:10:48.8383782+02:00" endTime="2013-04-26T18:10:48.8883811+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2fcc5457-3481-4ba4-80b8-4541770af388">
+    </UnitTestResult>
+    <UnitTestResult executionId="37bab1b1-ac49-4983-9d7a-b113fbd413ab" testId="8dfb708c-bcdc-5477-ef07-b275041ca24b" testName="ToValue1" computerName="TUNIA" duration="00:00:00.0002497" startTime="2013-04-26T18:10:48.8913813+02:00" endTime="2013-04-26T18:10:48.9003818+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="37bab1b1-ac49-4983-9d7a-b113fbd413ab">
+    </UnitTestResult>
+    <UnitTestResult executionId="62cf9641-88b6-475a-9db2-453d77a7ba55" testId="54049617-1cc9-58d2-6255-301b7d1b471e" testName="ToValue932" computerName="TUNIA" duration="00:00:00.0002258" startTime="2013-04-26T18:10:48.9063821+02:00" endTime="2013-04-26T18:10:48.9153826+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="62cf9641-88b6-475a-9db2-453d77a7ba55">
+    </UnitTestResult>
+    <UnitTestResult executionId="591c1e07-6256-4d4c-b59b-1431f14f7238" testId="fd0594a0-e09f-0a9f-2b91-7b43f72abdef" testName="ToValue347" computerName="TUNIA" duration="00:00:00.0005397" startTime="2013-04-26T18:10:48.9183828+02:00" endTime="2013-04-26T18:10:48.9303835+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="591c1e07-6256-4d4c-b59b-1431f14f7238">
+    </UnitTestResult>
+    <UnitTestResult executionId="28f1f8fc-4934-4c3a-8a52-5785cf9c906a" testId="088c6cd8-f53a-f171-2e65-b7eb597ed333" testName="ToValue66" computerName="TUNIA" duration="00:00:00.0002322" startTime="2013-04-26T18:10:48.9333837+02:00" endTime="2013-04-26T18:10:48.9423842+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="28f1f8fc-4934-4c3a-8a52-5785cf9c906a">
+    </UnitTestResult>
+    <UnitTestResult executionId="51b5a581-e398-44b3-a545-531ba9af94e9" testId="3c39e665-fbbd-a325-5731-748af5e9cf8e" testName="TestMethod1" computerName="TUNIA" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotRunnable" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="51b5a581-e398-44b3-a545-531ba9af94e9">
+      <Output>
+        <ErrorInfo>
+          <Message>UTA004: Illegal use of attribute on VendingMachine.Tests.Stock.StockManagerTest.TestMethod1. The TestMethodAttribute can be defined only inside a class marked with the TestClass attribute.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3e25a7fc-ab1d-4792-bd03-7eea0964a89a" testId="298b599c-963b-d5e7-3c39-e72db05f2b77" testName="TestMethod2" computerName="TUNIA" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotRunnable" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e25a7fc-ab1d-4792-bd03-7eea0964a89a">
+      <Output>
+        <ErrorInfo>
+          <Message>UTA004: Illegal use of attribute on VendingMachine.Tests.Stock.StockManagerTest.TestMethod2. The TestMethodAttribute can be defined only inside a class marked with the TestClass attribute.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="588d5dd0-e1ec-4cb1-9168-474840905024" testId="e7702e2e-a287-a96f-4432-23c134a38cba" testName="AddProductThrowsContractException156" computerName="TUNIA" duration="00:00:00.0058894" startTime="2013-04-26T18:10:48.9463844+02:00" endTime="2013-04-26T18:10:48.9593851+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="588d5dd0-e1ec-4cb1-9168-474840905024">
+    </UnitTestResult>
+    <UnitTestResult executionId="c2bab06b-a9cf-4d32-a2e1-c1257d422b05" testId="53f981c6-9727-3108-39ac-83eedd228892" testName="ConstructorTest" computerName="TUNIA" duration="00:00:00.0003811" startTime="2013-04-26T18:10:48.9623853+02:00" endTime="2013-04-26T18:10:48.9693857+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c2bab06b-a9cf-4d32-a2e1-c1257d422b05">
+    </UnitTestResult>
+    <UnitTestResult executionId="c68a86ea-8712-4320-a97d-f572cdad87e3" testId="d5a36cc4-16a7-0c24-c41b-6d6de69a256e" testName="EjectCoinNotEnoughCoins" computerName="TUNIA" duration="00:00:00.0005453" startTime="2013-04-26T18:10:48.9733859+02:00" endTime="2013-04-26T18:10:48.9913870+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c68a86ea-8712-4320-a97d-f572cdad87e3">
+    </UnitTestResult>
+    <UnitTestResult executionId="52b6f625-ed5b-4fa0-999a-7c06b7fcd583" testId="ace49edf-99b2-109f-ac51-dfcee8b9cd8c" testName="EjectCoinCaseNotEmpty" computerName="TUNIA" duration="00:00:00.0020894" startTime="2013-04-26T18:10:48.9943871+02:00" endTime="2013-04-26T18:10:49.0053878+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="52b6f625-ed5b-4fa0-999a-7c06b7fcd583">
+    </UnitTestResult>
+    <UnitTestResult executionId="af09bbfd-097a-434e-ab40-4570817b74d2" testId="4d0ca4a4-c15d-2656-877e-5942f7f24fd2" testName="CheckChangeCorrect" computerName="TUNIA" duration="00:00:00.0012771" startTime="2013-04-26T18:10:49.0213887+02:00" endTime="2013-04-26T18:10:49.0433900+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af09bbfd-097a-434e-ab40-4570817b74d2">
+    </UnitTestResult>
+  </Results>
+</TestRun>

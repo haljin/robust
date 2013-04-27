@@ -194,10 +194,6 @@
         <member name="P:VendingMachine.Data.Moles.MProduct.Behavior">
             <summary>Assigns the behavior for all methods of the moled type</summary>
         </member>
-        <member name="P:VendingMachine.Data.Moles.MProduct.Constructor">
-            <summary>Sets the mole of <see cref="M:VendingMachine.Data.Product.#ctor"/>
-            </summary>
-        </member>
         <member name="P:VendingMachine.Data.Moles.MProduct.ConstructorString">
             <summary>Sets the mole of <see cref="M:VendingMachine.Data.Product.#ctor(System.String)"/>
             </summary>
@@ -310,6 +306,10 @@
         </member>
         <member name="P:VendingMachine.Machine.Moles.MVendMachine.Constructor">
             <summary>Sets the mole of <see cref="M:VendingMachine.Machine.VendMachine.#ctor"/>
+            </summary>
+        </member>
+        <member name="P:VendingMachine.Machine.Moles.MVendMachine.ConstructorXDocumentXDocument">
+            <summary>Sets the mole of <see cref="M:VendingMachine.Machine.VendMachine.#ctor(System.Xml.Linq.XDocument,System.Xml.Linq.XDocument)"/>
             </summary>
         </member>
         <member name="P:VendingMachine.Machine.Moles.MVendMachine.EmptyCases">
@@ -479,9 +479,6 @@
             <summary>Stub type of <see cref="T:VendingMachine.Data.Product"/>
             .</summary>
         </member>
-        <member name="M:VendingMachine.Data.Moles.SProduct.#ctor">
-            <summary>Initializes a new instance</summary>
-        </member>
         <member name="M:VendingMachine.Data.Moles.SProduct.#ctor(System.String)">
             <summary>Initializes a new instance</summary>
         </member>
@@ -518,6 +515,9 @@
             .</summary>
         </member>
         <member name="M:VendingMachine.Machine.Moles.SVendMachine.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:VendingMachine.Machine.Moles.SVendMachine.#ctor(System.Xml.Linq.XDocument,System.Xml.Linq.XDocument)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="M:VendingMachine.Machine.Moles.SVendMachine.InitializeStub">

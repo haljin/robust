@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Linq;
 using VendingMachine.Data;
 using VendingMachine.Stock;
 
@@ -40,6 +42,18 @@ namespace VendingMachine.Machine
             ProductCase = new LinkedList<Product>();
         }
 
+        public VendMachine(XDocument stockDoc, XDocument coinDoc)
+        {
+            state = State.Idle;
+            StockMan = new StockManager(stockDoc);
+            CoinMan = new CoinManager(coinDoc);
+            SelectedProduct = null;
+            InsertedValue = 0;
+            CoinCase = new LinkedList<Coin>();
+            ProductCase = new LinkedList<Product>();
+        }
+
+
         public TransactionResult SelectProduct(Product product)
         {
             Contract.Requires(state == State.Idle || state == State.ProductChosen);
@@ -49,8 +63,7 @@ namespace VendingMachine.Machine
                 SelectedProduct = product;
                 SelectedProduct.Price = StockMan.GetPrice(SelectedProduct);
                 state = State.ProductChosen;
-                if (!CoinMan.CheckChange(SelectedProduct.Price, InsertedValue))
-                    return TransactionResult.SuccessButNoChange;
+                
                 return TransactionResult.Success;
             }
 

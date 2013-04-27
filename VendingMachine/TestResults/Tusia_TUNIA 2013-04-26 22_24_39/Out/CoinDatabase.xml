@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Coin>
+    <Type>0.5</Type>
+    <Ammount>0</Ammount>
+  </Coin>
+  <Coin>
+    <Type>1</Type>
+    <Ammount>8</Ammount>
+  </Coin>
+  <Coin>
+    <Type>2</Type>
+    <Ammount>0</Ammount>
+  </Coin>
+  <Coin>
+    <Type>5</Type>
+    <Ammount>0</Ammount>
+  </Coin>
+  <Coin>
+    <Type>10</Type>
+    <Ammount>0</Ammount>
+  </Coin>
+  <Coin>
+    <Type>20</Type>
+    <Ammount>0</Ammount>
+  </Coin>
+</Root>
