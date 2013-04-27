@@ -15,6 +15,7 @@ namespace VendingMachine.Data
     {
         public static decimal ToValue(this Coin coin)
         {
+            Contract.Requires(coin <= Coin.Kr20 && coin>=Coin.Ore50);
             Contract.Ensures(Contract.Result<decimal>() > 0);
             switch (coin)
             {

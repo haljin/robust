@@ -12,9 +12,6 @@ namespace VendingMachine.Data
         public int Ammount { get; set; }
         public decimal Price { get; set; }
 
-        public Product()
-        {
-        }
 
         public Product(string name)
         {

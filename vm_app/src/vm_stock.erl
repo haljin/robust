@@ -90,7 +90,7 @@ handle_call({get_prod, ProdName, Money}, _From, #state{table = Table} = Products
 			     Temp = Money - Price,
 			 if 
 			     Temp < 0 ->
-				 io:format("not enough money");
+				ok;
 			     Temp == 0 ->
 						% enough money input, + give product
 				 dets:update_counter(Table, Name, {#product.ammount, -1}),

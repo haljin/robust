@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <TestSettings name="Local" id="90315388-b8f0-4336-8e95-cd594a7c7916" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are default test settings for a local test run.</Description>
+  <Deployment>
+    <DeploymentItem filename="VendingMachine\CoinDatabase.xml" />
+    <DeploymentItem filename="VendingMachine\StockDatabase.xml" />
+  </Deployment>
+
   <Execution>
     <TestTypeSpecific>
       <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
