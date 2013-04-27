@@ -23,10 +23,19 @@ namespace VendingMachine.Stock
             Wallet = Database.Descendants("Coin");
         }
 
+        public CoinManager(XDocument document)
+        {
+            Contract.Requires(document != null);
+            Contract.Ensures(Wallet != null && Wallet.Count() > 0, "POST: Wallet must contain coin types");
+
+            Database = document;
+            Wallet = Database.Descendants("Coin");
+        }
 
         public bool CheckChange(decimal price, decimal inserted)
         {
             //Contract.Requires(inserted >= price, "PRE: User must have insterted more money than the price of the product");
+            Contract.Requires(price >= 0 && inserted >= 0);
             Contract.Requires(Wallet != null);
             if (inserted <= price)
                 return true;

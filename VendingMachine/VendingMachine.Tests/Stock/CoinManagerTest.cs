@@ -1,18 +1,20 @@
+using System;
+// <copyright file="CoinManagerTest.cs">Copyright ©  2013</copyright>
+using System.Collections.Generic;
+using System.Xml.Linq;
 using Microsoft.Pex.Framework;
 using Microsoft.Pex.Framework.Validation;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VendingMachine.Data;
-// <copyright file="CoinManagerTest.cs">Copyright ©  2013</copyright>
+
 
 namespace VendingMachine.Stock
 {
     /// <summary>This class contains parameterized unit tests for CoinManager</summary>
-    [PexClass(typeof(global::VendingMachine.Stock.CoinManager))]
-    [PexAllowedExceptionFromTypeUnderTest(typeof(global::System.InvalidOperationException))]
-    [PexAllowedExceptionFromTypeUnderTest(typeof(global::System.ArgumentException), AcceptExceptionSubtypes = true)]
-    [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
+    [PexClass(typeof(CoinManager))]
+    [PexAllowedExceptionFromTypeUnderTest(typeof(InvalidOperationException))]
+    [PexAllowedExceptionFromTypeUnderTest(typeof(ArgumentException), AcceptExceptionSubtypes = true)]
+    [TestClass]
     public partial class CoinManagerTest
     {
         /// <summary>Test stub for AddCoin(Coin, Int32)</summary>
@@ -24,7 +26,7 @@ namespace VendingMachine.Stock
         )
         {
 
-            PexAssume.IsTrue(5 >= (int)coin && 0 <= (int) coin, "proper coin");
+            PexAssume.IsTrue(5 >= (int)coin && 0 <= (int)coin, "proper coin");
             target.AddCoin(coin, ammount);
         }
 
@@ -34,13 +36,48 @@ namespace VendingMachine.Stock
             [PexAssumeUnderTest]CoinManager target,
             Coin coin,
             int ammount,
-            LinkedList<global::VendingMachine.Data.Coin> coinCase
+            LinkedList<Coin> coinCase
         )
         {
             PexAssume.IsTrue(5 >= (int)coin && 0 <= (int)coin, "proper coin");
             PexAssume.InRange(ammount, 1, 10);
             target.EjectCoin(coin, ammount, coinCase);
         }
+
+        // Scenario: Database XML file is incorrect
+        // Expected outcome: Constructor throws exception
+        [TestMethod]
+        public void ConstructorTest()
+        {
+            string doc =
+                @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+            <Root>
+            </Root>";
+            try
+            {
+                CoinManager coinMan = new CoinManager(XDocument.Parse(doc));
+                Assert.Fail();
+            }
+            catch (Exception)
+            { }
+
+        }
+
+        // Scenario: Database is null
+        // Expected outcome: Constructor throws exception
+        public void ConstructorTest2()
+        {
+            string doc = null;
+            try
+            {
+                CoinManager coinMan = new CoinManager(XDocument.Parse(doc));
+                Assert.Fail();
+            }
+            catch (Exception)
+            { }
+
+        }
+
 
     }
 }
