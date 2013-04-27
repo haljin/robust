@@ -1,25 +1,36 @@
+using System;
 using Microsoft.Pex.Framework;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using Microsoft.Pex.Framework.Validation;
+// <copyright file="CoinManagerTest.cs">Copyright ©  2013</copyright>
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VendingMachine.Data;
 // <copyright file="StockManagerTest.cs">Copyright ©  2013</copyright>
 namespace VendingMachine.Stock
 {
     /// <summary>This class contains parameterized unit tests for StockManager</summary>
-    [global::Microsoft.Pex.Framework.PexClass(typeof(global::VendingMachine.Stock.StockManager))]
-    [global::Microsoft.Pex.Framework.Validation.PexAllowedExceptionFromTypeUnderTest(typeof(global::System.InvalidOperationException))]
-    [global::Microsoft.Pex.Framework.Validation.PexAllowedExceptionFromTypeUnderTest(typeof(global::System.ArgumentException), AcceptExceptionSubtypes = true)]
-    [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
+    [PexClass(typeof(global::VendingMachine.Stock.StockManager))]
+    [PexAllowedExceptionFromTypeUnderTest(typeof(InvalidOperationException))]
+    [PexAllowedExceptionFromTypeUnderTest(typeof(ArgumentException), AcceptExceptionSubtypes = true)]
+    [TestClass]
     public partial class StockManagerTest
     {
         /// <summary>Test stub for AddProduct(Product)</summary>
-        [global::Microsoft.Pex.Framework.PexMethod]
-        internal void AddProduct([global::Microsoft.Pex.Framework.PexAssumeUnderTest]global::VendingMachine.Stock.StockManager target, global::VendingMachine.Data.Product product)
+        [PexMethod(MaxConditions = 2000)]
+        internal void AddProduct([PexAssumeUnderTest]StockManager target, Product product)
         {
             target.AddProduct(product);
             
         }
 
+        [PexFactoryMethod(typeof(Product))]
+        public static Product Create(string name, int amm, decimal price)
+        {
+            Product prod = new Product(name, amm, price);
+
+            return prod;
+        }
+
     }
+
+    
 }
