@@ -1,0 +1,293 @@
+\chapter{Implementation}
+In this section we will discuss the exact implementation in both languages together with the robustness mechanisms that have been used during the development process. 
+\section{C\# implementation}
+The C\# implementation follows closely the analysis shown in the previous section. We have developed the C\# system using Code Contracts to ensure correct operation of the system. What follows is the description of each of the main components of our implementation with more detailed information. The entire class diagram, that was implemented has been shown Figure~\ref{fig:class}, it was generated using Visual Studio.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{pictures/ClassDiagram1.png}
+\caption{The implemented class diagram}\label{fig:class}
+\end{figure}
+
+Each of the classes implemented has most of its methods secured with Code Contracts. Where necessary, these contracts have been described in the upcoming section with a simple pseudo code-like syntax using the names of the properties and functions identical to the ones on the diagram.
+
+\subsection{The database}
+The database has been implemented, as mentioned before, using simple XML files as it is the simplest possible way to implement permanent storage, and thanks to the System.Xml package of .NET we are given tools to operate on such files just as on databases, which makes them easier to handle in code, than simple text files. The table below shows the format of the files.
+
+\begin{center}
+\begin{minipage}{0.45\textwidth}
+\begin{lstlisting}[style=myXML]
+
+<?xml version="1.0" encoding="utf-8"?>
+<Root>  
+  <Product>
+    <Name>coke</Name>
+    <Price>10</Price>
+    <Ammount>5</Ammount>    
+  </Product>
+  ...
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{lstlisting}[style=myXML]
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Coin>
+    <Type>0.5</Type>
+    <Ammount>10</Ammount>
+  </Coin>
+  ...
+\end{lstlisting}
+\end{minipage}
+\end{center}
+
+The file on the left represents the stock, which contains the basic data regarding products, each being mapped to the \emph{Product} class. The file on the right represents coins, which are mapped to the \emph{Coin} enumeration and work a bit differently --- if the product goes out of stock it would be removed from the file, the coins, however, stay at amount 0 to represent the fact the machine knows all the types of coins. Shown below are the contracts for the \emph{Product} class, which are simple invariants defining that a \emph{Product} may never have a negative price (although can be free) and it is impossible to have a negative amount of a given product.
+
+\begin{lstlisting}[style=myCSharp]
+class Product
+	inv: Ammount >= 0;
+	inv: Price >= 0
+\end{lstlisting}
+
+There are two classes that control the databases and are responsible for the machine’s interaction with them. The \emph{CoinManger} that, unsurprisingly, controls the machine’s ,,wallet'' and the \emph{StockManager} that interacts with the stock. Both of these classes employ LINQ to XML to interact with the XML file, giving us the option to perform select and update operation as though the file was a real database.
+
+The \emph{CoinManager} class has all the methods required to control the coins contained within, all of which are described by contracts shown below.  The methods have pretty self-explanatory names, perhaps except for the last two. The contracts for the entire class are shown below. They are simplified mathematical descriptions, which have been implemented using LINQ to XML. 
+
+
+\begin{lstlisting}[mathescape,style=myCSharp,captionpos=b, caption={The \emph{CoinManager} contracts}]
+class CoinManager
+	constructor CoinManager
+		pre CoinDatabase.xml exists
+		post Wallet $\neq$ null and Wallet $\neq$ $\emptyset$
+		
+	void AddCoin(coin, amount)
+		pre amount $>$ 0 
+		pre coin $\in$  Wallet		//The Wallet must contain coins of that type
+		post {AddedCoins} $\subseteq$ Wallet	//The coins inserted must be added to the Wallet
+
+	void EjectCoin(coin, amount, coinCase)
+		pre coinCase $\neq$ null
+		pre amount $\geq$ 0
+		pre {CoinsToEject} $\subseteq$ Wallet	//There must be enough coins of given type to eject 
+		post {Ejected Coins} $\subseteq$ coinCase	//The ejected coins must be in the coinCase
+
+	void GiveChange(price, insertedValue, coinCase)
+		pre Wallet $\neq$ null
+		pre insertedValue $\geq$ price
+		pre coinCase $\neq$ null
+		pre price $\geq$ 0 and insertedValue $\geq$ 0 
+		post valueof(coinCase) $\leq$ inserted - price //There must be at most the value of the change in the case
+
+	bool CheckChange(price, insertedValue)
+		pre Wallet $\neq$ null	
+\end{lstlisting}
+
+For example the post-condition \texttt{{\color{orange}pre} \{CoinsToEject\} $\subseteq$ Wallet} was implemented using:
+
+\begin{lstlisting}[style=myCSharp,captionpos=b,caption={An example of post-condition made with Code Contracts}]
+Contract.Ensures(Contract.OldValue(coinCase.Where(c => c == coin).Count()) + ammount == coinCase.Where(c => c == coin).Count(), "POST: The ejected coins must be in the case");
+\end{lstlisting}
+
+As for the last two methods:
+\begin{description}
+\item[CheckChange] is used to determine whether the machine has sufficient change. Since the machine allows for the transaction to continue in case of insufficient change, it is entirely possible for the program to continue even if \emph{CheckChange} returns false. This function does not have any restrictions as it can be used mid-transaction. 
+\item[GiveChange] is more interesting, as it actually returns the change to the user. Change is inserted into the coin case. In reality that would be a physical compartment within the machine, possibly with a sensor that detects whether the change actually reaches it (The machine could signal an error in case the change is stuck for example). However, as this is only an abstract implementation we abstracted the case with a simple list, within the machine itself. Thus \emph{GiveChange} simple inserts the change into the list. This method however  in theory should have more post-conditions which are however difficult to write down. It is an entirely correct behaviour of the machine to give less change than required, in case it hasn't got enough money in the ,,wallet''. Therefore the value of the coins inserted in the coins will not always be equal to the inserted value minus price --- sometimes it will be less. How much less however? To calculate that we would need to apply the same algorithm that is actually responsible for giving the change, which would mean that it would have to prove itself. That is infeasible for a post-condition, therefore this post-condition has been simplified and correctness of the algorithm will be determined in tests, rather than by contracts. The simplified post-condition merely checks that the machine has not returned too much change.
+\end{description}
+
+The \emph{StockManager} class is similar in operation to the \emph{CoinManager}, however it is a bit easier to formulate contracts for it. Similarly to the \emph{CoinManager}, the products would normally be dropped into a special compartment, which again, could be verified. In our abstract case we implemented this compartment using another \emph{LinkedList}. Contracts for the methods are shown below:
+\begin{lstlisting}[mathescape,style=myCSharp,captionpos=b,caption={The \emph{StockManager} contracts}]
+class StockManager
+	constructor StockManager
+		pre StockDatabase.xml exists
+		post Stock $\neq$ null and Stock $\neq$ $\emptyset$
+
+	bool CheckAvailability(product)
+		pre Stock $\neq$ null
+		pre product $\neq$ null
+
+	decimal GetPrice(product)
+		pre Stock $\neq$ null
+		pre product $\neq$ null
+		pre product.Type $\in$ Stock
+
+	void EjectProduct(product, productCase)
+		pre CheckAvailability(product) $==$ true
+		pre Stock $\neq$ null
+		pre productCase $\neq$ null
+		pre product $\neq$ null
+		post product $\in$ productCase		//The ejected product must be in the productCase
+		post product: p $\in$ productCase $\rightarrow$ 
+		p.Ammount = old(p.Ammount) -1 	//The product must be deducted from the stock
+
+	void AddProduct(product)
+		pre Stock $\neq$ null
+		pre product $\neq$ null
+		pre product.ammount $\geq$ 0
+		pre price $\geq$ 0 and insertedValue $\geq$ 0 
+		post product $\in$ productCase			//There product type must be added to the stock
+		post product: p $\in$ productCase $\rightarrow$ 
+		p.Ammount = old(p.Ammount) + ammount 	//The product amount must be appropriate
+\end{lstlisting}
+
+The methods of this class are pretty self explanatory, so they will not be detailed. However it is worth noting that Code Contracts could be successfully used to describe all of the requirements on those methods.
+\subsection{The vending machine}
+The \emph{VendMachine} class implements the state machine that has been described in the analysis section. Code Contracts have been used to implement the state machine and limit in which state can each of the events come and in which state should it leave the machine.
+\begin{lstlisting}[mathescape,style=myCSharp,captionpos=b,caption={The \emph{VendMachine} contracts}]
+class VendMachine
+	TransactionResult SelectProduct(product)
+		pre state $==$ Idle or state $==$ ProductChosen
+ 
+	TransactionResult InsertCoin(coin)
+		pre state $==$ MoneyInserted or state $==$ ProductChosen
+		post state $==$ MoneyInserted
+
+	TransactionResult Cancel()
+		pre CoinCase $\neq$ null
+		post InsertedValue $==$ 0	//All the inserted money is returned
+
+	TransactionResult Finalize()
+		pre SelectedProduct $\neq$ null
+		pre state $==$ MoneyInserted
+
+	void PerformTransaction()
+		pre SelectedProduct.Price $\leq$ InsertedValue
+		post SelectedProduct $\in$ ProductCase
+\end{lstlisting}
+
+This class compromises the main entity that controls the whole application. 
+\subsection{GUI}
+
+\begin{wrapfigure}{r}{0.45\textwidth}
+\vspace{-10pt}
+\centering
+    \includegraphics[width=0.43\textwidth]{pictures/GUI.PNG}
+  \caption{The vending machine GUI}\label{fig:gui}
+\end{wrapfigure}
+
+We have decided to create a simple simulator GUI to demonstrate how the program is working, as well as to make simple preliminary testing of the program’s main use cases. It was also meant to be a way for us to interact with the code we created in some way. In reality, of course, the machine would not have any interface of the sort, but would rely on the input from hardware components.
+
+The GUI is stylized as a simple machine, with four products that the user can choose from (Fig.~\ref{fig:gui}). After he chooses the product he has the opportunity to insert coins. Once enough coins have been inserted a popup shows with the information regarding the outcome.
+
+\section{Erlang implementation}
+Erlang implementation follows the same principles as the C\# one, however it highlights the strengths of the language which lends itself very well to the problem at hand. The processes that have been developed closely follow the ones outlined in the analysis section, however a few additional processes have been added to simplify the solution and facilitate some needed functionalities. The entire process tree was also enclosed in an OTP application, which means better control of start and stop thereof as well as ability to use some in-built debugging features of Erlang. 
+
+On the outside, the application is identical to the C\# one, with the exception of lack of GUI --- since Erlang comes with a shell, it is entirely possible to control the application from the command line, so we deemed that the GUI is not necessary.
+
+The process tree, as shown by the Toolbar application, that is an in-built debugging aide in Erlang, can be seen in Figure~\ref{fig:vmapp}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = \textwidth]{pictures/vm_appProcTree.PNG}
+\caption{The vm\_app process tree}\label{fig:vmapp}
+\end{figure}
+
+The processes have been divided into the two groups, such as described in section 3, the database responsible and the user input responsible. A third group has been added that represents the coin and product cases, just as in the C\# implementation --- that is where the purchased products and change ends up after the transaction is over.
+\subsection{The database}
+The database is handled as described before, via a \emph{dets} table. Two tables have been created, that act as counterparts to the XML files. This is an even better implementation, as \emph{dets} stores data in a very efficient manner and using it is faster, than parsing XML files --- this could be used as a definite solution, not just a temporary ,,database stub''.  The database handling part is made of three processes:
+\begin{itemize}
+\item \emph{vmdb\_sup} --- Supervisor,
+\item \emph{vm\_stock} --- Worker --- \emph{gen\_server},
+\item \emph{vm\_coin} --- Worker --- \emph{gen\_server}.
+\end{itemize}
+
+\paragraph{\emph{vmdb\_sup} --- Supervisor}
+This process is responsible for supervising the database worker processes: starting, stopping and restarting in case of errors. The main part of the supervisor is its init function which is executed by the process when it is started. It contains the so-called restart strategy.
+
+\begin{lstlisting}[style=myErlang,captionpos=b,caption={\emph{Vmdb\_sup} restart strategy}]
+init([])->
+    Stock = {vm_stock, {vm_stock, start, []}, permanent, 2000, worker, [vm_stock]},
+    Coins = {vm_coin, {vm_coin, start, []}, permanent, 2000, worker, [vm_coin]},
+    {ok, {{one_for_one,2,1}, [Stock, Coins]}}.
+\end{lstlisting}
+
+The code fragment shown above shows the restart strategy for this process. A strategy is a list of child processes with general information on how to handle them. Each process has its own set of traits, called the child spec. For instance \emph{vm\_stock} process is started by calling the function start in the module \emph{vm\_stock} with no arguments, is a permanent process --- which means it always has to be restarted, is given 2 seconds to start up (if it times out the start is aborted and the system shuts down) and is a worker (not another supervisor) process. There are three kinds of children --- permanent, transient (which should be restarted if they crash, but not if they exit normally) and temporary (which should never be restarted). Since our databases must be up at all times they are both permanent. Lastly we have the strategy itself being \emph{one\_for\_one}, allowing for up to 2 crashes within 1 second. There are several different strategies --- \emph{one\_for\_one} means that only the process that crashed is restarted, as opposed to, for example, \emph{all\_for\_one}, where all children are restarted in case one fails. If the limit is exceeded, the supervisor itself crashes.
+
+\paragraph{\emph{vm\_stock} --- Worker --- \emph{gen\_server}} This process is responsible for maintaining the stock database and performing all operations that are related to it, such as adding and withdrawing products, checking for stock, etc. It is a server process (implementing the generic server module) that responds to the requests made by the machine part, acting as a client. The database itself is kept in a \emph{dets} table and as such is preserved through restarts. Implementing a \emph{gen\_server} is quite simple. The module is compromised of two main parts: the API calls that are used to send the messages to the process and the callbacks, which implement the process’ responses. The purpose of the API calls is to obscure the inner message structure from any user of this module --- this is done to do two things: increase code maintenance possibilities and ensure greater robustness. Calling functions is much easier and if the message structure changes, it does not affect external modules. On the other hand, there is no risk that any other module will send messages with incorrect syntax, thus increasing reliability. Normally if a process is to send a message to another process the \texttt{!} operator is used (In the form \texttt{{\color{orange}PID}!{\color{orange}Message}}, where \texttt{PID} is the Process Identifier and \texttt{Message} is any Erlang term). In case of OTP processes however, it is done via the special API. Consider this fragment:
+\begin{lstlisting}[style=myErlang,captionpos=b,caption={The \emph{vm\_stock} API fragment}]
+stop()-> 
+    gen_server:cast(?MODULE, stop).	
+insert_prod(#product{} = Prod) -> 
+    gen_server:call(?MODULE, {insert_prod, Prod}).
+\end{lstlisting}
+
+The \emph{gen\_server} module exposes functions that are meant to handle sending messages, as they build on top of sending a simple message, by adding message and sender references and generally ensuring greater reliability. There are two kinds of messages towards a \emph{gen\_server} process --- cast, which are asynchronous and call, which are synchronous.
+
+To handle them the process uses appropriate functions. As normally handling messages is done via a receive code block, OTP again encapsulates this within its own operations. 
+
+\begin{lstlisting}[style=myErlang,captionpos=b,caption={The \emph{vm\_stock} callbacks fragment}]
+init([]) ->
+    {ok, Table} = dets:open_file(stock, [{type,set}, {access,read_write},{keypos,#product.name},{file,"stock.db"}]),
+    {ok, #state{table = Table}}.
+
+handle_call({insert_prod, #product{name = Name, price = Price, ammount = Am} = Prod}, _From, #state{table = Table} = Products) ->
+    Response = case dets:member(Table, Name) of 
+		   true -> % change the existing value
+		       dets:update_counter(Table, Name, {#product.ammount, 1}); 
+		   false -> % append at the end
+		       dets:insert(Table,Prod)
+	       end,
+    {reply, Response, Products};
+    ...
+handle_cast(stop, Products) -> 
+    {stop, normal, Products}.
+
+\end{lstlisting}
+
+This fragment shows the callback functions responsible for handling the given messages – the \emph{handle\_call} function for synchronous (via call) and \emph{handle\_cast} for asynchronous (cast) messages. The \emph{init} function is responsible for the initial initialization after the process is started --- it can be seen that the \emph{dets} table is opened at that point. Each function clause of the \emph{handle\_x} functions is responsible for dealing with one message type, given internal state --- which is represented by the state variable (called \emph{Products} as in our case it only holds the reference to the stock table). If any message comes, that is not handled the server will crash. In this case, the supervisor will immediately bring it back and no data will be lost (as \emph{dets} table is persistent). This makes it much easier to write code as we do not have to worry about error handling --- and if we wanted to it is quite simple, as only a catch-all clause (that is taking any message, by binding it to any variable) would have to be added. 
+\paragraph{\emph{vm\_coin} --- Worker --- \emph{gen\_server}}
+This process is very similar to \emph{vm\_stock}, except it handles the coins that the machine contains. It is also a server, holding data in its own \emph{dets} table.
+
+\subsection{The machine}
+The machine itself is compromised of two parts or process sub-trees. One of them represents the cases that the machine has, the other the entire controlling part of the machine, which is also the entity that the user himself operates with. The case part is pretty simple:
+\begin{description}
+\item[\emph{vmcase\_sup} --- Supervisor] This process is another supervisor that performs identical tasks as \emph{vmdb\_sup}, for its child processes and has the same strategy. 
+\item[\emph{vm\_case} --- Worker --- \emph{gen\_server}] This process acts as a very simple server --- all it does is allowing for storage and removal of products that are considered to have been ejected from the machine. This process has been created to simplify testing at the later stage, but it also acts as a good stub for a real-world hardware component.
+\item[\emph{vm\_coincase} --- Worker --- \emph{gen\_server}] This process is identical to the one above, except it handles coins ejected as change.
+\end{description}
+
+The controlling part is more interesting. It is implementing these processes that are responsible for communicating directly with the user interface, thus the user himself. It is made up of three processes:
+\begin{description}
+\item[\emph{vmuser\_sup} --- Supervisor] This is another supervisor that works exactly same as the previously mentioned ones.
+\item[\emph{vm\_control} --- Worker --- \emph{gen\_fsm}]
+This is the main module that handles user input. It implements the generic finite state machine module, by modelling the state machine described in the analysis section. This module communicates with the database modules, while itself it receives inputs from any physical user interface on the actual machine. Since this OTP behaviour allows for very easy implementation of state machines, it is modelled exactly as on the diagram.
+\begin{lstlisting}[style=myErlang,captionpos=b,caption={Code for the \emph{chosen\_product} state of \emph{vm\_control}},label={l:ChosenProduct}]
+chosen_product({choose_product,Product}, #state{}=State)->
+    case vm_stock:check_prod(Product) of
+	true->
+	    vm_display:display("You have chosen: ~p",[Product]),
+	    {next_state,chosen_product,State#state{product=Product}};
+	false ->
+	    vm_display:display("Out of stock~n",[]),
+	    {next_state,chosen_product,State}
+    end;
+chosen_product({insert_coin,Coin}, #state{product=Prod}=State) ->
+    {prod, ProdInfo} = vm_stock:prod_info(Prod),
+    case vm_coin:coin_to_val(Coin)< ProdInfo#product.price  of
+	true->
+	     vm_display:display("You have inserted ~p coins.Not enough. The price 		is ~p",[vm_coin:coin_to_val(Coin),ProdInfo#product.price]),
+	    {next_state,coin_inserted,State#state{money=vm_coin:coin_to_val(Coin)}};
+	false->
+	    vm_stock:get_prod(Prod,vm_coin:coin_to_val(Coin)),
+	    vm_display:display("Take your ~p",[Prod]),
+	    {next_state,idle,#state{}}
+    end.
+
+\end{lstlisting}
+Listing~\ref{l:ChosenProduct} represents the code for the ,,Product chosen'' state modelled in the state machine described by Figure~\ref{vmstates}.  When implementing \emph{gen\_fsm} callbacks, each state is represented by a function, whose name is equivalent to the state name. Each function clause is responsible for handling one type of incoming events (basically an Erlang message). The state variable holds any information that might be needed by the machine, which can be modified when the events come and is not to be confused with the name of the state --- it is used to hold additional data. It can be seen in the excerpt that in this state, the machine is only able to hold two kinds of events --- choosing a product and inserting coins. If any other event was to come, the machine would crash. This in turn would lead to an immediate restart, which would immediately bring the machine back into operation. Each state is implemented in an identical fashion, only handling the correct events. This ensures, that the machine never goes into a ,,weird'' or unknown state, by performing actions out of order --- it is simply impossible.
+
+The states are supplemented by another fragment however:
+\begin{lstlisting}[style=myErlang,captionpos=b,caption={The \emph{handle\_event} function},label={l:hEvent}]
+handle_event(cancel, _,#state{money=Money}) ->
+    vm_coin:get_change(Money),
+    vm_display:display("Cancelled!", []),
+    {next_state,idle,#state{}};
+\end{lstlisting}
+
+Listing~\ref{l:hEvent} presents a function that is responsible for handling events, that could occur in all the states and for which the response of the system is identical – therefore cancel event has been implemented here.
+\item[\emph{vm\_display} --- Worker --- \emph{gen\_event}]
+This process is responsible for outputting data to the user, via some sort of a display – in our case we print out to the shell, but normally we would output to some kind of a display on the machine itself. This process implements the generic event handler. The \emph{gen\_event} behaviour is similar to the \emph{gen\_server} --- except one \emph{gen\_event} process can have multiple event handling modules --- in this case if an event comes to \emph{gen\_event} it is propagated to each handler attached. Generally, \emph{gen\_event} is used for operations that are meant to be executed fast, without much overhead. 
+\end{description}
+The entirety of the process tree is enclosed in an OTP application which is another behaviour, whose sole purpose is to ease the deployment of it --- it does not provide any extra functionality, other than easier monitoring and starting/stopping the processes. The application also serves as the top-level supervisor, above even the \emph{vm\_sup} process.
+\subsection{Interfacing with the machine}
+To use the machine we directly call the functions from the Erlang shell. Creating a GUI is definitely possible in Erlang (using wxWidgets, which are also a multiplatform GUI tool for C++) it is not necessary (as it was in C\#), therefore we opted not to create one, as all the functionality of the machine is exposed to thanks to the Erlang shell.

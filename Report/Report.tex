@@ -6,18 +6,90 @@
 \usepackage{amssymb}
 \usepackage{makeidx}
 \usepackage{graphicx}
+\usepackage{url}
+\usepackage{array}
+\usepackage{wrapfig}
 
+\usepackage{caption}
+\usepackage{subcaption}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
+% Margins
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+% Colours (for listings)
+\usepackage{color}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\definecolor{orange}{rgb}{1,0.5,0}
+
+% Listings
+\usepackage{listings}
+
+\lstdefinestyle{myCSharp}{language=[Sharp]C,
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+keywordstyle=\color{bluekeywords}\bfseries,
+keywordstyle=[2]\color{orange}\bfseries,
+keywordstyle=[3]\color{cyan}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+tabsize=2,
+morekeywords={Contract, constructor, TransactionResult},
+keywords=[2]{pre, post},
+keywords=[3]{and, or}
+}
+\lstdefinestyle{myXML}{language=XML,
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+tabsize=2,
+morekeywords={Name, Price, Ammount, Product, Root, Coin, Type}
+}
+\lstdefinestyle{myErlang}{language=erlang,
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+keywordstyle=\color{bluekeywords}\bfseries,
+keywordstyle=[2]\color{orange}\bfseries,
+keywordstyle=[3]\color{cyan}\bfseries,
+keywordstyle=[4]\color{magenta}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\footnotesize,
+tabsize=2,
+morekeywords={gen_server,product,cast,call,dets,open_file,state,member,update_counter,insert, vm_stock, check_prod, display, vm_display, prod_info, vm_coin, coin_to_val, get_prod, get_change, lists, map, foldl, oneof, choose, non_empty, last, keyfind, vector, transaction_generator, coin_generator, generate_dets, sleep, timer, start, vm_sup, foreach, eval, stop, keymember, vm_case, get_all, file, delete },
+keywords=[2]{Stock, Coins, Prod, Table, Price, Name, Products, Response, State, Product, Coin, Money, List, E, E1, E12, Sum, Choices, ProdName, Choices, Insertion, BoughtItem},
+keywords=[3]{MODULE, SUCHTHAT, FORALL},
+keywords=[4]{case, of, end, fun, begin}
+}
+% Bibliography
 \usepackage[backend=biber,style=numeric,firstinits=true]{biblatex}
 \addbibresource{biblio.bib}
 
 \begin{document}
-
 \input{title}
+\tableofcontents
 \input{introduction}
 \input{projectDescription}
 \input{analysisDesign}
+\input{implementation}
+\input{robustness}
+\input{conclusion}
 
 \printbibliography
 \end{document}

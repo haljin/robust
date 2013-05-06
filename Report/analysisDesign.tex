@@ -6,7 +6,7 @@ The entire Vending machine can be described as a relatively simple state machine
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width = \textwidth]{pictures/vmstates.png}
+\includegraphics[width = 0.9\textwidth]{pictures/vmstates.png}
 \caption{The vendding machine states}\label{vmstates}
 \end{figure}
 
@@ -17,7 +17,7 @@ We have created a simple UML design of the system, that can be seen in an UML co
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width = \textwidth]{pictures/CSharpCompDiagr.png}
+\includegraphics[width = 0.9\textwidth]{pictures/CSharpCompDiagr.png}
 \caption{C\# component diagram}\label{CScompDiagr}
 \end{figure}
 
@@ -38,13 +38,13 @@ As such we have decided to design the database as simple XML files to store both
 \section{Erlang version}
 To deploy the Erlang version we decided to use Erlang/OTP approach. As Erlang is a programming language, the set of libraries it comes bundled with is called OTP (or Open Telecoms Platform). This set of basic libraries contains much of the basic functionalities that make writing the code easier, but also provides a certain framework that allows for much easier and safer deployment of code. 
 
-OTP provides a set of modules (libraries) called behaviours --- that encapsulate the basic operation of a type of process. We are given behaviours for generic servers ($gen\_server$) that are able to handle customized client requests, generic finite state machines ($gen\_fsm$) which is exactly what it means --- it can be used to easily implement any state machine-like process, and a generic event handler ($gen\_event$), that is somewhat similar to the server. The event handler process however can ,,mount'' several event handling modules at the same time and in general is meant to perform simple operations based on incoming events. The last behaviour is the supervisor that is different from the previous processes, as will be explained later.
+OTP provides a set of modules (libraries) called behaviours --- that encapsulate the basic operation of a type of process. We are given behaviours for generic servers (\emph{gen \textunderscore server}) that are able to handle customized client requests, generic finite state machines (\emph{gen\_fsm}) which is exactly what it means --- it can be used to easily implement any state machine-like process, and a generic event handler (\emph{gen\_event}), that is somewhat similar to the server. The event handler process however can ,,mount'' several event handling modules at the same time and in general is meant to perform simple operations based on incoming events. The last behaviour is the supervisor that is different from the previous processes, as will be explained later.
 
 One of the main principles of coding in Erlang is multi-processing and distribution. As such every Erlang application is composed of several interconnected processes. Unlike the multi-threading mechanisms in C\#, Erlang processes run in so-called no-shared-state-concurrency, meaning that each process has its own resources that no other process can access directly. The only way to do that is by message passing between the processes. This ensures a much more robust and much easier to implement (No need to worry about semaphores!) solution.
 
-Following the proper Erlang/OTP design we have divided the entire system into a set of inter-operating processes. In principle, Erlang/OTP processes are meant to be either worker or supervisors processes – workers perform any computation and implement one of the three behaviour mentioned above ($gen\_server$, $gen\_fsm$, $gen\_event$), while supervisors simply ensure that the workers are kept alive and perform their tasks. In case a worker encounters an error it terminates (as per Erlang design philosophy) and is promptly restarted by the supervisor. There are many so-called restart strategies that can be set for a supervisor --- for instance a supervisor may restart just the faulty child, all or just some of them. In case the worker terminates too often, the whole supervisor shuts down together with its children. In turn, its own supervisor attempts to restart the whole sub-tree. Obviously, the workers do not have to implement the worker behaviours, however to fully utilize the OTP mechanisms that come with the framework, especially the supervisor mechanisms, it is strongly recommended. 
+Following the proper Erlang/OTP design we have divided the entire system into a set of inter-operating processes. In principle, Erlang/OTP processes are meant to be either worker or supervisors processes – workers perform any computation and implement one of the three behaviour mentioned above (\emph{gen\_server}, \emph{gen\_fsm}, \emph{gen\_event}), while supervisors simply ensure that the workers are kept alive and perform their tasks. In case a worker encounters an error it terminates (as per Erlang design philosophy) and is promptly restarted by the supervisor. There are many so-called restart strategies that can be set for a supervisor --- for instance a supervisor may restart just the faulty child, all or just some of them. In case the worker terminates too often, the whole supervisor shuts down together with its children. In turn, its own supervisor attempts to restart the whole sub-tree. Obviously, the workers do not have to implement the worker behaviours, however to fully utilize the OTP mechanisms that come with the framework, especially the supervisor mechanisms, it is strongly recommended. 
 
-The Erlang philosophy lends towards scenarios were faults lie mostly in the external factors, rather than the internal code base itself (which is kept robust as well, using different techniques described in the implementation part). This stems from its roots as a language invented for telecoms usage. This means that most faults can be corrected by simply restarting the faulting process --- the unusual situation that lead to the crash is unlikely to occur again and as studies show that seems to hold true~\cite{Armstrong2003}.
+The Erlang philosophy lends towards scenarios were faults lie mostly in the external factors, rather than the internal code base itself (which is kept robust as well, using different techniques described in the implementation part). This stems from its roots as a language invented for telecoms usage. This means that most faults can be corrected by simply restarting the faulting process --- the unusual situation that lead to the crash is unlikely to occur again and as studies show that seems to hold true.~\cite{Armstrong2003}
 
 The process tree created for the vending machine can be seen in Figure ~\ref{EprocTree}.
 
@@ -54,8 +54,19 @@ The process tree created for the vending machine can be seen in Figure ~\ref{Epr
 \caption{Erlang process tree}\label{EprocTree}
 \end{figure}
 
-The $sup$ process is the top-level supervisors that is responsible for starting the entire application. The $vm\_sup$ controls the user interaction workers --- the $vm\_ui$, that controls the user input and implements the operations of the vending machine itself (that is implements the state machine shown at the beginning of this section). The $vm\_display$ process more or less controls the machine’s output, that prints out any information the machine returns to the user --- this would be a fine example of a $gen\_event$ process. 
+The \emph{sup} process is the top-level supervisors that is responsible for starting the entire application. The \emph{vm\_sup} controls the user interaction workers --- the \emph{vm\_ui}, that controls the user input and implements the operations of the vending machine itself (that is implements the state machine shown at the beginning of this section). The \emph{vm\_display} process more or less controls the machine’s output, that is prints out any information the machine returns to the user --- this would be a fine example of a \emph{gen\_event} process. 
 
-On the right-hand side the $db\_sup$ supervises the stock controlling part, with the $vm\_stock$ process controlling the current stock, while the $vm\_coin$ process controls the machine’s “wallet” both showing to be simple servers (with the $vm\_ui$ process as the client).
+On the right-hand side the \emph{db\_sup} supervises the stock controlling part, with the \emph{vm\_stock} process controlling the current stock, while the \emph{vm\_coin} process controls the machine’s “wallet” both showing to be simple servers (with the \emph{vm\_ui} process as the client).
 
-The last consideration is how to design the database in Erlang. OTP comes to the rescue again as it provides a few modules that are able to handle this, without thinking too much about deploying database servers! The simplest solution is to use a module called $dets$ that provides a simple database table (just a single table) that stores information, as opposed to the in-memory $ets$, in a file on the hard drive, which is a perfect parallel to the C\# XML file usage. While OTP also comes bundled with Mnesia which is an almost full-blown database, we thought that it is an unnecessary complication, when we only need to store so little information.
+The last consideration is how to design the database in Erlang. OTP comes to the rescue again as it provides a few modules that are able to handle this, without thinking too much about deploying database servers! The simplest solution is to use a module called \emph{dets} that provides a simple database table (just a single table) that stores information, as opposed to the in-memory \emph{ets}, in a file on the hard drive, which is a perfect parallel to the C\# XML file usage. While OTP also comes bundled with Mnesia which is an almost full-blown database, we thought that it is an unnecessary complication, when we only need to store so little information.
+
+\section{Robustness analysis}
+There are some aspects of our system that need to be considered when determining robustness property of our implementation. There are several such properties, namely:
+\begin{itemize}
+\item when the client chooses a product that is in stock and has paid enough money, he must receive the product he purchased,
+\item if the client cancels the transaction he must have all the money he inserted thus far returned and must not receive the product,
+\item after the transaction is successful the customer must receive the change or if the machine has not enough change, receive as much as possible,
+\item the machine must not be brought down by any action available to the user, it must offer continuous service.
+\end{itemize}
+
+We will use various tools to ensure these properties are held, as stated at the beginning of this section.
