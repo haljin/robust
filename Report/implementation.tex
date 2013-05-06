@@ -50,7 +50,7 @@ class Product
 	inv: Price >= 0
 \end{lstlisting}
 
-There are two classes that control the databases and are responsible for the machine’s interaction with them. The \emph{CoinManger} that, unsurprisingly, controls the machine’s ,,wallet'' and the \emph{StockManager} that interacts with the stock. Both of these classes employ LINQ to XML to interact with the XML file, giving us the option to perform select and update operation as though the file was a real database.
+There are two classes that control the databases and are responsible for the machine’s interaction with them. The \emph{CoinManager} that, unsurprisingly, controls the machine’s ,,wallet'' and the \emph{StockManager} that interacts with the stock. Both of these classes employ LINQ to XML to interact with the XML file, giving us the option to perform select and update operation as though the file was a real database.
 
 The \emph{CoinManager} class has all the methods required to control the coins contained within, all of which are described by contracts shown below.  The methods have pretty self-explanatory names, perhaps except for the last two. The contracts for the entire class are shown below. They are simplified mathematical descriptions, which have been implemented using LINQ to XML. 
 
@@ -179,7 +179,7 @@ The process tree, as shown by the Toolbar application, that is an in-built debug
 \begin{figure}[htbp]
 \centering
 \includegraphics[width = \textwidth]{pictures/vm_appProcTree.PNG}
-\caption{The vm\_app process tree}\label{fig:vmapp}
+\caption{The \emph{vm\_app} process tree}\label{fig:vmapp}
 \end{figure}
 
 The processes have been divided into the two groups, such as described in section 3, the database responsible and the user input responsible. A third group has been added that represents the coin and product cases, just as in the C\# implementation --- that is where the purchased products and change ends up after the transaction is over.
@@ -192,7 +192,7 @@ The database is handled as described before, via a \emph{dets} table. Two tables
 \end{itemize}
 
 \paragraph{\emph{vmdb\_sup} --- Supervisor}
-This process is responsible for supervising the database worker processes: starting, stopping and restarting in case of errors. The main part of the supervisor is its init function which is executed by the process when it is started. It contains the so-called restart strategy.
+This process is responsible for supervising the database worker processes: starting, stopping and restarting in case of errors. The main part of the supervisor is its \emph{init} function which is executed by the process when it is started. It contains the so-called restart strategy.
 
 \begin{lstlisting}[style=myErlang,captionpos=b,caption={\emph{Vmdb\_sup} restart strategy}]
 init([])->

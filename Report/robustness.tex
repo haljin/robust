@@ -113,7 +113,7 @@ The long condition that follows in the \texttt{?\color{cyan}{SUCHTHAT}} macro si
 This list was no doubt generated for large generation size, as it is quite long. In the end a generator must always return either a Quickcheck generator function (or a combination thereof) or a constant value, that will become a constant generator.
 
 One last consideration with Quickcheck generators is function call generators. Consider the following generator:
-\begin{lstlisting}[style=myErlang]
+\begin{lstlisting}[style=myErlang,captionpos=b,caption={Sample generator}]
 insertion_generator(Choices, Stock) ->
     {call, vm_control, choose_product, [ProdName]} = lists:last(Choices),
     Product = lists:keyfind(ProdName, #product.name, Stock), 
@@ -121,7 +121,7 @@ insertion_generator(Choices, Stock) ->
 \end{lstlisting}
 It generates a list (\texttt{\color{blue}{vector}()} generates a list of a set size) of tuples of the form {\emph{call}, \emph{vm\_control}, \emph{insert\_coin}, [kr1]} that  would evaluate to calling the \emph{insert\_coin} function with a 1 kroner coin as an argument. This is highly useful, as in case of a failure, Quickcheck will print out the counter-example which failed. In this case, the evaluated value of the function would not provide us with any information, especially as it is a call towards a separate process. Getting a symbolic function call however, allows us to immediately pin-point what exactly happened in the system that caused its crash! 
 \subsection{Properties}
-We have created several properties in order to test the correctness of our system’s behavior. Developing of the properties should always be done on the system specification and we have followed this guideline. Before we elaborate on the properties that have been created, let us look closer on how does a Quickcheck property work, looking at an example.
+We have created several properties in order to test the correctness of our systems behaviour. Developing of the properties should always be done on the system specification and we have followed this guideline. Before we elaborate on the properties that have been created, let us look closer on how does a Quickcheck property work, looking at an example.
 \begin{lstlisting}[style=myErlang]
 purchase_property()->
     ?FORALL({{Choices, Insertion, Stock}, Coins}, 
